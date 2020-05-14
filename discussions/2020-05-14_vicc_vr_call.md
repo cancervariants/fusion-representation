@@ -1,4 +1,6 @@
-# Minimal Data Elements for Fusions
+# Fusion Curation SOP Discussion and Plans
+
+[Slides preceding discussion.](https://docs.google.com/presentation/d/1lg_vUECtqJmrNH4-3M7vCCiuJOMElRHwZukwz4rnvIE/edit?usp=sharing)
 
 Gordana comments:
   I fully agree the scope of this manuscript should be on defining
