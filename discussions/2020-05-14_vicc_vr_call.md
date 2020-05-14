@@ -3,14 +3,15 @@
 Gordana comments:
   I fully agree the scope of this manuscript should be on defining
   the genomic event.
+  
   We could still break this into two parts:
-    1) specific allele / observation
-      a) functional consequences of this allele
-      b) what are the elements I want to communicate?
-      c) HGVS does not capture the functional consequence of event
-    2) fusion variant as a recurrent / categorical variant in cancer
-      a) what are the standard elements to keep there?
-      b) e.g. for BCR-ABL, what are known breakpoints?
+  1. specific allele / observation
+     - functional consequences of this allele
+     - what are the elements I want to communicate?
+     - HGVS does not capture the functional consequence of event
+  2. fusion variant as a recurrent / categorical variant in cancer
+     - what are the standard elements to keep there?
+     - e.g. for BCR-ABL, what are known breakpoints?
   Let's aim to include members from other organizations early on.
   We should write up proposal / scope document and send around.
   
@@ -20,14 +21,15 @@ Dmitriy:
   - How to model this in a database for search
   - Not all fusion variants are created equal
     - How do we capture functional impact of a variant?
-      - Say somebody detects a fusion (two well-known genes)
-      - How do you pick up relevant entries, and ignore irrelevant entries
+    - Say somebody detects a fusion (two well-known genes), how do 
+      you pick up relevant entries, and ignore irrelevant entries?
 
-General agreement on Gordana's ideas above
+All participants generally agree on Gordana's ideas above
 
-Allele interpretation problem is not handled yet
-Do we want to divide these elements into the minimum elements and
-additional data elements
+Allele interpretation problem is not handled yet.
+
+We should ask if we want to divide these elements into the minimum 
+elements and additional data elements.
 
 Christian:
 We need two parts to this story:
