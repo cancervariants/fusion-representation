@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementations &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Implementations</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/implementations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="implementations">
+<span id="id1"></span><h1>Implementations<a class="headerlink" href="#implementations" title="Permalink to this headline"></a></h1>
+<p>The libraries and applications listed below have implemented the GA4GH
+Variation Representation Specification to store and exchange variation
+data. They are listed here to demonstrate utility and as a resource
+for those considering implementing VRS. These packages are not
+supported by GA4GH.</p>
+<section id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline"></a></h2>
+<p>Libraries facilitate the use of the VRS, but do not implement a
+particular use or application.  Although there is only one library
+currently, it is expected that others will eventually appear as
+VRS is adopted.</p>
+<section id="vrs-python-ga4gh-vrs-python-implementation">
+<span id="impl-vrs-python"></span><h3>vrs-python: GA4GH VRS Python Implementation<a class="headerlink" href="#vrs-python-ga4gh-vrs-python-implementation" title="Permalink to this headline"></a></h3>
+<p>The <a href="#id8"><span class="problematic" id="id9">|vrs-python|</span></a> is an implementation for the GA4GH VRS.  It
+supports all types covered by the VRS, implements Allele
+normalization and computed identifier generation, and provides “extra”
+features such as translation from HGVS, SPDI, and VCF formats.</p>
+<p><a href="#id10"><span class="problematic" id="id11">|VRS|</span></a> MAY be used without using the Python implementation.</p>
+</section>
+</section>
+<section id="applications-and-web-services">
+<h2>Applications and Web Services<a class="headerlink" href="#applications-and-web-services" title="Permalink to this headline"></a></h2>
+<p>Applications implement VRS to support specific use cases.
+Projects known to implement VRS are listed below. Descriptions are
+provided by the application authors.</p>
+<section id="clingen-allele-registry">
+<span id="impl-allele-registry"></span><h3>ClinGen Allele Registry<a class="headerlink" href="#clingen-allele-registry" title="Permalink to this headline"></a></h3>
+<p>ClinGen Allele Registry <a class="footnote-reference brackets" href="#id5" id="id2">1</a> provides identifiers for more than 900
+million variants. Each identifier (canonical allele identifiers:
+CAIds) is an abstract concept which represents a group of identical
+variants based on alignment. Identifiers are retrievable irrespective
+of the reference sequence and normalization status.</p>
+<p>As a Driver Project for GA4GH, <a class="reference external" href="https://reg.clinicalgenome.org">ClinGen Allele Registry</a> implements two standards: RefGet
+and VRS in the first implementation.</p>
+<p>The API endpoints that support data retrieval in this two key
+standards are summarized in the following table.</p>
+<p><strong>HOST</strong>: <a class="reference external" href="https://reg.clinicalgenome.org">https//reg.clinicalgenome.org/</a></p>
+<table class="docutils align-left">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>API Path</p></th>
+<th class="head"><p>Parameters</p></th>
+<th class="head"><p>Response Format</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>RefGet</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>[GET] /sequence/service-info</p></td>
+<td><p>-</p></td>
+<td><p>Refget v1.0.0</p></td>
+<td><p><a class="reference external" href="https://reg.clinicalgenome.org/sequence/service-info">/sequence/service-info</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>[GET] /sequence/{id}</p></td>
+<td><p>id =&gt; TRUNC512 digest for reference sequence</p></td>
+<td><p>Refget v1.0.0</p></td>
+<td><p><a class="reference external" href="https://reg.clinicalgenome.org/sequence/F-LrLMe1SRpfUZHkQmvkVKFEGaoDeHul?start=2232131&amp;end=2232145">/sequence/vYfm5TA_F-_BtIGjfzjGOj8b6IK5hCTx</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>[GET] /sequence/{id}/metadata</p></td>
+<td><p>id =&gt; TRUNC512 digest for reference sequence</p></td>
+<td><p>Refget v1.0.0</p></td>
+<td><p><a class="reference external" href="https://reg.clinicalgenome.org/sequence/F-LrLMe1SRpfUZHkQmvkVKFEGaoDeHul/metadata">/sequence/vYfm5TA_F-_BtIGjfzjGOj8b6IK5hCTx/metadata</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>VRS</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>[GET] /vrAllele?hgvs={hgvs}</p></td>
+<td><p>hgvs =&gt; HGVS expression</p></td>
+<td><p>VRS v1.0</p></td>
+<td><p><a class="reference external" href="https://reg.clinicalgenome.org/vrAllele?hgvs=NC_000007.14:g.55181320A%3ET">/vrAllele?hgvs=NC_000007.14:g.55181320A&gt;T</a>  <a class="reference external" href="https://reg.clinicalgenome.org/vrAllele?hgvs=NC_000007.14:g.55181220del">/vrAllele?hgvs=NC_000007.14:g.55181220del</a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Support for GA4GH refget and VRS provided in ClinGen Allele
+Registry is independent from VRS-Python. Support for this community
+standards is implemented in ClinGen Allele Registry through extension
+of code written in C++.</p>
+</section>
+<section id="brca-exchange">
+<span id="impl-brca-exchange"></span><h3>BRCA Exchange<a class="headerlink" href="#brca-exchange" title="Permalink to this headline"></a></h3>
+<p>The goal of BRCA Exchange (<a class="reference external" href="https://brcaexchange.org/">https://brcaexchange.org/</a>) is to expand approaches to integrate and disseminate information on BRCA variants in Hereditary Breast and Ovarian Cancer (HBOC), as an exemplar for additional genes and additional heritable disorders <a class="footnote-reference brackets" href="#id6" id="id3">2</a>.  The BRCA Exchange web portal provides information on the annotation and clinical interpretation of 40,000 variants to date.  As a GA4GH Driver Project, BRCA Exchange is contributing to and adopting the Variant Annotation (VA), Pedigree (Ped) and Variant Representation (VRS) standards.  BRCA Exchange displays the VRS identifiers of all variants, and provides an API endpoint for querying variants by VRS identifier.  With this endpoint, if BRCA Exchange contains a variant that matches the VRS identifier, it returns data on that variant.  Otherwise, it returns a Server 500 error.</p>
+<dl class="simple">
+<dt>Example query:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://brcaexchange.org/backend/data/vrid?vr_id=ga4gh:VA.jgT2lU4y55WshIgcW__MVzHBnnga_iZL">https://brcaexchange.org/backend/data/vrid?vr_id=ga4gh:VA.jgT2lU4y55WshIgcW__MVzHBnnga_iZL</a></p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="vicc-meta-knowledgebase">
+<span id="impl-vicc"></span><h3>VICC Meta-knowledgebase<a class="headerlink" href="#vicc-meta-knowledgebase" title="Permalink to this headline"></a></h3>
+<p>The Variant Interpretation for Cancer Consortium (VICC;
+<a class="reference external" href="https://cancervariants.org">https://cancervariants.org</a>) has a collection of ~20K clinical
+interpretations associated with ~3,500 somatic variations and variation
+classes in a harmonized meta-knowledgebase <a class="footnote-reference brackets" href="#id7" id="id4">3</a> (see documentation at
+<a class="reference external" href="http://docs.cancervariants.org">http://docs.cancervariants.org</a>). Each interpretation is be linked to
+one or more variations or a variation class.</p>
+<p>As a Driver Project for GA4GH, VICC is contributing to and/or
+adopting several GA4GH standards, including VRS, Variant Annotation (VA),
+and service_info. VICC supports queries on all VRS computed
+identifiers at the searchAssociations endpoint (<a class="reference external" href="https://search.cancervariants.org/api/v1/ui/#!/Associations/searchAssociations">vicc-docs</a>).
+Features associated with each interpretation are represented as VRS
+objects.</p>
+<dl class="simple">
+<dt>Example queries:</dt><dd><ul class="simple">
+<li><p><strong>Allele:</strong> <a class="reference external" href="https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:VA.mJbjSsW541oOsOtBoX36Mppr6hMjbjFr">https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:VA.mJbjSsW541oOsOtBoX36Mppr6hMjbjFr</a></p></li>
+<li><p><strong>SequenceLocation:</strong> <a class="reference external" href="https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:SL.gJeEs42k4qeXOKy9CJ515c0v2HTu8s4K">https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:SL.gJeEs42k4qeXOKy9CJ515c0v2HTu8s4K</a></p></li>
+<li><p><strong>Text:</strong> <a class="reference external" href="https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:VT.9Wer7KrxALcPRDRGVKOEzf9ZEKZpOKK0">https://search.cancervariants.org/api/v1/associations?size=10&amp;from=1&amp;q=ga4gh:VT.9Wer7KrxALcPRDRGVKOEzf9ZEKZpOKK0</a></p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>References:</strong></p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Pawliczek P, Patel RY, et al. <em>ClinGen Allele Registry links
+information about genetic variants.</em> Hum Mutat 11
+(2018). <a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/humu.23637">doi:10.1002/humu.23637</a></p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Cline, M.S., et al.  <em>BRCA Challenge: BRCA Exchange as a global resource for
+variants in BRCA1 and BRCA2.</em> PLoS Genet. 2018 Dec 26;14(12):e1007752.
+<a class="reference external" href="https://www.doi.org/10.1371/journal.pgen.1007752">doi:10.1371/journal.pgen.1007752</a></p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>Wagner, A.H., et al. <em>A harmonized meta-knowledgebase of
+clinical interpretations of cancer genomic variants.</em> bioRxiv
+366856 (2018). <a class="reference external" href="https://doi.org/10.1101/366856">doi:10.1101/366856</a></p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

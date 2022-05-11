@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Associating Annotations with VRS Objects &mdash; GA4GH Variation Representation Specification 1.2.0.dev1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Design Decisions" href="design_decisions.html" />
+    <link rel="prev" title="Relationship of VRS to existing standards" href="relationships.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GA4GH Variation Representation Specification
+          
+
+          
+            
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../terms_and_model.html">Terminology &amp; Information Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../schema.html">Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../impl-guide/index.html">Implementation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/index.html">Releases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Appendices</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="relationships.html">Relationship of VRS to existing standards</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Associating Annotations with VRS Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design_decisions.html">Design Decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="development_process.html">Development Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="future_plans.html">Future Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ga4gh_identifiers.html">Proposal for GA4GH-wide Computed Identifier Standard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementations.html">Implementations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="truncated_digest_collision_analysis.html">Truncated Digest Timing and Collision Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GA4GH Variation Representation Specification</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Appendices</a> &raquo;</li>
+        
+      <li>Associating Annotations with VRS Objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/appendices/associating-annotations.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="associating-annotations-with-vrs-objects">
+<span id="associating-annotations"></span><h1>Associating Annotations with VRS Objects<a class="headerlink" href="#associating-annotations-with-vrs-objects" title="Permalink to this headline">¶</a></h1>
+<p>This example demonstrates how to associate information with VRS
+objects.  Although the examples use the <a class="reference external" href="https://github.com/ga4gh/vrs-python/">GA4GH VRS Python Implementation</a> library, the
+principles apply regardless of implementation.</p>
+<p>Information is never embedded within VRS objects. Instead, it is
+associated with those objects by means of their ids. This approach to
+annotations scales better in size and distributes better across multiple
+data sources.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">from</span> <span class="nn">ga4gh.vrs</span> <span class="kn">import</span> <span class="n">ga4gh_identify</span><span class="p">,</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">ga4gh.vrs.dataproxy</span> <span class="kn">import</span> <span class="n">SeqRepoRESTDataProxy</span>
+<span class="kn">from</span> <span class="nn">ga4gh.vrs.extras.translator</span> <span class="kn">import</span> <span class="n">Translator</span>
+
+<span class="c1"># Requires seqrepo REST interface is running on this URL (e.g., using docker image)</span>
+<span class="n">seqrepo_rest_service_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:5000/seqrepo&quot;</span>
+<span class="n">dp</span> <span class="o">=</span> <span class="n">SeqRepoRESTDataProxy</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">seqrepo_rest_service_url</span><span class="p">)</span>
+
+<span class="n">tlr</span> <span class="o">=</span> <span class="n">Translator</span><span class="p">(</span><span class="n">data_proxy</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare some data as human-readable RS id labels with HGVS expressions</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">&quot;rs7412C&quot;</span><span class="p">,</span>   <span class="s2">&quot;NC_000019.10:g.44908822=&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;rs7412T&quot;</span><span class="p">,</span>   <span class="s2">&quot;NC_000019.10:g.44908822C&gt;T&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;rs429358C&quot;</span><span class="p">,</span> <span class="s2">&quot;NC_000019.10:g.44908684=&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;rs429358T&quot;</span><span class="p">,</span> <span class="s2">&quot;NC_000019.10:g.44908684T&gt;C&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parse the HGVS expressions and generate three dicts:</span>
+<span class="c1"># alleles[allele_id] ⇒ allele object</span>
+<span class="c1"># rs_names[allele_id] ⇒ rs label</span>
+<span class="c1"># hgvs_name[allele_id] ⇒ original hgvs expression</span>
+
+<span class="c1"># For convenience, also build</span>
+<span class="c1"># rs_to_id[rs_name] ⇒ allele_id</span>
+
+<span class="n">alleles</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">rs_names</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">hgvs_names</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">dict</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">rs</span><span class="p">,</span> <span class="n">hgvs_expr</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">allele</span> <span class="o">=</span> <span class="n">tlr</span><span class="o">.</span><span class="n">from_hgvs</span><span class="p">(</span><span class="n">hgvs_expr</span><span class="p">)</span>
+    <span class="n">allele_id</span> <span class="o">=</span> <span class="n">ga4gh_identify</span><span class="p">(</span><span class="n">allele</span><span class="p">)</span>
+    <span class="n">alleles</span><span class="p">[</span><span class="n">allele_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">allele</span>
+    <span class="n">hgvs_names</span><span class="p">[</span><span class="n">allele_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">hgvs_expr</span>
+    <span class="n">rs_names</span><span class="p">[</span><span class="n">allele_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">rs</span>
+
+<span class="n">rs_to_id</span> <span class="o">=</span> <span class="p">{</span><span class="n">r</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rs_names</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now, build a new set of annotations: allele frequencies</span>
+<span class="c1"># This is more complicated because it maps to a map of frequences</span>
+<span class="c1"># It should be clear that other frequencies could be easily added here</span>
+<span class="c1"># or as a separate data source</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;gnomad&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="n">rs_to_id</span><span class="p">[</span><span class="s2">&quot;rs7412C&quot;</span><span class="p">]:</span> <span class="mf">0.9385</span><span class="p">,</span>
+            <span class="n">rs_to_id</span><span class="p">[</span><span class="s2">&quot;rs7412T&quot;</span><span class="p">]:</span> <span class="mf">0.0615</span><span class="p">,</span>
+            <span class="n">rs_to_id</span><span class="p">[</span><span class="s2">&quot;rs429358C&quot;</span><span class="p">]:</span> <span class="mf">0.1385</span><span class="p">,</span>
+            <span class="n">rs_to_id</span><span class="p">[</span><span class="s2">&quot;rs429358T&quot;</span><span class="p">]:</span> <span class="mf">0.8615</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># It might be convenient to save these data</span>
+<span class="c1"># A saved document might have structure like this:</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;alleles&quot;</span><span class="p">:</span> <span class="n">alleles</span><span class="p">,</span>
+    <span class="s2">&quot;hgvs_names&quot;</span><span class="p">:</span> <span class="n">hgvs_names</span><span class="p">,</span>
+    <span class="s2">&quot;rs_names&quot;</span><span class="p">:</span> <span class="n">rs_names</span><span class="p">,</span>
+    <span class="s2">&quot;freqs&quot;</span><span class="p">:</span> <span class="n">freqs</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For the benefit of pretty printing, let&#39;s replace the allele objects with their dict representations</span>
+<span class="n">doc</span><span class="p">[</span><span class="s2">&quot;alleles&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">a</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;alleles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<pre class="literal-block">{
+  &quot;alleles&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908822,
+          &quot;start&quot;: 44908821,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;C&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908822,
+          &quot;start&quot;: 44908821,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;T&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908684,
+          &quot;start&quot;: 44908683,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;T&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908684,
+          &quot;start&quot;: 44908683,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;C&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    }
+  },
+  &quot;hgvs_names&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: &quot;NC_000019.10:g.44908822=&quot;,
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: &quot;NC_000019.10:g.44908822C&gt;T&quot;,
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: &quot;NC_000019.10:g.44908684=&quot;,
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: &quot;NC_000019.10:g.44908684T&gt;C&quot;
+  },
+  &quot;rs_names&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: &quot;rs7412C&quot;,
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: &quot;rs7412T&quot;,
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: &quot;rs429358C&quot;,
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: &quot;rs429358T&quot;
+  },
+  &quot;freqs&quot;: {
+    &quot;gnomad&quot;: {
+      &quot;global&quot;: {
+        &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: 0.9385,
+        &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: 0.0615,
+        &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: 0.1385,
+        &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: 0.8615
+      }
+    }
+  }
+}</pre>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="design_decisions.html" class="btn btn-neutral float-right" title="Design Decisions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="relationships.html" class="btn btn-neutral float-left" title="Relationship of VRS to existing standards" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019, GA4GH VRS Contributors.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

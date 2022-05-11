@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truncated Digest Timing and Collision Analysis &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Truncated Digest Timing and Collision Analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/truncated_digest_collision_analysis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="truncated-digest-timing-and-collision-analysis">
+<span id="truncated-digest-collision-analysis"></span><h1>Truncated Digest Timing and Collision Analysis<a class="headerlink" href="#truncated-digest-timing-and-collision-analysis" title="Permalink to this headline"></a></h1>
+<p>The GA4GH Digest uses a truncated SHA-512 digest in order to generate a
+unique identifier based on data that defines the object. This notebook
+discusses the choice of SHA-512 over other digest methods and the choice
+of truncation length.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please see <a class="reference external" href="https://github.com/biocommons/biocommons.seqrepo/blob/master/docs/Truncated%20Digest%20Collision%20Analysis.ipynb">this Jupyter notebook</a>
+in <a class="reference external" href="https://github.com/biocommons/biocommons.seqrepo">Python SeqRepo library</a> for code and
+updates.  A fuller explanation is given in <a class="reference internal" href="../impl-guide/computed_identifiers.html#hart2020" id="id1"><span>[Hart2020]</span></a>.</p>
+</div>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>The computational time for SHA-512 is similar to that of other digest
+methods. Given that it is believed to distribute input bits more
+uniformly with no increased computational cost, it should be
+preferred for our use (and likely most uses).</p></li>
+<li><p>24 bytes (192 bits) of digest is <em>ample</em> for VRS uses. Arguably, we
+could choose much smaller without significant risk of collision.</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import hashlib
+import math
+import timeit
+
+from IPython.display import display, Markdown
+
+from ga4gh.vrs.extras.utils import _format_time
+
+algorithms = {&#39;sha512&#39;, &#39;sha1&#39;, &#39;sha256&#39;, &#39;md5&#39;, &#39;sha224&#39;, &#39;sha384&#39;}
+</pre></div>
+</div>
+</section>
+<section id="digest-timing">
+<h2>Digest Timing<a class="headerlink" href="#digest-timing" title="Permalink to this headline"></a></h2>
+<p>This section provides a rationale for the selection of SHA-512 as the
+basis for the Truncated Digest.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def blob(l):
+    &quot;&quot;&quot;return binary blob of length l (POSIX only)&quot;&quot;&quot;
+    return open(&quot;/dev/urandom&quot;, &quot;rb&quot;).read(l)
+
+def digest(alg, blob):
+    md = hashlib.new(alg)
+    md.update(blob)
+    return md.digest()
+
+def magic_run1(alg, blob):
+    t = %timeit -o digest(alg, blob)
+    return t
+
+def magic_tfmt(t):
+    &quot;&quot;&quot;format TimeitResult for table&quot;&quot;&quot;
+    return &quot;{a} ± {s} ([{b}, {w}])&quot;.format(
+        a = _format_time(t.average),
+        s = _format_time(t.stdev),
+        b = _format_time(t.best),
+        w = _format_time(t.worst),
+    )
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>blob_lengths = [100, 1000, 10000, 100000, 1000000]
+blobs = [blob(l) for l in blob_lengths]
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>table_rows = []
+table_rows += [[&quot;algorithm&quot;] + list(map(str,blob_lengths))]
+table_rows += [[&quot;-&quot;] * len(table_rows[0])]
+for alg in sorted(algorithms):
+    r = [alg]
+    for i in range(len(blobs)):
+        blob = blobs[i]
+        t = timeit.timeit(stmt=&#39;digest(alg, blob)&#39;, setup=&#39;from __main__ import alg, blob, digest&#39;, number=1000)
+        r += [_format_time(t)]
+    table_rows += [r]
+table = &quot;\n&quot;.join([&quot;|&quot;.join(map(str,row)) for row in table_rows])
+display(Markdown(table))
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>algorithm</p></th>
+<th class="head"><p>100</p></th>
+<th class="head"><p>1000</p></th>
+<th class="head"><p>10000</p></th>
+<th class="head"><p>100000</p></th>
+<th class="head"><p>1000000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>md5</p></td>
+<td><p>1.02 ms</p></td>
+<td><p>2.51 ms</p></td>
+<td><p>23.4 ms</p></td>
+<td><p>145 ms</p></td>
+<td><p>1.44 s</p></td>
+</tr>
+<tr class="row-odd"><td><p>sha1</p></td>
+<td><p>1.02 ms</p></td>
+<td><p>1.91 ms</p></td>
+<td><p>11.3 ms</p></td>
+<td><p>101 ms</p></td>
+<td><p>1 s</p></td>
+</tr>
+<tr class="row-even"><td><p>sha224</p></td>
+<td><p>1.21 ms</p></td>
+<td><p>3.16 ms</p></td>
+<td><p>23.1 ms</p></td>
+<td><p>224 ms</p></td>
+<td><p>2.2 s</p></td>
+</tr>
+<tr class="row-odd"><td><p>sha256</p></td>
+<td><p>1.18 ms</p></td>
+<td><p>3.29 ms</p></td>
+<td><p>23.3 ms</p></td>
+<td><p>223 ms</p></td>
+<td><p>2.2 s</p></td>
+</tr>
+<tr class="row-even"><td><p>sha384</p></td>
+<td><p>1.17 ms</p></td>
+<td><p>2.54 ms</p></td>
+<td><p>16 ms</p></td>
+<td><p>150 ms</p></td>
+<td><p>1.47 s</p></td>
+</tr>
+<tr class="row-odd"><td><p>sha512</p></td>
+<td><p>1.2 ms</p></td>
+<td><p>2.55 ms</p></td>
+<td><p>16.1 ms</p></td>
+<td><p>148 ms</p></td>
+<td><p>1.47 s</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusion: SHA-512 computational time is comparable to that of other
+digest methods.</strong></p>
+<p>This is result was not expected initially. On further research, there is
+a clear explanation: The SHA-2 series of digests (which includes
+SHA-224, SHA-256, SHA-384, and SHA-512) is defined using 64-bit
+operations. When an implementation is optimized for 64-bit systems (as
+used for these timings), the number of cycles is essentially halved when
+compared to 32-bit systems and digests that use 32-bit operations. SHA-2
+digests are indeed much slower than SHA-1 and MD5 on 32-bit systems, but
+such legacy platforms is not relevant to the Truncated Digest.</p>
+</section>
+<section id="collision-analysis">
+<h2>Collision Analysis<a class="headerlink" href="#collision-analysis" title="Permalink to this headline"></a></h2>
+<p>Our question: <strong>For a hash function that generates digests of length b
+(bits) and a corpus of m messages, what is the probability p that there
+exists at least one collision?</strong> This is the so-called Birthday Problem
+[6].</p>
+<p>Because analyzing digest collision probabilities typically involve
+choices of mathematical approximations, multiple “answers” appear
+online. This section provides a quick review of prior work and extends
+these discussions by focusing the choice of digest length for a desired
+collision probability and corpus size.</p>
+<p>Throughout the following, we’ll use these variables:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> = Probability of collision</p></li>
+<li><p><span class="math notranslate nohighlight">\(P'\)</span> = Probability of no collision</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> = digest size, in bits</p></li>
+<li><p><span class="math notranslate nohighlight">\(s\)</span> = digest space size, <span class="math notranslate nohighlight">\(s = 2^b\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> = number of messages in corpus</p></li>
+</ul>
+<p>The length of individual messages is irrelevant.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>[1] <a class="reference external" href="http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf">http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf</a></p></li>
+<li><p>[2] <a class="reference external" href="https://tools.ietf.org/html/rfc3548#section-4">https://tools.ietf.org/html/rfc3548#section-4</a></p></li>
+<li><p>[3] <a class="reference external" href="http://stackoverflow.com/a/4014407/342839">http://stackoverflow.com/a/4014407/342839</a></p></li>
+<li><p>[4] <a class="reference external" href="http://stackoverflow.com/a/22029380/342839">http://stackoverflow.com/a/22029380/342839</a></p></li>
+<li><p>[5] <a class="reference external" href="http://preshing.com/20110504/hash-collision-probabilities/">http://preshing.com/20110504/hash-collision-probabilities/</a></p></li>
+<li><p>[6] <a class="reference external" href="https://en.wikipedia.org/wiki/Birthday_problem">https://en.wikipedia.org/wiki/Birthday_problem</a></p></li>
+<li><p>[7] <a class="reference external" href="https://en.wikipedia.org/wiki/Birthday_attack">https://en.wikipedia.org/wiki/Birthday_attack</a></p></li>
+</ul>
+</section>
+<section id="background-the-birthday-problem">
+<h3>Background: The Birthday Problem<a class="headerlink" href="#background-the-birthday-problem" title="Permalink to this headline"></a></h3>
+<p>Directly computing the probability of one or more collisions, <span class="math notranslate nohighlight">\(P\)</span>,
+in a corpus is difficult. Instead, we first seek to solve for
+<span class="math notranslate nohighlight">\(P'\)</span>, the probability that a collision does not exist (i.e., that
+the digests are unique). Because are only two outcomes,
+<span class="math notranslate nohighlight">\(P + P' = 1\)</span> or, equivalently, <span class="math notranslate nohighlight">\(P = 1 - P'\)</span>.</p>
+<p>For a corpus of size <span class="math notranslate nohighlight">\(m=1\)</span>, the probabability that the digests of
+all <span class="math notranslate nohighlight">\(m=1\)</span> messages are unique is (trivially) 1:</p>
+<div class="math notranslate nohighlight">
+\[P' = s/s = 1\]</div>
+<p>because there are <span class="math notranslate nohighlight">\(s\)</span> ways to choose the first digest from among
+<span class="math notranslate nohighlight">\(s\)</span> possible values without a collision.</p>
+<p>For a corpus of size <span class="math notranslate nohighlight">\(m=2\)</span>, the probabability that the digests of
+all <span class="math notranslate nohighlight">\(m=2\)</span> messages are unique is:</p>
+<div class="math notranslate nohighlight">
+\[P' = 1 \times (\frac{s-1}{s})\]</div>
+<p>because there are <span class="math notranslate nohighlight">\(s-1\)</span> ways to choose the second digest from
+among <span class="math notranslate nohighlight">\(s\)</span> possible values without a collision.</p>
+<p>Continuing this logic, we have:</p>
+<div class="math notranslate nohighlight">
+\[P' = \prod\nolimits_{i=0}^{m-1} \frac{(s-i)}{s}\]</div>
+<p>or, equivalently,</p>
+<div class="math notranslate nohighlight">
+\[P' = \frac{s!}{s^m \cdot (s-m)!}\]</div>
+<p>When the size of the corpus becomes greater than the size of the digest
+space, the probability of uniques is zero by the pigeonhole principle.
+Formally, the above equation becomes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P' = \left\{
+        \begin{array}{ll}
+            1    &amp;    \text{if }m = 0 \\
+            \prod\nolimits_{i=0}^{m-1} \frac{(s-i)}{s}    &amp;    \text{if }1 \le m\le s\\
+            0    &amp;    \text{if }m \gt s
+        \end{array}
+     \right.\end{split}\]</div>
+<p>For the remainder of this section, we’ll focus on the case where
+<span class="math notranslate nohighlight">\(1 \le m \ll s\)</span>. In addition, notice that the brute force
+computation is not feasible in practice because <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(s\)</span>
+will be very large (both <span class="math notranslate nohighlight">\(\gg 2^9\)</span>).</p>
+</section>
+<section id="approximation-1-taylor-approximation-of-terms-of-p">
+<h3>Approximation #1: Taylor approximation of terms of P’<a class="headerlink" href="#approximation-1-taylor-approximation-of-terms-of-p" title="Permalink to this headline"></a></h3>
+<p>The Taylor series expansion of the exponential function is</p>
+<div class="math notranslate nohighlight">
+\[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + ...\]</div>
+<p>For <span class="math notranslate nohighlight">\(|x| \ll 1\)</span>, the expansion is dominated by the first terms and
+therecore <span class="math notranslate nohighlight">\(e^x \approx 1 + x\)</span>.</p>
+<p>In the above expression for <span class="math notranslate nohighlight">\(P'\)</span>, note that the product term
+<span class="math notranslate nohighlight">\((s-i)/s\)</span> is equivalent to <span class="math notranslate nohighlight">\(1-i/s\)</span>. Combining this with the
+Taylor expansion, where <span class="math notranslate nohighlight">\(x = -i/s\)</span> (⇒ <span class="math notranslate nohighlight">\(m \ll s\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+P' &amp; \approx \prod\nolimits_{i=0}^{m-1} e^{-i/s} \\
+   &amp; = e^{-m(m-1)/2s}
+\end{split}\end{split}\]</div>
+<p>(The latter equivalence comes from converting the product of exponents
+to a single exponent of a summation of <span class="math notranslate nohighlight">\(-i/s\)</span> terms, factoring out
+<span class="math notranslate nohighlight">\(1/s\)</span>, and using the series sum equivalence
+<span class="math notranslate nohighlight">\(\sum\nolimits_{j=0}^{n} j = n(n+1)/2\)</span> for <span class="math notranslate nohighlight">\(n\ge0\)</span>.)</p>
+</section>
+<section id="approximation-2-taylor-approximation-of-p">
+<h3>Approximation #2: Taylor approximation of P’<a class="headerlink" href="#approximation-2-taylor-approximation-of-p" title="Permalink to this headline"></a></h3>
+<p>The above result for <span class="math notranslate nohighlight">\(P'\)</span> is also amenable to Taylor
+approximation. Setting <span class="math notranslate nohighlight">\(x = -m(m-1)/2s\)</span>, we continue from the
+previous derivation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+P' &amp; \approx e^{-(m(m-1)/2s} \\
+   &amp; \approx 1 + \frac{-m(m-1)}{2s}
+\end{split}\end{split}\]</div>
+</section>
+<section id="approximation-3-square-approximation">
+<h3>Approximation #3: Square approximation<a class="headerlink" href="#approximation-3-square-approximation" title="Permalink to this headline"></a></h3>
+<p>For large <span class="math notranslate nohighlight">\(m\)</span>, we can approximate <span class="math notranslate nohighlight">\(m(m-1)\)</span> as <span class="math notranslate nohighlight">\(m^2\)</span> to
+yield</p>
+<div class="math notranslate nohighlight">
+\[P' \approx 1-m^2/2s\]</div>
+</section>
+<section id="summary-of-equations">
+<h3>Summary of equations<a class="headerlink" href="#summary-of-equations" title="Permalink to this headline"></a></h3>
+<p>We may now summarize equations to approximate the probability of digest
+collisions.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Summary of Equations</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Probability of uniqueness(<span class="math notranslate nohighlight">\(P'\)</span>)</p></th>
+<th class="head"><p>Probability of collision(<span class="math notranslate nohighlight">\(P=1-P'\)</span>)</p></th>
+<th class="head"><p>Assumptions</p></th>
+<th class="head"><p>Source/Comparison</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>exact</p></td>
+<td><p><span class="math notranslate nohighlight">\(\prod_\nolimits{i=0}^{m-1} \frac{(s-i)}{s}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1-P'\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 \le m\le s\)</span></p></td>
+<td><p>[1]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Taylor approximation on #1</p></td>
+<td><p><span class="math notranslate nohighlight">\(e^{-m(m-1)/2s}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1-P'\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(m \ll s\)</span></p></td>
+<td><p>[1]</p></td>
+</tr>
+<tr class="row-even"><td><p>Taylor approximation on #2</p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - \frac{m(m-1)}{2s}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{m(m-1)}{2s}\)</span></p></td>
+<td><p>(same)</p></td>
+<td><p>[1]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Large square approximation</p></td>
+<td><p><span class="math notranslate nohighlight">\(1 - \frac{m^2}{2s}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{m^2}{2s}\)</span></p></td>
+<td><p>(same)</p></td>
+<td><p>[2] (where <span class="math notranslate nohighlight">\(s=2^n\)</span>)</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>[1] <a class="reference external" href="https://en.wikipedia.org/wiki/Birthday_problem">https://en.wikipedia.org/wiki/Birthday_problem</a></p></li>
+<li><p>[2] <a class="reference external" href="http://preshing.com/20110504/hash-collision-probabilities/">http://preshing.com/20110504/hash-collision-probabilities/</a></p></li>
+</ul>
+</section>
+</section>
+<section id="choosing-a-digest-size">
+<h2>Choosing a digest size<a class="headerlink" href="#choosing-a-digest-size" title="Permalink to this headline"></a></h2>
+<p>Now, we turn the problem around:</p>
+<blockquote>
+<div><p><strong>What digest length :math:`b` is required to achieve a collision
+probability less than :math:`P` for :math:`m` messages?</strong></p>
+</div></blockquote>
+<p>From the above summary, we have <span class="math notranslate nohighlight">\(P = m^2 / 2s\)</span> for
+<span class="math notranslate nohighlight">\(m \ll s\)</span>. Rewriting with <span class="math notranslate nohighlight">\(s=2^b\)</span>, we have the probability
+of a collision using <span class="math notranslate nohighlight">\(b\)</span> bits with <span class="math notranslate nohighlight">\(m\)</span> messages (sequences)
+is:</p>
+<div class="math notranslate nohighlight">
+\[P(b, m) = m^2 / 2^{b+1}\]</div>
+<p>Note that the collision probability depends on the number of messages,
+but not their size.</p>
+<p>Solving for the minimum number of <em>bits</em> <span class="math notranslate nohighlight">\(b\)</span> as a function of an
+expected number of sequences <span class="math notranslate nohighlight">\(m\)</span> and a desired tolerance for
+collisions of <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[b(m, P) = \log_2{\left(\frac{m^2}{P}\right)} - 1\]</div>
+<p>This equation is derived from equations that assume that
+<span class="math notranslate nohighlight">\(m \ll s\)</span>, where <span class="math notranslate nohighlight">\(s = 2^b\)</span>. When computing <span class="math notranslate nohighlight">\(b(m,P)\)</span>,
+we’ll require that <span class="math notranslate nohighlight">\(m/s \le 10^{-3}\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[m/s \le 10^{-3}\]</div>
+<p>is approximately equivalent to:</p>
+<div class="math notranslate nohighlight">
+\[m/2^b \le 2^{-5}\]</div>
+<div class="math notranslate nohighlight">
+\[m \le 2^{b-5}\]</div>
+<div class="math notranslate nohighlight">
+\[log_2 m \le b-5\]</div>
+<div class="math notranslate nohighlight">
+\[b \ge 5 + log_2 m\]</div>
+<section id="for-completeness">
+<h3>For completeness:<a class="headerlink" href="#for-completeness" title="Permalink to this headline"></a></h3>
+<p>Solving for the number of messages:</p>
+<div class="math notranslate nohighlight">
+\[m(b, P) = \sqrt{P * 2^{b+1}}\]</div>
+<p>This equation is not used further in this analysis.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def b2B3(b):
+    &quot;&quot;&quot;Convert bits b to Bytes, rounded up modulo 3
+
+    We report modulo 3 because the intent will be to use Base64 encoding, which is
+    most efficient when inputs have a byte length modulo 3. (Otherwise, the resulting
+    string is padded with characters that provide no information.)
+
+    &quot;&quot;&quot;
+    return math.ceil(b/8/3) * 3
+
+def B(P, m):
+    &quot;&quot;&quot;return the number of bits needed to achieve a collision probability
+    P for m messages
+
+    Assumes m &lt;&lt; 2^b.
+
+    &quot;&quot;&quot;
+    b = math.log2(m**2 / P) - 1
+    if b &lt; 5 + math.log2(m):
+        return &quot;-&quot;
+    return b2B3(b)
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>m_bins = [1E6, 1E9, 1E12, 1E15, 1E18, 1E21, 1E24, 1E30]
+P_bins = [1E-30, 1E-27, 1E-24, 1E-21, 1E-18, 1E-15, 1E-12, 1E-9, 1E-6, 1E-3, 0.5]
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>table_rows = []
+table_rows += [[&quot;#m&quot;] + [&quot;P&lt;={P}&quot;.format(P=P) for P in P_bins]]
+table_rows += [[&quot;-&quot;] * len(table_rows[0])]
+for n_m in m_bins:
+    table_rows += [[&quot;{:g}&quot;.format(n_m)] + [B(P, n_m) for P in P_bins]]
+table = &quot;\n&quot;.join([&quot;|&quot;.join(map(str,row)) for row in table_rows])
+table_header = &quot;### digest length (bytes) required for expected collision probability $P$ over $m$ messages \n&quot;
+display(Markdown(table_header +  table))
+</pre></div>
+</div>
+</section>
+<section id="digest-length-bytes-required-for-expected-collision-probability-p-over-m-messages">
+<h3>digest length (bytes) required for expected collision probability <span class="math notranslate nohighlight">\(P\)</span> over <span class="math notranslate nohighlight">\(m\)</span> messages<a class="headerlink" href="#digest-length-bytes-required-for-expected-collision-probability-p-over-m-messages" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>#m</p></th>
+<th class="head"><p>P&lt;=
+1e-
+30</p></th>
+<th class="head"><p>P&lt;=
+1e-
+27</p></th>
+<th class="head"><p>P&lt;=
+1e-
+24</p></th>
+<th class="head"><p>P&lt;=
+1e-
+21</p></th>
+<th class="head"><p>P&lt;=
+1e-
+18</p></th>
+<th class="head"><p>P&lt;=
+1e-
+15</p></th>
+<th class="head"><p>P&lt;=
+1e-
+12</p></th>
+<th class="head"><p>P&lt;=
+1e-
+09</p></th>
+<th class="head"><p>P&lt;=
+1e-
+06</p></th>
+<th class="head"><p>P&lt;=
+0.0
+01</p></th>
+<th class="head"><p>P&lt;=
+0.5</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1e+
+06</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+<td><p>9</p></td>
+<td><p>9</p></td>
+<td><p>9</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e+
+09</p></td>
+<td><p>21</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+<td><p>9</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>1e+
+12</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>21</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>12</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e+
+15</p></td>
+<td><p>27</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>21</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-even"><td><p>1e+
+18</p></td>
+<td><p>30</p></td>
+<td><p>27</p></td>
+<td><p>27</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>21</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+<td><p>18</p></td>
+<td><p>15</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e+
+21</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>27</p></td>
+<td><p>27</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>21</p></td>
+<td><p>21</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-even"><td><p>1e+
+24</p></td>
+<td><p>33</p></td>
+<td><p>33</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>27</p></td>
+<td><p>27</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>24</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-odd"><td><p>1e+
+30</p></td>
+<td><p>39</p></td>
+<td><p>39</p></td>
+<td><p>36</p></td>
+<td><p>36</p></td>
+<td><p>33</p></td>
+<td><p>33</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>30</p></td>
+<td><p>27</p></td>
+<td><p>27</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

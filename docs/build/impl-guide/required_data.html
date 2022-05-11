@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Required External Data &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Required External Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/impl-guide/required_data.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="required-external-data">
+<span id="required-data"></span><h1>Required External Data<a class="headerlink" href="#required-external-data" title="Permalink to this headline"></a></h1>
+<p>All VRS implementations will require external data regarding
+sequences and sequence metadata.  The choices of data sources and
+access methods are left to implementations.  This section provides
+guidance about how to implement required data and helps implementers
+estimate effort.  This section is descriptive only: it is not intended
+to impose requirements on interface to, or sources of, external data.
+For clarity and completeness, this section also describes the contexts
+in which external data are used.</p>
+<section id="contexts">
+<h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><strong>Conversion from other variant formats</strong> When converting from other
+variation formats, implementations MUST translate primary database
+accessions or identifiers (<em>e.g.,</em> <code class="docutils literal notranslate"><span class="pre">NM_000551.3</span></code> or
+<code class="docutils literal notranslate"><span class="pre">refseq:NM_000551.3</span></code>) to a GA4GH VRS sequence identifier (
+<code class="docutils literal notranslate"><span class="pre">ga4gh:SQ.v_QTc1p-MUYdgrRv4LMT6ByXIOsdw3C_</span></code>)</p></li>
+<li><p><strong>Conversion to other variant formats</strong> When converting to other
+variation formats, implementations SHOULD translate GA4GH VR
+sequence identifier ( <code class="docutils literal notranslate"><span class="pre">ga4gh:SQ.v_QTc1p-MUYdgrRv4LMT6ByXIOsdw3C_</span></code>)
+to primary database identifiers (<code class="docutils literal notranslate"><span class="pre">refseq:NM_000551.3</span></code>) that will
+be more readily recognized by users.</p></li>
+<li><p><strong>Normalization</strong> During <a class="reference internal" href="normalization.html#normalization"><span class="std std-ref">Normalization</span></a>, implementations will
+need access to sequence length and sequence contexts.</p></li>
+</ul>
+</section>
+<section id="data-services">
+<h2>Data Services<a class="headerlink" href="#data-services" title="Permalink to this headline"></a></h2>
+<p>The following tables summarizes data required in the above contexts:</p>
+<table class="colwidths-auto reece-wrap docutils align-default" id="id1">
+<caption><span class="caption-text">Data Service Desciptions</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Service</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Contexts</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sequence</p></td>
+<td><p>For a given sequence identifier and range, return the
+corresponding subsequence.</p></td>
+<td><p>normalization</p></td>
+</tr>
+<tr class="row-odd"><td><p>sequence length</p></td>
+<td><p>For a given sequence identifier, return the length of the
+sequence</p></td>
+<td><p>normalization</p></td>
+</tr>
+<tr class="row-even"><td><p>identifier translation</p></td>
+<td><p>For a given sequence identifier and target namespace, return
+all identifiers in the target namespace that are equivelent to
+the given identifier.</p></td>
+<td><p>Conversion to/from other formats</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Construction of the GA4GH computed identifier for a sequence
+is described in <a class="reference internal" href="computed_identifiers.html#computed-identifiers"><span class="std std-ref">Computed Identifiers</span></a>.</p>
+</div>
+</section>
+<section id="suggested-implementation">
+<h2>Suggested Implementation<a class="headerlink" href="#suggested-implementation" title="Permalink to this headline"></a></h2>
+<p>In order to maximize portability and to insulate implementations from
+decisions about external data sources, implementers should consider
+writing an abstract data proxy interface to define a service, and
+then implement this interface for each data backend to be
+supported. The data proxy interface defines three methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_sequence(identifier,</span> <span class="pre">start,</span> <span class="pre">end)</span></code>: Given a sequence
+identifier and start and end coordinates, return the corresponding
+sequence segment.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_metadata(identifier)</span></code>: Given a sequence identifier, return a
+dictionary of length, alphabet, and known aliases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">translate_sequence_identifier(identifier,</span> <span class="pre">namespace)</span></code>: Given a
+sequence identifier, return all aliases in the specified
+namespace. Zero or more aliases may be returned.</p></li>
+</ul>
+<p>The <a class="reference internal" href="../appendices/implementations.html#impl-vrs-python"><span class="std std-ref">vrs-python: GA4GH VRS Python Implementation</span></a> <a class="reference external" href="https://github.com/ga4gh/vrs-python/blob/main/src/ga4gh/vrs/dataproxy.py">DataProxy class</a>
+provides an example of this design pattern and sample replies.
+<a href="#id2"><span class="problematic" id="id3">|vrs-python|</span></a> implements the DataProxy interface using a local
+<a href="#id4"><span class="problematic" id="id5">|seqrepo|</span></a> instance backend and using a <a href="#id6"><span class="problematic" id="id7">|seqrepo_rs|</span></a> backend.  A GA4GH
+refget implementation has been started, but is pending interface
+changes to support lookup using primary database accessions.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h3>
+<p>The following examples are taken from <a href="#id8"><span class="problematic" id="id9">|notebooks|</span></a>:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from ga4gh.vrs.dataproxy import SeqRepoRESTDataProxy
+seqrepo_rest_service_url = &quot;http://localhost:5000/seqrepo&quot;
+dp = SeqRepoRESTDataProxy(base_url=seqrepo_rest_service_url)
+
+def get_sequence(identifier, start=None, end=None):
+    &quot;&quot;&quot;returns sequence for given identifier, optionally limited
+    to inter-residue &lt;start, end&gt; interval&quot;&quot;&quot;
+    return dp.get_sequence(identifier, start, end)
+def get_sequence_length(identifier):
+    &quot;&quot;&quot;return length of given sequence identifier&quot;&quot;&quot;
+    return dp.get_metadata(identifier)[&quot;length&quot;]
+def translate_sequence_identifier(identifier, namespace):
+    &quot;&quot;&quot;return for given identifier, return *list* of equivalent identifiers in given namespace&quot;&quot;&quot;
+    return dp.translate_sequence_identifier(identifier, namespace)
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>get_sequence_length(&quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;)
+58617616
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>start, end = 44908821-25, 44908822+25
+get_sequence(&quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;, start, end)
+&#39;CCGCGATGCCGATGACCTGCAGAAGCGCCTGGCAGTGTACCAGGCCGGGGC&#39;
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>translate_sequence_identifier(&quot;GRCh38:19&quot;, &quot;ga4gh&quot;)
+[&#39;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&#39;]
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>translate_sequence_identifier(&quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;, &quot;GRCh38&quot;)
+[&#39;GRCh38:19&#39;, &#39;GRCh38:chr19&#39;]
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

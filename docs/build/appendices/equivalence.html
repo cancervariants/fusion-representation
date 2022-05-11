@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equivalence Between Concepts &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Equivalence Between Concepts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/equivalence.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="equivalence-between-concepts">
+<span id="equivalence"></span><h1>Equivalence Between Concepts<a class="headerlink" href="#equivalence-between-concepts" title="Permalink to this headline"></a></h1>
+<p>VRS allows for the expressive representation of variation
+concepts. Sometimes this allows for forms that can be reduced from one
+to another, and sometimes bi-directionally. Examples of this include the
+bi-directional translation of chromosomal bands to sequence coordinates
+via a sequence-band mapping, the uni-directional translation of a gene
+to one or more sequence location(s), and the use of different
+<a class="reference internal" href="../terminology.html#sequenceexpression"><span class="std std-ref">Sequence Expression</span></a> instances that would resolve to the same sequence.
+Similarly, authority-based concepts such as <a class="reference internal" href="../terminology.html#gene"><span class="std std-ref">Gene</span></a> are entirely
+dependent on the definition of the concept by that authority–we provide
+no guidance on how to translate or relate such concepts to one another.</p>
+<p>We provide no guidance or mechanism to enforce “equivalence” between
+these concepts, because the semantics of one representation to another
+are distinct, even when there exists functions that equate or translate
+between two distinct concepts. Instead, we encourage communities to adopt
+policies about <em>how</em> and <em>when</em> to use the various concepts provided by
+VRS to represent different forms of variation. To assist in that effort,
+the GA4GH Genomic Knowledge Standards Work Stream is developing a
+specification for resource-defined Variation Concept Origination Policies
+(VCOPs). You can learn more about VCOPs in the <a href="#id4"><span class="problematic" id="id5">`VRSATILE`_</span></a> framework.</p>
+<section id="using-sequence-expressions">
+<span id="id1"></span><h2>Using Sequence Expressions<a class="headerlink" href="#using-sequence-expressions" title="Permalink to this headline"></a></h2>
+<p>When using Sequence Expressions, our general recommendation is to use
+<a class="reference internal" href="../terminology.html#literalsequenceexpression"><span class="std std-ref">LiteralSequenceExpression</span></a> for when the precise sequence state is of
+importance to the Variation concept; this is the most common use case.
+When the precise state is not important but instead it is desired to refer
+to the general sequence derived from a location on a reference sequence, we
+recommend using a <a class="reference internal" href="../terminology.html#derivedsequenceexpression"><span class="std std-ref">DerivedSequenceExpression</span></a>; this is typically used
+when describing large sequences that are approximately reference for use in
+some large-scale <a class="reference internal" href="../terminology.html#molecularvariation"><span class="std std-ref">Molecular Variation</span></a> or <a class="reference internal" href="../terminology.html#systemicvariation"><span class="std std-ref">Systemic Variation</span></a> concepts.
+<a class="reference internal" href="../terminology.html#repeatedsequenceexpression"><span class="std std-ref">RepeatedSequenceExpression</span></a> is typically used for the semantic importance
+of describing a specific, repeated subsequence <em>by count</em>, such as description
+of CAG repeats in the <em>ATXN7</em> gene, where the repeat count is a diagnostic
+biomarker for severe neurodegenerative disorder spinocerebellar ataxia type 7 <a class="footnote-reference brackets" href="#id3" id="id2">1</a>.</p>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>Bettencourt C, Hensman-Moss D, Flower M, et al. DNA repair pathways underlie
+a common genetic mechanism modulating onset in polyglutamine diseases. <em>Ann
+Neurol</em>. 2016;79(6):983-990. <a class="reference external" href="https://doi.org/10.1002/ana.24656">doi:10.1002/ana.24656</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

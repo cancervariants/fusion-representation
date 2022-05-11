@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Associating Annotations with VRS Objects &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Associating Annotations with VRS Objects</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/associating_annotations.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="associating-annotations-with-vrs-objects">
+<span id="associating-annotations"></span><h1>Associating Annotations with VRS Objects<a class="headerlink" href="#associating-annotations-with-vrs-objects" title="Permalink to this headline"></a></h1>
+<p>Information is never embedded within VRS objects. Instead, it is
+associated with those objects by means of their ids. This approach to
+annotations scales better in size and distributes better across multiple
+data sources.</p>
+<p>The Genomic Knowledge Standards Work Stream is currently developing
+a Value Object Descriptors policy to provide a standardized way to
+associate common annotations with VRS objects as part of the <a href="#id3"><span class="problematic" id="id4">`VRSATILE`_</span></a>
+framework. This approach enables standard and verbose exchange while
+maintaining the advantages of the VRS value object design philosophy.</p>
+<p>This example demonstrates how to associate information with VRS
+objects.  Although the examples use the <a href="#id1"><span class="problematic" id="id2">|vrs-python|</span></a> library, the
+principles apply regardless of implementation.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import collections
+from ga4gh.vrs import ga4gh_identify, models
+from ga4gh.vrs.dataproxy import SeqRepoRESTDataProxy
+from ga4gh.vrs.extras.translator import Translator
+
+# Requires seqrepo REST interface is running on this URL (e.g., using docker image)
+seqrepo_rest_service_url = &quot;http://localhost:5000/seqrepo&quot;
+dp = SeqRepoRESTDataProxy(base_url=seqrepo_rest_service_url)
+
+tlr = Translator(data_proxy=dp)
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Declare some data as human-readable RS id labels with HGVS expressions
+data = (
+    (&quot;rs7412C&quot;,   &quot;NC_000019.10:g.44908822=&quot;),
+    (&quot;rs7412T&quot;,   &quot;NC_000019.10:g.44908822C&gt;T&quot;),
+    (&quot;rs429358C&quot;, &quot;NC_000019.10:g.44908684=&quot;),
+    (&quot;rs429358T&quot;, &quot;NC_000019.10:g.44908684T&gt;C&quot;)
+)
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Parse the HGVS expressions and generate three dicts:
+# alleles[allele_id] ⇒ allele object
+# rs_names[allele_id] ⇒ rs label
+# hgvs_name[allele_id] ⇒ original hgvs expression
+
+# For convenience, also build
+# rs_to_id[rs_name] ⇒ allele_id
+
+alleles = {}
+rs_names = {}
+hgvs_names = collections.defaultdict(lambda: dict())
+for rs, hgvs_expr in data:
+    allele = tlr.from_hgvs(hgvs_expr)
+    allele_id = ga4gh_identify(allele)
+    alleles[allele_id] = allele
+    hgvs_names[allele_id] = hgvs_expr
+    rs_names[allele_id] = rs
+
+rs_to_id = {r: i for i, r in rs_names.items()}
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Now, build a new set of annotations: allele frequencies
+# This is more complicated because it maps to a map of frequences
+# It should be clear that other frequencies could be easily added here
+# or as a separate data source
+freqs = {
+    &quot;gnomad&quot;: {
+        &quot;global&quot;: {
+            rs_to_id[&quot;rs7412C&quot;]: 0.9385,
+            rs_to_id[&quot;rs7412T&quot;]: 0.0615,
+            rs_to_id[&quot;rs429358C&quot;]: 0.1385,
+            rs_to_id[&quot;rs429358T&quot;]: 0.8615,
+        }
+    }
+}
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># It might be convenient to save these data
+# A saved document might have structure like this:
+doc = {
+    &quot;alleles&quot;: alleles,
+    &quot;hgvs_names&quot;: hgvs_names,
+    &quot;rs_names&quot;: rs_names,
+    &quot;freqs&quot;: freqs
+}
+</pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># For the benefit of pretty printing, let&#39;s replace the allele objects with their dict representations
+doc[&quot;alleles&quot;] = {i: a.as_dict() for i, a in doc[&quot;alleles&quot;].items()}
+import json
+print(json.dumps(doc, indent=2))
+</pre></div>
+</div>
+<pre class="literal-block">{
+  &quot;alleles&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908822,
+          &quot;start&quot;: 44908821,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;C&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908822,
+          &quot;start&quot;: 44908821,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;T&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908684,
+          &quot;start&quot;: 44908683,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;T&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    },
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: {
+      &quot;location&quot;: {
+        &quot;interval&quot;: {
+          &quot;end&quot;: 44908684,
+          &quot;start&quot;: 44908683,
+          &quot;type&quot;: &quot;SimpleInterval&quot;
+        },
+        &quot;sequence_id&quot;: &quot;ga4gh:SQ.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;,
+        &quot;type&quot;: &quot;SequenceLocation&quot;
+      },
+      &quot;state&quot;: {
+        &quot;sequence&quot;: &quot;C&quot;,
+        &quot;type&quot;: &quot;SequenceState&quot;
+      },
+      &quot;type&quot;: &quot;Allele&quot;
+    }
+  },
+  &quot;hgvs_names&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: &quot;NC_000019.10:g.44908822=&quot;,
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: &quot;NC_000019.10:g.44908822C&gt;T&quot;,
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: &quot;NC_000019.10:g.44908684=&quot;,
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: &quot;NC_000019.10:g.44908684T&gt;C&quot;
+  },
+  &quot;rs_names&quot;: {
+    &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: &quot;rs7412C&quot;,
+    &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: &quot;rs7412T&quot;,
+    &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: &quot;rs429358C&quot;,
+    &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: &quot;rs429358T&quot;
+  },
+  &quot;freqs&quot;: {
+    &quot;gnomad&quot;: {
+      &quot;global&quot;: {
+        &quot;ga4gh:VA.UUvQpMYU5x8XXBS-RhBhmipTWe2AALzj&quot;: 0.9385,
+        &quot;ga4gh:VA.EgHPXXhULTwoP4-ACfs-YCXaeUQJBjH_&quot;: 0.0615,
+        &quot;ga4gh:VA.LQrGFIOAP8wEAybwNBo8pJ3yIG7tXWoh&quot;: 0.1385,
+        &quot;ga4gh:VA.iXjilHZiyCEoD3wVMPMXG3B8BtYfL88H&quot;: 0.8615
+      }
+    }
+  }
+}</pre>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

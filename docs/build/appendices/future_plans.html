@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Plans &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Future Plans</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/future_plans.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="future-plans">
+<span id="id1"></span><h1>Future Plans<a class="headerlink" href="#future-plans" title="Permalink to this headline"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<p>VRS covers a fundamental subset of data types to represent
+variation, thus far predominantly related to the replacement of a
+subsequence in a reference sequence. Increasing its applicability will
+require supporting more complex types of variation, including:</p>
+<ul class="simple">
+<li><p>genotypes</p></li>
+<li><p>structural variation</p></li>
+<li><p>mosaicism and chimerism</p></li>
+<li><p>categorical variation</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<img alt="../_images/schema-future.png" src="../_images/schema-future.png" />
+<figcaption>
+<p><span class="caption-text">Planned Variation Representation Specfication Schema</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>See <span class="xref std std-ref">Current schema diagram</span> for legend.</p>
+<p>Existing classes are colored green. Components that are
+undergoing testing and evaluation and are candidates for the next
+release cycle are yellow. Components that are planned but
+still undergoing requirement gathering and initial development are
+colored red.</p>
+<p>[<a class="reference external" href="https://app.diagrams.net/#G1Qimkvi-Fnd1hhuixbd6aU4Se6zr5Nc1h">source</a>]</p>
+</div>
+</figcaption>
+</figure>
+<p>The following sections provide a preview of planned concepts under way
+to address a broader representation of variation.</p>
+</section>
+<section id="intervals-and-locations">
+<span id="planned-locations"></span><h2>Intervals and Locations<a class="headerlink" href="#intervals-and-locations" title="Permalink to this headline"></a></h2>
+<p>VRS uses <a class="reference internal" href="../terminology.html#location"><span class="std std-ref">Location</span></a> subclasses to define where variation occurs.
+The schema is designed to be extensible to new kinds of Intervals and
+Locations in order to support, for example, fuzzy coordinates or
+feature-based locations.</p>
+<section id="complexinterval">
+<h3>ComplexInterval<a class="headerlink" href="#complexinterval" title="Permalink to this headline"></a></h3>
+<p>Representation of complex coordinates based on relative locations or
+offsets from a known location. Examples include “left of” a given
+position and intronic positions measured from intron-exon junctions.</p>
+<p><strong>Computational definition</strong></p>
+<p>Under development.</p>
+<p><strong>Information model</strong></p>
+<p>Under development.</p>
+</section>
+</section>
+<section id="variation-classes">
+<span id="planned-variation"></span><h2>Variation Classes<a class="headerlink" href="#variation-classes" title="Permalink to this headline"></a></h2>
+<p>Additional <a class="reference internal" href="../terminology.html#variation"><span class="std std-ref">Variation</span></a> concepts that are being planned for future
+consideration in the specification. See <a class="reference internal" href="../terminology.html#variation"><span class="std std-ref">Variation</span></a> for more
+information.</p>
+<section id="structural-variation">
+<h3>Structural Variation<a class="headerlink" href="#structural-variation" title="Permalink to this headline"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This concept is being refined. Please comment at <a class="reference external" href="https://github.com/ga4gh/vrs/issues/103">https://github.com/ga4gh/vrs/issues/103</a></p>
+</div>
+<p>The aberrant joining of two segments of DNA that are not typically
+contiguous.  In the context of joining two distinct coding sequences,
+translocations result in a gene fusion, which is also covered by this
+VRS definition.</p>
+<p><strong>Computational definition</strong></p>
+<p>A joining of two sequences is defined by two <a class="reference internal" href="../terminology.html#location"><span class="std std-ref">Location</span></a> objects
+and an indication of the join “pattern” (advice needed on conventional
+terminology, if any).</p>
+<p><strong>Information model</strong></p>
+<p>Under consideration. See <a class="reference external" href="https://github.com/ga4gh/vrs/issues/28">https://github.com/ga4gh/vrs/issues/28</a>.</p>
+<p><strong>Examples</strong></p>
+<p>t(9;22)(q34;q11) in BCR-ABL</p>
+</section>
+<section id="genotype">
+<span id="id2"></span><h3>Genotype<a class="headerlink" href="#genotype" title="Permalink to this headline"></a></h3>
+<p>The genetic state of an organism, whether complete (defined over the
+whole genome) or incomplete (defined over a subset of the genome).</p>
+<p><strong>Computational definition</strong></p>
+<p>A list of Haplotypes.</p>
+<p><strong>Information model</strong></p>
+<table class="colwidths-auto reece-wrap docutils align-left">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Limits</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>_id</p></td>
+<td><p><a class="reference internal" href="../terminology.html#curie"><span class="std std-ref">CURIE</span></a></p></td>
+<td><p>0..1</p></td>
+<td><p>Variation Id; MUST be unique within document</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>string</p></td>
+<td><p>1..1</p></td>
+<td><p>Variation type; MUST be set to ‘<strong>Genotype</strong>’</p></td>
+</tr>
+<tr class="row-even"><td><p>completeness</p></td>
+<td><p>enum</p></td>
+<td><p>1..1</p></td>
+<td><p>Declaration of completeness of the Haplotype definition.
+Values are:</p>
+<ul class="simple">
+<li><p>UNKNOWN: Other Haplotypes may exist.</p></li>
+<li><p>PARTIAL: Other Haplotypes exist but are unspecified.</p></li>
+<li><p>COMPLETE: The Genotype declares a complete set of Haplotypes.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>members</p></td>
+<td><p><a class="reference internal" href="../terminology.html#haplotype"><span class="std std-ref">Haplotype</span></a>[] or <a class="reference internal" href="../terminology.html#curie"><span class="std std-ref">CURIE</span></a>[]</p></td>
+<td><p>0..*</p></td>
+<td><p>List of Haplotypes or Haplotype identifiers; length MUST agree
+with ploidy of genomic region</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implementation guidance</strong></p>
+<ul class="simple">
+<li><p>Haplotypes in a Genotype MAY occur at different locations or on
+different reference sequences. For example, an individual may have
+haplotypes on two population-specific references.</p></li>
+<li><p>Haplotypes in a Genotype MAY contain differing numbers of Alleles or
+Alleles at different Locations.</p></li>
+</ul>
+<p><strong>Notes</strong></p>
+<ul class="simple">
+<li><p>The term “genotype” has two, related definitions in common use. The
+narrower definition is a set of alleles observed at a single
+location and with a ploidy of two, such as a pair of single residue
+variants on an autosome. The broader, generalized definition is a
+set of alleles at multiple locations and/or with ploidy other than
+two.The VRS Genotype entity is based on this broader definition.</p></li>
+<li><p>The term “diplotype” is often used to refer to two haplotypes. The
+VRS Genotype entity subsumes the conventional definition of
+diplotype. Therefore, the VRS model does not include an explicit
+entity for diplotypes. See <a class="reference internal" href="#genotypes-represent-haplotypes-with-arbitrary-ploidy"><span class="std std-ref">this note</span></a> for a
+discussion.</p></li>
+<li><p>The VRS model makes no assumptions about ploidy of an organism or
+individual. The number of Haplotypes in a Genotype is the observed
+ploidy of the individual.</p></li>
+<li><p>In diploid organisms, there are typically two instances of each
+autosomal chromosome, and therefore two instances of sequence at a
+particular location. Thus, Genotypes will often list two
+Haplotypes. In the case of haploid chromosomes or
+haploinsufficiency, the Genotype consists of a single Haplotype.</p></li>
+<li><p>A consequence of the computational definition is that Haplotypes at
+overlapping or adjacent intervals MUST NOT be included in the same
+Genotype. However, two or more Alleles MAY always be rewritten as an
+equivalent Allele with a common sequence and interval context.</p></li>
+<li><p>The rationale for permitting Genotypes with Haplotypes defined on
+different reference sequences is to enable the accurate
+representation of segments of DNA with the most appropriate
+population-specific reference sequence.</p></li>
+</ul>
+<p><strong>Sources</strong></p>
+<p>SO: <a class="reference external" href="http://www.sequenceontology.org/browser/current_svn/term/SO:0001027">Genotype (SO:0001027)</a>
+— A genotype is a variant genome, complete or incomplete.</p>
+<div class="admonition note" id="genotypes-represent-haplotypes-with-arbitrary-ploidy">
+<p class="admonition-title">Note</p>
+<p>Genotypes represent Haplotypes with arbitrary ploidy
+The VRS defines Haplotypes as a list of Alleles, and Genotypes as
+a list of Haplotypes. In essence, Haplotypes and Genotypes represent
+two distinct dimensions of containment: Haplotypes represent the “in
+phase” relationship of Alleles while Genotypes represents sets of
+Haplotypes of arbitrary ploidy.</p>
+<p>There are two important consequences of these definitions: There is no
+single-location Genotype. Users of SNP data will be familiar with
+representations like rs7412 C/C, which indicates the diploid state at
+a position. In the VRS, this is merely a special case of a
+Genotype with two Haplotypes, each of which is defined with only one
+Allele (the same Allele in this case).  The VRS does not define a
+diplotype type. A diplotype is a special case of a VRS Genotype
+with exactly two Haplotypes. In practice, software data types that
+assume a ploidy of 2 make it very difficult to represent haploid
+states, copy number loss, and copy number gain, all of which occur
+when representing human data. In addition, assuming ploidy=2 makes
+software incompatible with organisms with other ploidy. The VRS
+makes no assumptions about “normal” ploidy.</p>
+<p>In other words, the VRS does not represent single-position
+Genotypes or diplotypes because both concepts are subsumed by the
+Allele, Haplotype, and Genotypes entities.</p>
+</div>
+</section>
+</section>
+<section id="categorical-variation">
+<span id="planned-variation-sets"></span><h2>Categorical Variation<a class="headerlink" href="#categorical-variation" title="Permalink to this headline"></a></h2>
+<p>Some variations are defined by categorical concepts, rather than specific
+locations and states. These variations go by many terms, including
+<em>categorical variants</em>, <em>bucket variants</em>, <em>container variants</em>, or
+<em>variant classes</em>. These forms of variation are not described by any
+broadly-recognized variation format, but modeling them is a key requirement
+for the representation of aggregate variation descriptions as commonly
+found in biomedical literature. Our future work will focus on the formal
+specification for representing these variations with sets of rules, which
+we currently call <em>Categorical Variation</em>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

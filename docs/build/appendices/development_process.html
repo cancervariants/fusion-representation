@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development Process &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Development Process</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/appendices/development_process.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="development-process">
+<h1>Development Process<a class="headerlink" href="#development-process" title="Permalink to this headline"></a></h1>
+<section id="release-cycle">
+<span id="id1"></span><h2>Release Cycle<a class="headerlink" href="#release-cycle" title="Permalink to this headline"></a></h2>
+<figure class="align-default" id="id4">
+<img alt="../_images/dev-process.png" src="../_images/dev-process.png" />
+<figcaption>
+<p><span class="caption-text">The VRS development process.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The release cycle is implemented in the <a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs">VR project board</a>, which is
+the authoritative source of information about development status.</p>
+<section id="planned-features">
+<h3>Planned Features<a class="headerlink" href="#planned-features" title="Permalink to this headline"></a></h3>
+<p>Feature requests from the community are made through the generation of
+<a class="reference external" href="https://github.com/ga4gh/vrs/issues">GitHub issues on the VRS repository</a>, which are open for
+public review and discussion.</p>
+</section>
+<section id="project-leadership-review">
+<h3>Project Leadership Review<a class="headerlink" href="#project-leadership-review" title="Permalink to this headline"></a></h3>
+<p>Open issues are reviewed and triaged by the <a class="reference internal" href="#project-leadership"><span class="std std-ref">Project Leadership</span></a>. Feature requests identified to support an unmet
+need are added to the <a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-9024746">Backburner</a> project column and scheduled for
+discussion in our weekly VR calls. These discussions are used to inform
+whether or not a feature will be planned for development. The <a class="reference internal" href="#project-maintainers"><span class="std std-ref">Project
+Maintainers</span></a> are responsible for making the
+final determination on whether or not a feature should be added to VRS.</p>
+</section>
+<section id="requirements-gathering">
+<h3>Requirements Gathering<a class="headerlink" href="#requirements-gathering" title="Permalink to this headline"></a></h3>
+<p>Once a planned feature is introduced in call, the issue moves to the
+<a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-8939340">Planning</a> project column. During this phase, community feedback on use
+cases and technical requirements will be collected (see <a class="reference external" href="https://github.com/ga4gh/vrs/labels/requirements">example
+requirement issues</a>). Deadlines for submitting cases will be set by the
+Project Maintainers.</p>
+</section>
+<section id="requirements-discussion">
+<h3>Requirements Discussion<a class="headerlink" href="#requirements-discussion" title="Permalink to this headline"></a></h3>
+<p>Once the requirements gathering phase has been completed, the issue
+moves to the <a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-5274081">Backlog/Ready for Dev</a> project column. In this phase,
+the requirements undergo review and discussion by the community on
+VR calls.</p>
+</section>
+<section id="feature-development">
+<h3>Feature Development<a class="headerlink" href="#feature-development" title="Permalink to this headline"></a></h3>
+<p>After community review of requirements, the issue moves on to the
+<a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-5274078">In Progress</a> project column. In this stage, the draft features
+will be developed as a draft <a class="reference external" href="https://github.com/ga4gh/vrs/pulls">Pull Request</a> (PR). The draft author will
+indicate that a feature is ready for community review by marking the
+PR as “Ready for review” (at which point the PR loses “draft” status).</p>
+</section>
+<section id="feature-review">
+<h3>Feature Review<a class="headerlink" href="#feature-review" title="Permalink to this headline"></a></h3>
+<p>Once a PR is ready for review, the Project Maintainers will move the
+corresponding issue to the <a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-8087350">QA/Feedback</a> project column.  Pull
+requests ready for public review MAY be merged into the <cite>main</cite> (stable
+release) branch through review and approval by at least one
+(non-authoring) Project Maintainer. Merged commits MAY be tagged as
+alpha releases when needed. After merging, corresponding issues are
+moved to the <a class="reference external" href="https://github.com/orgs/ga4gh/projects/5?card_filter_query=repo%3Aga4gh%2Fvrs#column-5274079">Done</a> project column and are closed.</p>
+</section>
+<section id="version-review-and-release">
+<h3>Version Review and Release<a class="headerlink" href="#version-review-and-release" title="Permalink to this headline"></a></h3>
+<p>After completion of all planned features for a new minor or major
+version, a request for community review will be indicated by a beta
+release of the new version. Community stakeholders involved in the
+feature requests and requirements gathering for the included features
+are notified by Project Maintainers for review and approval of the
+release. After a community review period of at least one week, the
+Project Leadership will review and address any raised concerns for the
+reviewed version.</p>
+<p>After passing review, new minor versions are released to
+production. If any features in the reviewed version are deemed to be
+significant additions to the specification by the Project Leadership, or if
+it is a major version change, instead a release candidate version will
+be released and submitted for GA4GH product approval. After approval,
+the new version is released to production.</p>
+<p>VRS follows <a class="reference external" href="https://docs.google.com/document/d/1UUJSnsPw32W5r1jaJ0vI11X0LLLygpAC9TNosjSge_w/edit#heading=h.6672fcrbpqsk">GA4GH project versioning recommendations</a>,
+based on <a class="reference external" href="http://semver.org/">Semantic Versioning 2.0</a>.</p>
+</section>
+</section>
+<section id="leadership">
+<h2>Leadership<a class="headerlink" href="#leadership" title="Permalink to this headline"></a></h2>
+<section id="project-leadership">
+<span id="id2"></span><h3>Project Leadership<a class="headerlink" href="#project-leadership" title="Permalink to this headline"></a></h3>
+<p>As a product of the Genomic Knowledge Standards (GKS) Work Stream,
+project leadership is comprised of the <a class="reference external" href="https://ga4gh-gks.github.io/">Work Stream leadership</a>:</p>
+<ul class="simple">
+<li><p>Alex Wagner (<a class="reference external" href="https://github.com/ahwagner">&#64;ahwagner</a>)</p></li>
+<li><p>Andy Yates (<a class="reference external" href="https://github.com/andrewyatz">&#64;andrewyatz</a>)</p></li>
+<li><p>Bob Freimuth (<a class="reference external" href="https://github.com/rrfreimuth">&#64;rrfreimuth</a>)</p></li>
+<li><p>Javier Lopez (<a class="reference external" href="https://github.com/javild">&#64;javild</a>)</p></li>
+<li><p>Larry Babb (<a class="reference external" href="https://github.com/larrybabb">&#64;larrybabb</a>)</p></li>
+<li><p>Matt Brush (<a class="reference external" href="https://github.com/mbrush">&#64;mbrush</a>)</p></li>
+<li><p>Reece Hart (<a class="reference external" href="https://github.com/reece">&#64;reece</a>)</p></li>
+</ul>
+</section>
+<section id="project-maintainers">
+<span id="id3"></span><h3>Project Maintainers<a class="headerlink" href="#project-maintainers" title="Permalink to this headline"></a></h3>
+<p>Project maintainers are the leads of the GKS Variation Representation working group:</p>
+<ul class="simple">
+<li><p>Alex Wagner (<a class="reference external" href="https://github.com/ahwagner">&#64;ahwagner</a>)</p></li>
+<li><p>Larry Babb (<a class="reference external" href="https://github.com/larrybabb">&#64;larrybabb</a>)</p></li>
+<li><p>Reece Hart (<a class="reference external" href="https://github.com/reece">&#64;reece</a>)</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

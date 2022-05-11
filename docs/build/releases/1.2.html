@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.2 &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>1.2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/releases/1.2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>1.2<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<section id="id2">
+<h2>1.2.0<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h2>
+<section id="news">
+<h3>News<a class="headerlink" href="#news" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The first manuscript for VRS has been submitted. Please cite
+<a class="reference external" href="https://www.biorxiv.org/content/10.1101/2021.01.15.426843v1">https://www.biorxiv.org/content/10.1101/2021.01.15.426843v1</a>.</p></li>
+<li><p>Want to get involved? See the <a class="reference external" href="https://vrs.ga4gh.org/en/stable/appendices/index.html">VRS Appendix</a> for the
+many ways that you can inform and contribute to VRS.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="important">
+<h3>Important<a class="headerlink" href="#important" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../terminology.html#deprecations"><span class="std std-ref">SimpleInterval and SequenceState are deprecated</span></a>. They will be removed in VRS 2.0.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="major-changes">
+<h3>Major Changes<a class="headerlink" href="#major-changes" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>New classification of variation types.</p>
+<ul>
+<li><p><a class="reference internal" href="../terminology.html#molecularvariation"><span class="std std-ref">Molecular Variation</span></a> refers to variation within or of a
+contiguous molecular</p></li>
+<li><p><a class="reference internal" href="../terminology.html#systemicvariation"><span class="std std-ref">Systemic Variation</span></a> refers to variation in the context of a
+system, such as a genome, sample, or homologous chromosomes</p></li>
+<li><p><a class="reference internal" href="../terminology.html#utilityvariation"><span class="std std-ref">Utility Variation</span></a> classes provide useful representations
+for certain technical operations</p></li>
+</ul>
+</li>
+<li><p>New <a class="reference internal" href="../terminology.html#sequenceexpression"><span class="std std-ref">SequenceExpressions</span></a> subclasses
+replace SequenceState.  Subtypes are:</p>
+<ul>
+<li><p><a class="reference internal" href="../terminology.html#derivedsequenceexpression"><span class="std std-ref">DerivedSequenceExpression</span></a>, which representations sequence
+notionally derived from a SequenceLocation</p></li>
+<li><p><a class="reference internal" href="../terminology.html#repeatedsequenceexpression"><span class="std std-ref">RepeatedSequenceExpression</span></a>, which represents contiguous
+repeats of a sequence</p></li>
+<li><p><a class="reference internal" href="../terminology.html#literalsequenceexpression"><span class="std std-ref">LiteralSequenceExpression</span></a>, which
+wraps a <a class="reference internal" href="../terminology.html#sequence"><span class="std std-ref">Sequence</span></a> and provides data structure parity with
+other SequenceExpressions</p></li>
+</ul>
+</li>
+<li><p><span class="xref std std-ref">CopyNumber</span>, a form of SystemicVariation, represents the
+copies of a molecule within a genome, and can be used to express
+concepts such as amplification and copy loss.</p></li>
+<li><p><a class="reference internal" href="../terminology.html#gene"><span class="std std-ref">Gene</span></a> enables reference to an external definition of a gene,
+particularly for useas a subject of copy number expressions.</p></li>
+<li><p><a class="reference internal" href="../terminology.html#definiterange"><span class="std std-ref">DefiniteRange</span></a> and <a class="reference internal" href="../terminology.html#indefiniterange"><span class="std std-ref">IndefiniteRange</span></a> represent bounded
+and half-bounded ranges respectively. A new <a class="reference internal" href="../terminology.html#number"><span class="std std-ref">Number</span></a> type
+wraps integers so that some attributes may assume values of any of
+these three types.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="minor-changes">
+<h3>Minor Changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sequence strings are now formally defined by a <a class="reference internal" href="../terminology.html#sequence"><span class="std std-ref">Sequence</span></a>
+type, which is fundamentally also a string.  This change aids
+documentation but has no technical impact.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

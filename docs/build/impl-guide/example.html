@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example &mdash; Gene Fusion Specification master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Gene Fusion Specification
+            <img src="../_static/GA-logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Gene Fusion Specification</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/impl-guide/example.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example">
+<span id="id1"></span><h1>Example<a class="headerlink" href="#example" title="Permalink to this headline"></a></h1>
+<p>This section provides a complete, language-neutral example of
+essential features of VRS.  In this example, we will translate an
+HGVS-formatted variant, <code class="docutils literal notranslate"><span class="pre">NC_000019.10:g.44908822C&gt;T</span></code>, into its VRS
+format and assign a globally unique identifier.</p>
+<section id="translate-hgvs-to-vrs">
+<h2>Translate HGVS to VRS<a class="headerlink" href="#translate-hgvs-to-vrs" title="Permalink to this headline"></a></h2>
+<p>The <a href="#id2"><span class="problematic" id="id3">|varnomen|</span></a> string <code class="docutils literal notranslate"><span class="pre">NC_000019.10:g.44908822C&gt;T</span></code> represents a
+single base substitution on the reference sequence <a class="reference external" href="https://www.ncbi.nlm.nih.gov/nuccore/NC_000019.10">NC_000019.10</a> (human
+chromosome 19, assembly GRCh38) at position 44908822 from the
+reference nucleotide <code class="docutils literal notranslate"><span class="pre">C</span></code> to <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>In VRS, a contiguous change is represented using an <a class="reference internal" href="../terminology.html#allele"><span class="std std-ref">Allele</span></a>
+object, which is composed of a <a class="reference internal" href="../terminology.html#location"><span class="std std-ref">Location</span></a> and of the
+<a class="reference internal" href="../terminology.html#state"><span class="std std-ref">State</span></a> at that location.  Location and State are
+abstract concepts: VRS is designed to accommodate many kinds of
+Locations based on sequence position, gene names, cytogentic bands, or
+other ways of describing locations. Similarly, State may refer to a
+specific sequence change, a contiguous repeated sequence, or a
+sequence derived from another source.</p>
+<p>In this example, we will use a <a class="reference internal" href="../terminology.html#sequencelocation"><span class="std std-ref">SequenceLocation</span></a>, which is
+composed of a sequence identifier and a <a class="reference internal" href="../terminology.html#sequenceinterval"><span class="std std-ref">SequenceInterval</span></a>.</p>
+<p>In VRS, all identifiers are a <a href="#id4"><span class="problematic" id="id5">|CURIE|</span></a>.  Therefore, NC_000013.11 MUST be
+written as the string <code class="docutils literal notranslate"><span class="pre">refseq:NC_000019.10</span></code> to make explicit that
+this sequence is from <a class="reference external" href="https://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> .  VRS does not restrict
+which data sources may be used, but does recommend using prefixes from
+<a class="reference external" href="http://identifiers.org">identifiers.org</a>.</p>
+<p>VRS uses <a class="reference internal" href="../appendices/design_decisions.html#inter-residue-coordinates-design"><span class="std std-ref">Inter-residue Coordinates</span></a>.  Inter-residue
+coordinates <em>always</em> use intervals to refer to sequence spans.  For
+the purposes of this example, inter-residue coordinates <em>look</em> like the
+more familiar 0-based, right-open numbering system.  (Please read
+about <a class="reference internal" href="../appendices/design_decisions.html#inter-residue-coordinates-design"><span class="std std-ref">Inter-residue Coordinates</span></a> if you are interested in
+the significant advantages of this design choice over other coordinate
+systems.)</p>
+<p>The <a class="reference internal" href="../terminology.html#sequenceinterval"><span class="std std-ref">SequenceInterval</span></a> for the position <code class="docutils literal notranslate"><span class="pre">44908822</span></code> is</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908822</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908821</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceInterval&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../terminology.html#sequencelocation"><span class="std std-ref">SequenceLocation</span></a> is constructed from a sequence identifier
+and the above interval.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908822</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908821</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceInterval&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;sequence_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;refseq:NC_000019.10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceLocation&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>A <a class="reference internal" href="../terminology.html#literalsequenceexpression"><span class="std std-ref">LiteralSequenceExpression</span></a> object consists simply of the replacement sequence, as follows:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LiteralSequenceExpression&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../terminology.html#allele"><span class="std std-ref">Allele</span></a> object’s <code class="docutils literal notranslate"><span class="pre">location</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> attributes may
+then be constructed from the above SequenceLocation and
+LiteralSequenceExpressions respectively:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908822</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908821</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceInterval&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;refseq:NC_000019.10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceLocation&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LiteralSequenceExpression&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allele&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This Allele is a fully-compliant VRS object that is parsable using the
+VRS JSON Schema.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VRS is verbose! The goal of VRS is to provide a extensible
+framework for representation of sequence variation in
+computers.  VRS objects are readily parsable and have precise
+meaning, but are often larger than other representations and
+are typically less readable by humans.  This tradeoff is
+intentional!</p>
+</div>
+</section>
+<section id="generate-a-computed-identifer">
+<h2>Generate a computed identifer<a class="headerlink" href="#generate-a-computed-identifer" title="Permalink to this headline"></a></h2>
+<p>A key feature of VRS is an easily-implemented algorithm to
+generate computed, digest-based identifiers for variation objects.
+This algorithm permits organizations to generate the same identifier
+for the same allele without prior coordination, which in turn
+facilitates sharing, obviates centralized registration services, and
+enables identifiers to be used in secure settings (such as diagnostic
+labs).</p>
+<p>The VRS computed identifier procedure requires that all nested
+<a class="reference internal" href="../appendices/glossary.html#term-identifiable-object"><span class="xref std std-term">identifiable objects</span></a> are expressed using
+computed identifiers.  Using GA4GH sequence identifiers collapses
+differences between alleles due to trivial differences in reference
+naming.  The same variation reported on NC_000019.10, CM000681.2,
+GRCh38:19, GRCh38.p13:19 would appear to be distinct variation; using
+a digest identifer will ensure that variation is reported on a single
+sequence identifier.  Furthermore, using digest-based sequence
+identifiers enables the use of custom reference sequences.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>VRS permits the use of conventional sequence accessions
+from RefSeq, Ensemble, or other sources.  However, when
+generating copmuted identifiers, implementations MUST
+use GA4GH-sequence accessions.</p>
+</div>
+<p>In this example, the sequence identifier <code class="docutils literal notranslate"><span class="pre">refseq:NC_000019.10</span></code> MUST
+be transformed into digest-based identifer
+<code class="docutils literal notranslate"><span class="pre">ga4gh:GS.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl</span></code> as described in
+<a class="reference internal" href="computed_identifiers.html#computed-identifiers"><span class="std std-ref">Computed Identifiers</span></a>.  In practice, implmentations should
+precompute sequence digests or should use an existing service that
+does so. (See <a class="reference internal" href="required_data.html#required-data"><span class="std std-ref">Required External Data</span></a> for a description of data that are
+needed to implement VRS.) Subsitituing the GA4GH sequence identifier
+into the Allele’s <code class="docutils literal notranslate"><span class="pre">location.sequence_id</span></code> attribute gives:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908822</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908821</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceInterval&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ga4gh:GS.IIB53T8CNeJJdUqzn9V_JnRtQadwWCbl&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceLocation&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LiteralSequenceExpression&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allele&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The first step in constructing a computed identifier is to create a
+binary digest serialization of the Allele.  Details are provided in
+<a class="reference internal" href="computed_identifiers.html#computed-identifiers"><span class="std std-ref">Computed Identifiers</span></a>.  For this example, the <em>binary</em> (ASCII
+encoded) object looks like:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{&quot;location&quot;:&quot;esDSArZQC-Sx-96ZZzHnzAVNOc439oE5&quot;,&quot;state&quot;:{&quot;sequence&quot;:&quot;T&quot;,&quot;type&quot;:&quot;LiteralSequenceExpression&quot;},&quot;type&quot;:&quot;Allele&quot;}
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The GA4GH binary digest serialization process imposes
+constraints that guarantee that different
+implementations will generate the same binary “blob”
+for a given object.  Do not confuse binary digest
+serialization with JSON serialization, which is used
+elsewhere with VRS schema.</p>
+</div>
+<p>The GA4GH digest for the above blob is computed using the first 192
+bits (24 bytes) of the <a href="#id6"><span class="problematic" id="id7">`SHA-512`_</span></a> digest, <a href="#id8"><span class="problematic" id="id9">`base64url`_</span></a> encoded.
+Conceptually, the function is <code class="docutils literal notranslate"><span class="pre">base64url(</span> <span class="pre">sha512(</span> <span class="pre">blob</span> <span class="pre">)[:24]</span> <span class="pre">)</span></code>. In
+this example, the value returned is
+<code class="docutils literal notranslate"><span class="pre">_YNe5V9kyydfkGU0NRyCMHDSKHL4YNvc</span></code>.</p>
+<p>A GA4GH Computed Identifier has the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;ga4gh&quot;</span> <span class="s2">&quot;:&quot;</span> <span class="o">&lt;</span><span class="n">type_prefix</span><span class="o">&gt;</span> <span class="s2">&quot;.&quot;</span> <span class="o">&lt;</span><span class="n">digest</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">type_prefix</span></code> for a VRS Allele is <code class="docutils literal notranslate"><span class="pre">VA</span></code>, which results in the
+following computed identifier for our example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ga4gh</span><span class="p">:</span><span class="n">VA</span><span class="o">.</span><span class="n">_YNe5V9kyydfkGU0NRyCMHDSKHL4YNvc</span>
+</pre></div>
+</div>
+<p>Importantly, GA4GH computed identifers may be used literally (without
+escaping) in URIs.</p>
+<p>Variation and Location objects contain an OPTIONAL <code class="docutils literal notranslate"><span class="pre">_id</span></code> attribute
+which implementations may use to store any CURIE-formatted identifier.
+<em>If</em> an implementation returns a computed identifier with objects, the
+object might look like the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ga4gh:VA._YNe5V9kyydfkGU0NRyCMHDSKHL4YNvc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;interval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908822</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">44908821</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceInterval&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;refseq:NC_000019.10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SequenceLocation&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sequence&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;T&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;LiteralSequenceExpression&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allele&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This example provides a full VRS-compliant Allele with a computed identifier.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">_id</span></code> attribute is optional.  If it is used, the value
+MUST be a CURIE, but it does NOT need to be a GA4GH Computed
+Identifier.  Applications MAY choose to implement their own
+identifier scheme for private or public use.  For example,
+the above <code class="docutils literal notranslate"><span class="pre">_id</span></code> could be a serial number assigned by an
+application, such as <code class="docutils literal notranslate"><span class="pre">acmecorp:v0000123</span></code>.</p>
+</div>
+</section>
+<section id="what-s-next">
+<h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline"></a></h2>
+<p>This example has shown a full example for a relatively simple case.
+VRS provides a framework that will enable much more complex variation.
+Please see <a class="reference internal" href="../appendices/future_plans.html#future-plans"><span class="std std-ref">Future Plans</span></a> for a discussion of variation classes
+that are intened in the near future.</p>
+<p>The <a class="reference internal" href="../appendices/implementations.html#implementations"><span class="std std-ref">Implementations</span></a> section lists libraries and packages that
+implement VRS.</p>
+<p>VRS objects are <a class="reference external" href="https://en.wikipedia.org/wiki/Value_object">value objects</a>.  An important
+consequence of this design choice is that data should be associated
+<em>with</em> VRS objects via their identifiers rather than embedded <em>within</em>
+those objects.  The appendix contains an example of <a class="reference internal" href="../appendices/associating_annotations.html#associating-annotations"><span class="std std-ref">associating
+annotations with variation</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, VICC.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
