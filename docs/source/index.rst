@@ -24,3 +24,7 @@ categorical gene fusions. These guidelines incorporate, extend, and refine relat
 
    introduction
    terminology
+   information_model
+   nomenclature
+   workflows
+   supporting_tools

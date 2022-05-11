@@ -15,10 +15,10 @@ Here we document the primary contributions of this specification for variation r
 * **Minimum information model.** We provide recommendations on the salient data elements for the representation of
   assayed and categorical gene fusions. These data elements capture key information used in the evaluation of
   gene fusions in biomedical research and clinical applications.
-* **Gene fusion information capture workflows.** We provide recommendations for gathering information about
-  gene fusions in bioinformatics pipelines and knowledge curation efforts.
 * **Human-readable nomenclature.** We provide recommendations for a human-readable nomenclature for the designation of
   gene fusions and associated regulatory elements, at the sequence or gene level.
+* **Gene fusion information capture workflows.** We provide recommendations for gathering information about
+  gene fusions in bioinformatics pipelines and knowledge curation efforts.
 * **Supporting tools.** We provide a Python library (fusor) that enforces data objects containing the salient elements
   of gene fusions, for use in informatics pipelines. We also provide an educational web tool (fusion-curation) that
   implements our recommendations to train gene fusion curators.
