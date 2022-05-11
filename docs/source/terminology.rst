@@ -31,10 +31,10 @@ Determining the salient elements for a gene fusion is dependent upon the context
 
 Assayed Gene Fusions
 ####################
-Assayed gene fusions from biological specimens are directly detected using RNA-based gene fusion assays, or alternatively may be inferred from genomic rearrangements detected by whole genome sequencing or by coarser-scale cytogenomic assays in the context of informative phenotypic biomarkers. For example, an EWSR1 fusion is often inferred by breakapart FISH assay in tumors diagnosed or suspected to be Ewing sarcoma/primitive neuroectodermal by immunohistochemical and/or morphological analysis.
+Assayed gene fusions from biological specimens are directly detected using RNA-based gene fusion assays, or alternatively may be inferred from genomic rearrangements detected by whole genome sequencing or by coarser-scale cytogenomic assays in the context of informative phenotypic biomarkers. For example, an EWSR1 fusion is often inferred by breakapart FISH assay when a neoplasm is diagnosed or suspected to be Ewing sarcoma/primitive neuroectodermal tumor by immunohistochemical and/or morphological analysis.
 
 .. _categorical-fusions:
 
 Categorical Gene Fusions
 ########################
-In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. An example knowledgebase characterization of a gene fusion is EWSR1 as a known 5’ gene fusion partner that binds 3’ partner genes with DNA-binding domains.
+In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. An example categorical gene fusion is EWSR1 as a known 5’ gene fusion partner that binds 3’ partner genes with DNA-binding domains.
