@@ -1,4 +1,6 @@
 Workflows
 !!!!!!!!!
 
-.. todo:: complete this section
+.. todo:: caption the workflow
+
+.. figure:: images/workflow.png
