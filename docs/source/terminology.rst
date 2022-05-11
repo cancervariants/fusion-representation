@@ -1,6 +1,15 @@
 Terminology
 !!!!!!!!!!!
 
+Rearrangements
+@@@@@@@@@@@@@@
+Gene fusions are driven by, but distinct from, DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
+
+.. figure:: images/rearrangements.png
+   :scale: 50%
+
+   DNA Rearrangements include translocations, deletions, duplications, and inversions, each of which has the potential to move genes near one another and create gene fusions.
+
 Gene Fusions
 @@@@@@@@@@@@
 Gene fusions are a complex class of variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving structural rearrangements within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
@@ -8,6 +17,11 @@ Gene fusions are a complex class of variation that may be characterized by a bro
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
 Gene products that are considered loss-of-function or are not expressed should not be described as gene fusions, even when they result from a genomic rearrangement.
+
+.. figure:: images/fusion_types.png
+   :scale: 50%
+
+   **(TOP)** Gene fusions may be regulatory in nature, where a rearranged promoter or nearby enhancer element drives overexpression of the partner gene. **(BOTTOM)** Gene fusions typically result in chimeric transcripts between two genes, which (for coding transcripts) often result in novel protein sequences.
 
 .. _chimeric-fusions:
 
