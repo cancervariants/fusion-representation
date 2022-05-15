@@ -64,9 +64,14 @@ regulatory elements or templated linker sequence.
      - 1..1
      - A coordinate representing the end of a genomic location.
 
-.. _structural-elements:
-
 .. todo:: describe salient element categories in detail
+
+.. _structural-elements:
 
 Structural Elements
 @@@@@@@@@@@@@@@@@@@
+
+Structural elements of a gene fusion represent the expressed gene product, and are typically characterized at the gene
+level or the transcript level. :ref:`chimeric-fusions` must be represented by at least two structural elements, and
+:ref:`regulatory-fusions` must be represented by at least one structural element and one :ref:`regulatory-element`.
+
