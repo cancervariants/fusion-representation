@@ -4,7 +4,8 @@ Gene Fusion Guidelines
 .. warning::
    These guidelines are in a **draft** state, assembled by consensus through a cross-consortia initiative with
    representatives from multiple professional societies. However,
-   this draft has not yet been evaluated for formal endorsement by any professional society.
+   this draft has not yet been evaluated for formal endorsement by any professional society. Community alignment
+   status is organized on GitHub and summarized at :ref:`endorsement`.
 
 The Gene Fusion Guidelines are a collection of recommendations for the precise representation of gene fusions, assembled
 by a cross-consortia initiative between members of the `Clinical Genome (ClinGen) Somatic Cancer Clinical Domain Working Group <https://clinicalgenome.org/working-groups/clinical-domain/somatic-cancer-cdwg/>`_,
