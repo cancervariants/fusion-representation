@@ -66,7 +66,7 @@ regulatory elements or templated linker sequence.
 
 .. _structural-elements:
 
+.. todo:: describe salient element categories in detail
+
 Structural Elements
 @@@@@@@@@@@@@@@@@@@
-
-.. todo:: structural elements section
