@@ -1,5 +1,6 @@
 .. |eg| replace:: *e.g.,*
 .. |ie| replace:: *i.e.,*
-
-
+.. _INSDC regulatory class: https://www.insdc.org/controlled-vocabulary-regulatoryclass
+.. _HGNC Gene: https://www.genenames.org/tools/search
+.. _SequenceLocation: https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#sequencelocation
 
