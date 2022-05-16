@@ -1,18 +1,9 @@
 Terminology
 !!!!!!!!!!!
 
-Rearrangements
-@@@@@@@@@@@@@@
-Gene fusions are driven by, but distinct from, DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
-
-.. figure:: images/rearrangements.png
-   :scale: 50%
-
-   DNA Rearrangements include translocations, deletions, duplications, and inversions, each of which has the potential to move genes near one another and create gene fusions.
-
 Gene Fusions
 @@@@@@@@@@@@
-Gene fusions are a complex class of variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving structural rearrangements within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
+Gene fusions are a complex class of variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -52,3 +43,30 @@ Assayed gene fusions from biological specimens are directly detected using RNA-b
 Categorical Gene Fusions
 ########################
 In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. An example categorical gene fusion is EWSR1 as a known 5’ gene fusion partner that binds 3’ partner genes with DNA-binding domains.
+
+Related Variant Types
+@@@@@@@@@@@@@@@@@@@@@
+
+Gene fusions are closely related to, but destinct from many related types of variation. Those types are described in this
+section for contrast, but are not otherwise discussed in the Gene Fusion Guidelines.
+
+.. _rearrangements:
+
+Rearrangements
+##############
+Gene fusions are driven by (but again, are distinct from) DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
+
+.. figure:: images/rearrangements.png
+   :scale: 50%
+
+   DNA Rearrangements include translocations, deletions, duplications, and inversions, each of which has the potential to move genes near one another and create gene fusions.
+
+.. _itd:
+
+Internal Tandem Duplications
+############################
+
+Internal tandem duplications are focal genomic duplications that result in some set of exons being duplicated within a
+gene. Some gene fusion callers also call internal tandem duplications. However, the definition of a gene fusion is the
+interaction between **two or more genes**, therefore internal tandem duplications are not gene fusions and guidelines for
+characterizing them are out of scope for this work.
