@@ -12,7 +12,7 @@ Common Elements
 
 Some entities are common elements (e.g. :ref:`genes <gene-elements>`) are complex entities with their own information model and are reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
 
-.. _gene-elements:
+.. _gene-element:
 
 Gene
 ####
@@ -45,6 +45,10 @@ Reference sequences should be versioned and associated with a genome assembly. I
 represent the inter-residue location at which a fusion junction occurs. They may also be used to specify the location of
 regulatory elements or templated linker sequence.
 
+.. note:: The coordinates indicated here are not described inherently as residue or inter-residue, 0-based or 1-based.
+          Omission on this point is intentional, see the `associated Discussion at GitHub
+          <https://github.com/cancervariants/fusions/discussions/17>`_.
+
 .. list-table::
    :class: clean-wrap
    :header-rows: 1
@@ -66,12 +70,21 @@ regulatory elements or templated linker sequence.
 
 .. todo:: describe salient element categories in detail
 
-.. _structural-elements:
+.. _structural-element:
 
-Structural Elements
-@@@@@@@@@@@@@@@@@@@
+Structural Element
+@@@@@@@@@@@@@@@@@@
 
-Structural elements of a gene fusion represent the expressed gene product, and are typically characterized at the gene
+The structural elements of a gene fusion represent the expressed gene product, and are typically characterized at the gene
 level or the transcript level. :ref:`chimeric-fusions` must be represented by at least two structural elements, and
 :ref:`regulatory-fusions` must be represented by at least one structural element and one :ref:`regulatory-element`.
 
+The order of structural elements is important, and by convention representations of structural components for gene
+fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regulatory element is listed first.
+
+Gene
+####
+
+A :ref:`gene-element` may be used as a structural element, in which case it refers to an unspecified transcript of that gene.
+For :ref:`categorical-fusions`, this means any transcript meeting other parameters of the specified fusion. For
+:ref:`assayed-fusions`, this means that the exact transcript is not known.
