@@ -47,7 +47,7 @@ In contrast, categorical gene fusions are generalized concepts representing a cl
 Related Variant Types
 @@@@@@@@@@@@@@@@@@@@@
 
-Gene fusions are closely related to, but destinct from many related types of variation. Those types are described in this
+Gene fusions are closely related to, but distinct from many related types of variation. Those types are described in this
 section for contrast, but are not otherwise discussed in the Gene Fusion Guidelines.
 
 .. _rearrangements:
