@@ -66,7 +66,7 @@ Gene fusions are driven by (but again, are distinct from) DNA rearrangements. Al
 Internal Tandem Duplications
 ############################
 
-Internal tandem duplications are focal genomic duplications that result in some set of exons being duplicated within a
-gene. Some gene fusion callers also call internal tandem duplications. However, the definition of a gene fusion is the
+Internal tandem duplications are repeated transcribed elements within a gene as a result of focal genomic duplications.
+Some gene fusion callers also call internal tandem duplications. However, gene fusions are defined by the
 interaction between **two or more genes**, therefore internal tandem duplications are not gene fusions and guidelines for
 characterizing them are out of scope for this work.
