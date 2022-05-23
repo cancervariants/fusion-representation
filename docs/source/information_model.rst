@@ -10,7 +10,7 @@ Minimum Information Model
 Common Elements
 @@@@@@@@@@@@@@@
 
-Some entities are common elements (e.g. :ref:`genes <gene-elements>`) are complex entities with their own information model and are reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
+Some entities are common elements (e.g. :ref:`genes <gene-element>`) are complex entities with their own information model and are reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
 
 .. _gene-element:
 
@@ -85,6 +85,72 @@ fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regul
 Gene
 ####
 
-A :ref:`gene-element` may be used as a structural element, in which case it refers to an unspecified transcript of that gene.
-For :ref:`categorical-fusions`, this means any transcript meeting other parameters of the specified fusion. For
-:ref:`assayed-fusions`, this means that the exact transcript is not known.
+A gene (see the :ref:`gene-element` common element above for information model) may be used as a structural element, in
+which case it refers to an unspecified transcript of that gene. For :ref:`categorical-fusions`, this means any
+transcript meeting other parameters of the specified fusion. For :ref:`assayed-fusions`, this means that the exact
+transcript is not known.
+
+.. _transcript-segment-element:
+
+Transcript segment
+##################
+
+A transcript segment is a representation of a transcribed sequence denoted by a 5-prime and 3-prime exon boundary.
+Typically, transcript segments are used when the gene fusion junction boundary is known or when representing full-length
+:ref:`chimeric-fusions`. In the case where only the fusion junction is reported, only one boundary of a given transcript
+segment will be represented.
+
+We recommend that *representative* transcript sequences, when needed, are preferentially selected using the following
+criteria:
+1. A compatible transcript from MANE Select
+2. A compatible transcript from MANE Plus Clinical
+3. The longest compatible transcript cDNA sequence
+4. The first-published transcript among those transcripts meeting criterion #3
+
+.. todo:: We will add a link to a web-based lookup tool for transcript selection using the
+          `UTA Tools <https://github.com/GenomicMedLab/uta-tools>`_ library.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Transcript sequence identifier
+     - 1..1
+     - A registered identifier for the reference transcript sequence, e.g. ``NM_005157.6`` as a MANE Select transcript
+       identifier for the ABL1 gene.
+   * - 5' exon boundary
+     - 0..1
+     - A :ref:`boundary` representing the 5-prime end of the transcript segment
+   * - 3' exon boundary
+     - 1..1
+     - A :ref:`boundary` representing the 3-prime end of the transcript segment
+
+.. _boundary:
+
+Exon boundary
+$$$$$$$$$$$$$
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Transcript sequence identifier
+     - 1..1
+     - A registered identifier for the reference transcript sequence, e.g. ``NM_005157.6`` as a MANE Select transcript
+       identifier for the ABL1 gene.
+   * - 5' exon boundary
+     - 0..1
+     - A :ref:`boundary` representing the 5-prime end of the transcript segment
+   * - 3' exon boundary
+     - 1..1
+     - A :ref:`boundary` representing the 3-prime end of the transcript segment
