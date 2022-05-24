@@ -70,10 +70,10 @@ regulatory elements or templated linker sequence.
 
 .. todo:: describe salient element categories in detail
 
-.. _structural-element:
+.. _structural-elements:
 
-Structural Element
-@@@@@@@@@@@@@@@@@@
+Structural Elements
+@@@@@@@@@@@@@@@@@@@
 
 The structural elements of a gene fusion represent the expressed gene product, and are typically characterized at the gene
 level or the transcript level. :ref:`chimeric-fusions` must be represented by at least two structural elements, and
