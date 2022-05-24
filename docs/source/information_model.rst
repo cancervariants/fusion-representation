@@ -10,7 +10,7 @@ Minimum Information Model
 Common Elements
 @@@@@@@@@@@@@@@
 
-Some entities are common elements (e.g. :ref:`genes <gene-element>`) are complex entities with their own information model and are reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
+Some entities are common elements (e.g. :ref:`genes <gene-element>`): complex entities with their own information model and  reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
 
 .. _gene-element:
 
