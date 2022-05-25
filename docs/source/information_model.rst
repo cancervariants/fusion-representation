@@ -80,8 +80,8 @@ level or the transcript level. :ref:`chimeric-fusions` must be represented by at
 The order of structural elements is important, and by convention representations of structural components for gene
 fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regulatory element is listed first.
 
-Gene
-####
+Gene (as structural element)
+############################
 
 A gene (see the :ref:`gene-element` common element above for information model) may be used as a structural element, in
 which case it refers to an unspecified transcript of that gene. For :ref:`categorical-fusions`, this means any
@@ -204,4 +204,39 @@ between transcript segments, and where the sequence origin is a known intronic o
      - 0..1
      - An optional literal sequence derived from the genomic location.
 
-.. todo:: regulatory elements, categorical elements, assayed elements
+.. _regulatory-elements:
+
+Regulatory Elements
+@@@@@@@@@@@@@@@@@@@
+
+Regulatory elements include the :ref:`regulatory-feature` used to describe an enhancer, promoter, or other regulatory
+elements that constitute :ref:`regulatory-fusions`. Regulatory features may be accompanied by a gene with
+which the feature is associated (e.g. an IGH-associated enhancer).
+
+Regulatory Feature
+##################
+
+Our definitions of regulatory features follows the definitions provided by the
+`International Nucleotide Sequence Database Collaboration (INSDC) controlled vocabulary for regulatory class
+<https://www.insdc.org/controlled-vocabulary-regulatoryclass>`_. In gene fusions, these are typically either ``enhancer``
+or ``promoter`` features. These features may be represented as stand-alone entities with their own conceptual identifier
+(e.g. ENCODE cis-Regulatory Elements) or by a :ref:`genomic-location`. Regulatory features may also be represented by
+their association with a nearby gene (e.g. regulatory fusion between MYC and IGH-associated enhancer elements).
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Genomic location
+     - 1..1
+     - A :ref:`genomic-location` from which the templated linker sequence is derived.
+   * - Sequence
+     - 0..1
+     - An optional literal sequence derived from the genomic location.
+
+.. todo:: categorical elements, assayed elements
