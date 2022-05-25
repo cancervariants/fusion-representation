@@ -68,8 +68,6 @@ regulatory elements or templated linker sequence.
      - 1..1
      - A coordinate representing the end of a genomic location.
 
-.. todo:: describe salient element categories in detail
-
 .. _structural-elements:
 
 Structural Elements
@@ -205,3 +203,5 @@ between transcript segments, and where the sequence origin is a known intronic o
    * - Sequence
      - 0..1
      - An optional literal sequence derived from the genomic location.
+
+.. todo:: regulatory elements, categorical elements, assayed elements
