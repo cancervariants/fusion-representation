@@ -127,13 +127,16 @@ criteria:
      - 0..1
      - A :ref:`boundary` representing the 5-prime end of the transcript segment
    * - 3' exon boundary
-     - 1..1
+     - 0..1
      - A :ref:`boundary` representing the 3-prime end of the transcript segment
 
 .. _boundary:
 
-Exon boundary
-$$$$$$$$$$$$$
+Segment boundary
+$$$$$$$$$$$$$$$$
+
+The segment boundary describes the exon-anchored coordinate (and corresponding genomic coordinate)
+defining a boundary of a transcript segment.
 
 .. list-table::
    :class: clean-wrap
@@ -144,13 +147,14 @@ $$$$$$$$$$$$$
    * - Field
      - Limits
      - Description
-   * - Transcript sequence identifier
+   * - Exon number
      - 1..1
-     - A registered identifier for the reference transcript sequence, e.g. ``NM_005157.6`` as a MANE Select transcript
-       identifier for the ABL1 gene.
-   * - 5' exon boundary
-     - 0..1
-     - A :ref:`boundary` representing the 5-prime end of the transcript segment
-   * - 3' exon boundary
+     - The exon number from the 5-prime end of the transcript
+   * - Exon offset
      - 1..1
-     - A :ref:`boundary` representing the 3-prime end of the transcript segment
+     - A value representing the offset from the exon boundary, with positive values offset
+       towards the 5-prime end of the transcript and negative values offset towards the 3-prime
+       end of the transcript. Offsets can reference sequence in the intronic space.
+   * - Genomic location
+     - 1..1
+     - A :ref:`genomic-location` aligned to the transcript segment boundary.
