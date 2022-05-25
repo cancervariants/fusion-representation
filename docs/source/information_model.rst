@@ -132,10 +132,10 @@ criteria:
 
 .. _boundary:
 
-Segment boundary
+Segment Boundary
 $$$$$$$$$$$$$$$$
 
-The segment boundary describes the exon-anchored coordinate (and corresponding genomic coordinate)
+A segment boundary describes the exon-anchored coordinate (and corresponding genomic coordinate)
 defining a boundary of a transcript segment.
 
 .. list-table::
@@ -158,3 +158,50 @@ defining a boundary of a transcript segment.
    * - Genomic location
      - 1..1
      - A :ref:`genomic-location` aligned to the transcript segment boundary.
+
+.. _linker-sequence:
+
+Linker Sequence
+###############
+
+A linker sequence is an observed sequence in the gene fusion that typically occurs between
+transcript segments, and where the sequence origin is unknown or ambiguous. In cases where
+the linker sequence is a known intronic or intergenic region, it should be represented as a
+:ref:`templated-linker` instead.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Sequence
+     - 1..1
+     - A literal sequence expressed as cDNA.
+
+.. _templated-linker:
+
+Templated Linker Sequence
+#########################
+
+A templated linker sequence is an observed sequence in the gene fusion that typically occurs
+between transcript segments, and where the sequence origin is a known intronic or intergenic region.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Genomic location
+     - 1..1
+     - A :ref:`genomic-location` from which the templated linker sequence is derived.
+   * - Sequence
+     - 0..1
+     - An optional literal sequence derived from the genomic location.
