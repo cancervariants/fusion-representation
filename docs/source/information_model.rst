@@ -3,7 +3,7 @@ Minimum Information Model
 
 .. figure:: images/salient-elements.svg
 
-   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ exon boundaries. **(B)** Exon Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, boundary Genomic Coordinates represent aligned Exon Boundary position, and NOT breakpoints for an associated rearrangement. **(C)** Regulatory Elements are represented minimally by the associated gene and information characterizing the regulatory element class (e.g. enhancer, promoter, or other `INSDC regulatory class`_). If the specific regulatory element is known, the identifier for the regulatory element (e.g. RefSeq NG\_ accession) and associated genomic coordinates should also be provided. **(D)** Categorical fusions are additionally described by functional domains gained or lost by a fusion partner that are critical to fusion transcript activity, as well as if the fusion transcript reading frame should be preserved. **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
+   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ exon boundaries. **(B)** Exon Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, boundary Genomic Coordinates represent aligned Exon Boundary position, and NOT breakpoints for an associated rearrangement. **(C)** Regulatory Elements are represented minimally by the associated gene and information characterizing the regulatory element class (e.g. enhancer, promoter, or another term from the `INSDC regulatory class vocabulary`_). If the specific regulatory element is known, the identifier for the regulatory element (e.g. RefSeq NG\_ accession) and associated genomic coordinates should also be provided. **(D)** Categorical fusions are additionally described by functional domains gained or lost by a fusion partner that are critical to fusion transcript activity, as well as if the fusion transcript reading frame should be preserved. **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
 
 .. _common-elements:
 
@@ -199,7 +199,11 @@ between transcript segments, and where the sequence origin is a known intronic o
      - Description
    * - Genomic location
      - 1..1
-     - A :ref:`genomic-location` from which the templated linker sequence is derived.
+     - A :ref:`genomic-location` from which the linker sequence is derived.
+   * - Genomic strand
+     - 1..1
+     - MUST be one of ``+`` or ``-``. Used to indicate the coding strand at the genomic location from which the
+       linker sequence is derived,
    * - Sequence
      - 0..1
      - An optional literal sequence derived from the genomic location.
@@ -217,8 +221,7 @@ Regulatory Feature
 ##################
 
 Our definitions of regulatory features follows the definitions provided by the
-`International Nucleotide Sequence Database Collaboration (INSDC) controlled vocabulary for regulatory class
-<https://www.insdc.org/controlled-vocabulary-regulatoryclass>`_. In gene fusions, these are typically either ``enhancer``
+`INSDC regulatory class vocabulary`_. In gene fusions, these are typically either ``enhancer``
 or ``promoter`` features. These features may be represented as stand-alone entities with their own conceptual identifier
 (e.g. ENCODE cis-Regulatory Elements) or by a :ref:`genomic-location`. Regulatory features may also be represented by
 their association with a nearby gene (e.g. regulatory fusion between MYC and IGH-associated enhancer elements).
@@ -232,11 +235,18 @@ their association with a nearby gene (e.g. regulatory fusion between MYC and IGH
    * - Field
      - Limits
      - Description
-   * - Genomic location
+   * - Regulatory Class
      - 1..1
-     - A :ref:`genomic-location` from which the templated linker sequence is derived.
-   * - Sequence
+     - MUST be ``enhancer``, ``promoter``, or another term from the `INSDC regulatory class vocabulary`_.
+   * - Feature ID
      - 0..1
-     - An optional literal sequence derived from the genomic location.
+     - An optional identifier for the regulatory feature, e.g. `registered cis-regulatory elements from ENCODE
+       <https://screen.encodeproject.org/>`_.
+   * - Genomic location
+     - 0..1
+     - An optional :ref:`genomic-location` for the regulatory feature.
+   * - Associated gene
+     - 0..1
+     - A :ref:`gene-element` associated with the regulatory feature.
 
 .. todo:: categorical elements, assayed elements
