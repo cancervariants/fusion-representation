@@ -231,6 +231,9 @@ or ``promoter`` features. These features may be represented as stand-alone entit
 (e.g. ENCODE cis-Regulatory Elements) or by a :ref:`genomic-location`. Regulatory features may also be represented by
 their association with a nearby gene (e.g. regulatory fusion between MYC and IGH-associated enhancer elements).
 
+It is expected that a regulatory feature will be described by at least (and often exactly) one of a ``Feature ID``,
+``Genomic location``, or ``associated gene``.
+
 .. list-table::
    :class: clean-wrap
    :header-rows: 1
