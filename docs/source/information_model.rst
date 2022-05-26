@@ -105,6 +105,11 @@ criteria:
 3. The longest compatible transcript cDNA sequence
 4. The first-published transcript among those transcripts meeting criterion #3
 
+Transcript compatibility should be determined from what is known about the gene fusion structure. If the gene fusion
+junction sequence is known, compatible transcripts are those that most accurately reflect the junction, with selection
+among those transcripts prioritized by the above criteria. If the breakends for an underlying rearrangement are known,
+those data may also help identify the most compatible transcript selection.
+
 .. todo:: We will add a link to a web-based lookup tool for transcript selection using the
           `UTA Tools <https://github.com/GenomicMedLab/uta-tools>`_ library.
 
