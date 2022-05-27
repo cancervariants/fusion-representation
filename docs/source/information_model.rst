@@ -219,8 +219,8 @@ Regulatory Elements
 @@@@@@@@@@@@@@@@@@@
 
 Regulatory elements include the :ref:`regulatory-feature` used to describe an enhancer, promoter, or other regulatory
-elements that constitute :ref:`regulatory-fusions`. Regulatory features may be accompanied by a gene with
-which the feature is associated (e.g. an IGH-associated enhancer).
+elements that constitute :ref:`regulatory-fusions`. Regulatory features may also be defined by a gene with
+which the feature is associated (e.g. an IGH-associated enhancer element).
 
 Regulatory Feature
 ##################
