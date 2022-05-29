@@ -1,16 +1,20 @@
 Minimum Information Model
 !!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. figure:: images/salient-elements.svg
+To accurately characterize gene fusions, a set of data elements comprising a minimum information model has been defined.
+These elements are selectively used in accordance with the type of gene fusion (:ref:`chimeric-fusions` and/or
+:ref:`regulatory-fusions`) and the gene fusion context (:ref:`assayed-fusions` or :ref:`categorical-fusions`).
 
-   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ exon boundaries. **(B)** Exon Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, boundary Genomic Coordinates represent aligned Exon Boundary position, and NOT breakpoints for an associated rearrangement. **(C)** Regulatory Elements are represented minimally by the associated gene and information characterizing the regulatory element class (e.g. enhancer, promoter, or another term from the `INSDC regulatory class vocabulary`_). If the specific regulatory element is known, the identifier for the regulatory element (e.g. RefSeq NG\_ accession) and associated genomic coordinates should also be provided. **(D)** Categorical fusions are additionally described by functional domains gained or lost by a fusion partner that are critical to fusion transcript activity, as well as if the fusion transcript reading frame should be preserved. **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
+..
+   **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
 
 .. _common-elements:
 
 Common Elements
 @@@@@@@@@@@@@@@
 
-Some entities are common elements (e.g. :ref:`genes <gene-element>`): complex entities with their own information model and  reused across multiple sections of the gene fusion information model. The information models for those elements are described here.
+Some data elements (e.g. :ref:`genes <gene-element>`) are complex entities with their own information model that are reused
+across multiple sections of the gene fusion information model. We call these `common data elements`, which we describe here.
 
 .. _gene-element:
 
@@ -40,10 +44,18 @@ A gene is defined by a gene symbol and stable gene identifier. For describing ge
 Genomic Location
 ################
 
-A genomic location is defined by a chromosomal reference sequence, a start coordinate, and an end coordinate.
-Reference sequences should be versioned and associated with a genome assembly. In gene fusions, these are often used to
-represent the inter-residue location at which a fusion junction occurs. They may also be used to specify the location of
-regulatory elements or templated linker sequence.
+A genomic location is a specialized case of a :ref:`sequence-location`, with the reference sequence identifier
+constrained to those representing chromosomal reference sequences associated with a genome assembly.
+In gene fusions, genomic locations are often used to represent the inter-residue location at which a fusion junction
+occurs. They may also be used to specify the location of regulatory elements or templated linker sequence.
+
+.. _sequence-location:
+
+Sequence Location
+#################
+
+A sequence location is defined by a reference sequence, a start coordinate, and an end coordinate.
+Reference sequences should be versioned.
 
 .. note:: The coordinates indicated here are not described inherently as residue or inter-residue, 0-based or 1-based.
           Omission on this point is intentional, see the `associated Discussion at GitHub
@@ -79,6 +91,10 @@ level or the transcript level. :ref:`chimeric-fusions` must be represented by at
 
 The order of structural elements is important, and by convention representations of structural components for gene
 fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regulatory element is listed first.
+
+.. figure:: images/structural-elements.svg
+
+   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ exon boundaries. **(B)** Exon Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, segment boundary Genomic Coordinates represent the aligned positions of fusion junctions, and NOT breakpoints for an associated rearrangement.
 
 Gene (as structural element)
 ############################
@@ -257,4 +273,40 @@ It is expected that a regulatory feature will be described by at least (and ofte
      - 0..1
      - A :ref:`gene-element` associated with the regulatory feature.
 
-.. todo:: categorical elements, assayed elements
+Categorical elements
+@@@@@@@@@@@@@@@@@@@@
+
+Categorical data elements are specifically used for the representation of :ref:`categorical-fusions`. These data elements
+define the key criteria for matching :ref:`assayed-fusions`.
+
+Functional Domains
+##################
+Categorical Gene Fusions are often characterized by the presence or absence of critical functional domains within a
+gene fusion.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Domain Label
+     - 0..1
+     - An optional name for the functional domain, e.g. ``Protein kinase domain``.
+   * - Domain ID
+     - 0..1
+     - An optional namespaced identifier for the domain, e.g. `interpro:IPR000719 <https://identifiers.org/interpro:IPR000719>`_.
+   * - Sequence location
+     - 0..1
+     - An optional :ref:`sequence-location` for the domain.
+   * - Associated gene
+     - 1..1
+     - The :ref:`gene-element` associated with the domain.
+
+..
+  **(D)** Categorical fusions are additionally described by functional domains gained or lost by a fusion partner that are critical to fusion transcript activity, as well as if the fusion transcript reading frame should be preserved. **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
+
+.. todo:: assayed elements
