@@ -1,6 +1,5 @@
 Minimum Information Model
 !!!!!!!!!!!!!!!!!!!!!!!!!
-
 To accurately characterize gene fusions, a set of data elements comprising a minimum information model has been defined.
 These elements are selectively used in accordance with the type of gene fusion (:ref:`chimeric-fusions` and/or
 :ref:`regulatory-fusions`) and the gene fusion context (:ref:`assayed-fusions` or :ref:`categorical-fusions`).
@@ -12,7 +11,6 @@ These elements are selectively used in accordance with the type of gene fusion (
 
 Common Elements
 @@@@@@@@@@@@@@@
-
 Some data elements (e.g. :ref:`genes <gene-element>`) are complex entities with their own information model that are reused
 across multiple sections of the gene fusion information model. We call these `common data elements`, which we describe here.
 
@@ -20,7 +18,6 @@ across multiple sections of the gene fusion information model. We call these `co
 
 Gene
 ####
-
 A gene is defined by a gene symbol and stable gene identifier. For describing gene fusions in humans, we recommend using HUGO Gene Nomenclature Committee (HGNC) genes.
 
 .. list-table::
@@ -43,7 +40,6 @@ A gene is defined by a gene symbol and stable gene identifier. For describing ge
 
 Genomic Location
 ################
-
 A genomic location is a specialized case of a :ref:`sequence-location`, with the reference sequence identifier
 constrained to those representing chromosomal reference sequences associated with a genome assembly.
 In gene fusions, genomic locations are often used to represent the inter-residue location at which a fusion junction
@@ -53,7 +49,6 @@ occurs. They may also be used to specify the location of regulatory elements or 
 
 Sequence Location
 #################
-
 A sequence location is defined by a reference sequence, a start coordinate, and an end coordinate.
 Reference sequences should be versioned.
 
@@ -84,10 +79,9 @@ Reference sequences should be versioned.
 
 Structural Elements
 @@@@@@@@@@@@@@@@@@@
-
 The structural elements of a gene fusion represent the expressed gene product, and are typically characterized at the gene
 level or the transcript level. :ref:`chimeric-fusions` must be represented by at least two structural elements, and
-:ref:`regulatory-fusions` must be represented by at least one structural element and one :ref:`regulatory-element`.
+:ref:`regulatory-fusions` must be represented by at least one structural element and one :ref:`Regulatory Element <regulatory-elements>`.
 
 The order of structural elements is important, and by convention representations of structural components for gene
 fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regulatory element is listed first.
@@ -182,7 +176,6 @@ defining a boundary of a transcript segment.
 
 Linker Sequence
 ###############
-
 A linker sequence is an observed sequence in the gene fusion that typically occurs between
 transcript segments, and where the sequence origin is unknown or ambiguous. In cases where
 the linker sequence is a known intronic or intergenic region, it should be represented as a
@@ -205,7 +198,6 @@ the linker sequence is a known intronic or intergenic region, it should be repre
 
 Templated Linker Sequence
 #########################
-
 A templated linker sequence is an observed sequence in the gene fusion that typically occurs
 between transcript segments, and where the sequence origin is a known intronic or intergenic region.
 
@@ -233,14 +225,14 @@ between transcript segments, and where the sequence origin is a known intronic o
 
 Regulatory Elements
 @@@@@@@@@@@@@@@@@@@
-
-Regulatory elements include the :ref:`regulatory-feature` used to describe an enhancer, promoter, or other regulatory
+Regulatory elements include a :ref:`regulatory-feature` used to describe an enhancer, promoter, or other regulatory
 elements that constitute :ref:`regulatory-fusions`. Regulatory features may also be defined by a gene with
 which the feature is associated (e.g. an IGH-associated enhancer element).
 
+.. _regulatory-feature:
+
 Regulatory Feature
 ##################
-
 Our definitions of regulatory features follows the definitions provided by the
 `INSDC regulatory class vocabulary`_. In gene fusions, these are typically either ``enhancer``
 or ``promoter`` features. These features may be represented as stand-alone entities with their own conceptual identifier
@@ -306,7 +298,77 @@ gene fusion.
      - 1..1
      - The :ref:`gene-element` associated with the domain.
 
-..
-  **(D)** Categorical fusions are additionally described by functional domains gained or lost by a fusion partner that are critical to fusion transcript activity, as well as if the fusion transcript reading frame should be preserved. **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
+Reading Frame
+#############
+A common attribute of a categorical gene fusion is whether the reading frame is preserved in the expressed gene
+product. This is typical of protein-coding gene fusions.
 
-.. todo:: assayed elements
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Reading frame preserved
+     - 0..1
+     - Boolean indicating whether the reading frame must be preserved or not.
+
+Assayed Elements
+@@@@@@@@@@@@@@@@
+
+Assayed data elements are specifically used for the representation of :ref:`assayed-fusions`. These data elements
+provide important context for downstream evaluation of :ref:`chimeric-fusions` and :ref:`regulatory-fusions` detected
+by biomedical assays.
+
+Causative Event
+###############
+The evaluation of a fusion may be influenced by the underlying mechanism that generated the fusion. Often this will be
+a DNA rearrangement, but it could also be a read-through or trans-splicing event.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Type
+     - 1..1
+     - The type of event that generated the fusion. May be ``rearrangement``, ``read-through``, or ``trans-splicing``.
+   * - Description
+     - 0..1
+     - For rearrangements, this field is useful for characterizing the rearrangement. This could be a string describing
+       the rearrangement with an appropriate nomenclature (e.g. ISCN or HGVS), or an equivalent data structure.
+
+Assay
+#####
+Metadata about the assay that detected the fusion–and whether that fusion was directly detected by the assay or
+inferred–is useful to preserve for downstream evaluation.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Name
+     - 1..1
+     - A human-readable name for the assay. Should match the label for the assay ID, e.g.
+       ``fluorescence in-situ hybridization assay`` for `obi:OBI_0003094`_.
+   * - ID
+     - 1..1
+     - An ID for the assay concept, e.g. `obi:OBI_0003094`_ from the `Ontology for Biomedical
+       Investigations <http://obi-ontology.org/>`_.
+   * - Method URI
+     - 1..1
+     - A URI pointing to the methodological details of the assay.
+
+.. _obi:OBI_0003094: https://identifiers.org/obi:OBI_0003094
