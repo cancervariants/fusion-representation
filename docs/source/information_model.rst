@@ -88,9 +88,9 @@ fusions follow a 5' -> 3' ordering. If describing a regulatory fusion, the regul
 
 .. figure:: images/structural-elements.svg
 
-   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ exon boundaries. **(B)** Exon Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, segment boundary Genomic Coordinates represent the aligned positions of fusion junctions, and NOT breakpoints for an associated rearrangement.
+   The minimal information for characterizing gene fusions is context-dependent, with components necessary for representing assayed fusions (blue-green boxes), categorical fusions (yellow boxes), or both (white boxes). **(A)** Structural Elements represent the expressed gene product, and are typically characterized at the gene level or the transcript level. Segments of transcripts should be represented by a transcript ID and associated 5’ and/or 3’ :ref:`boundary`. **(B)** Segment Boundaries are characterized by the exon number and offset from the corresponding 5’ or 3’ end. Segment Boundaries also include an aligned Genomic Coordinate with a versioned reference sequence identifier (e.g. a RefSeq NC\_ chromosome sequence accession) and position for data fidelity. Importantly, segment boundary Genomic Coordinates represent the aligned positions of fusion junctions, and NOT breakpoints for an associated rearrangement.
 
-Gene (as structural element)
+Gene (as Structural Element)
 ############################
 
 A gene (see the :ref:`gene-element` common element above for information model) may be used as a structural element, in
@@ -100,10 +100,10 @@ transcript is not known.
 
 .. _transcript-segment-element:
 
-Transcript segment
+Transcript Segment
 ##################
 
-A transcript segment is a representation of a transcribed sequence denoted by a 5-prime and 3-prime exon boundary.
+A transcript segment is a representation of a transcribed sequence denoted by a 5-prime and 3-prime segment boundary.
 Typically, transcript segments are used when the gene fusion junction boundary is known or when representing full-length
 :ref:`chimeric-fusions`. In the case where only the fusion junction is reported, only one boundary of a given transcript
 segment will be represented.
@@ -136,10 +136,10 @@ those data may also help identify the most compatible transcript selection.
      - 1..1
      - A registered identifier for the reference transcript sequence, e.g. ``NM_005157.6`` as a MANE Select transcript
        identifier for the ABL1 gene.
-   * - 5' exon boundary
+   * - 5' segment boundary
      - 0..1
      - A :ref:`boundary` representing the 5-prime end of the transcript segment
-   * - 3' exon boundary
+   * - 3' segment boundary
      - 0..1
      - A :ref:`boundary` representing the 3-prime end of the transcript segment
 
@@ -161,10 +161,10 @@ defining a boundary of a transcript segment.
      - Description
    * - Exon number
      - 1..1
-     - The exon number from the 5-prime end of the transcript
+     - The exon number counted from the 5-prime end of the transcript.
    * - Exon offset
      - 1..1
-     - A value representing the offset from the exon boundary, with positive values offset
+     - A value representing the offset from the segment boundary, with positive values offset
        towards the 5-prime end of the transcript and negative values offset towards the 3-prime
        end of the transcript. Offsets can reference sequence in the intronic space.
    * - Genomic location
