@@ -147,7 +147,6 @@ those data may also help identify the most compatible transcript selection.
 
 Segment Boundary
 $$$$$$$$$$$$$$$$
-
 A segment boundary describes the exon-anchored coordinate (and corresponding genomic coordinate)
 defining a boundary of a transcript segment.
 
@@ -267,7 +266,6 @@ It is expected that a regulatory feature will be described by at least (and ofte
 
 Categorical elements
 @@@@@@@@@@@@@@@@@@@@
-
 Categorical data elements are specifically used for the representation of :ref:`categorical-fusions`. These data elements
 define the key criteria for matching :ref:`assayed-fusions`.
 
@@ -318,7 +316,6 @@ product. This is typical of protein-coding gene fusions.
 
 Assayed Elements
 @@@@@@@@@@@@@@@@
-
 Assayed data elements are specifically used for the representation of :ref:`assayed-fusions`. These data elements
 provide important context for downstream evaluation of :ref:`chimeric-fusions` and :ref:`regulatory-fusions` detected
 by biomedical assays.
