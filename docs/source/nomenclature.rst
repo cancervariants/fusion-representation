@@ -91,7 +91,7 @@ Transcript Segment Component
 The Transcript Segment Component explicitly describes a segment transcript sequence by start and end exons, and is
 represented using the following nomenclature:
 
-   - <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`_<end exon>\ :opt:`<+/- offset>`
+   - <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`\ _<end exon>\ :opt:`<+/- offset>`
 
 Offsets, if omitted, indicate that there is no offset from the segment boundary (which is often the case in gene
 fusions). For a full description on the use of exon coordinates and offsets, see :ref:`structural-elements`.
