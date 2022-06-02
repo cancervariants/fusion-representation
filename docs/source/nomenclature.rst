@@ -11,12 +11,14 @@ organized into three categories: :ref:`gene-components`, :ref:`transcript-compon
 
 General Rules
 @@@@@@@@@@@@@
-1. All components are joined together by the double-colon (``::``) operator.
+1. All components are joined together by the double-colon (``::``) operator. Additional rules apply for sub-components of
+   :ref:`regulatory-components`.
 #. When describing :ref:`chimeric-fusions`, structural components are ordered in 5' to 3' orientation with respect
    to the transcribed gene product.
-#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e@IGH::MYC).
-#. When describing :ref:`chimeric-fusions` by junctions (in lieu of full ), the 5' fusion partner
-   junction must be the first component, and the 3' fusion partner junction must be the last component.
+#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@IGH::MYC).
+#. When describing :ref:`chimeric-fusions` by :ref:`junction-components` (in lieu of full
+   :ref:`Transcript Segment Components <transcript-segment-component>`), the 5' fusion partner junction must be the first component, and the 3' fusion
+   partner junction must be the last component.
 #. Throughout the nomenclature components, some information may be provided optionally. In these cases, the optional
    text is :opt:`colored orange` and may be omitted.
 
