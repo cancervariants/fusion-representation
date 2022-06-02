@@ -33,7 +33,7 @@ def _parse_release_as_version(rls):
 
 # -- Project information -----------------------------------------------------
 
-project = 'Gene Fusion Specification'
+project = 'Gene Fusion Guidelines'
 copyright = '2022, VICC'
 author = 'Committers'
 master_doc = 'index'
