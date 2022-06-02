@@ -283,15 +283,18 @@ gene fusion.
    * - Field
      - Limits
      - Description
-   * - Domain Label
+   * - Label
      - 0..1
      - An optional name for the functional domain, e.g. ``Protein kinase domain``.
-   * - Domain ID
+   * - ID
      - 0..1
      - An optional namespaced identifier for the domain, e.g. `interpro:IPR000719 <https://identifiers.org/interpro:IPR000719>`_.
    * - Sequence location
      - 0..1
      - An optional :ref:`sequence-location` for the domain.
+   * - Status
+     - 1..1
+     - MUST be one of [``preserved``, ``lost``]
    * - Associated gene
      - 1..1
      - The :ref:`gene-element` associated with the domain.
