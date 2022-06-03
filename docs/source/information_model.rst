@@ -367,6 +367,9 @@ inferred–is useful to preserve for downstream evaluation.
      - 1..1
      - An ID for the assay concept, e.g. `obi:OBI_0003094`_ from the `Ontology for Biomedical
        Investigations <http://obi-ontology.org/>`_.
+   * - Detection
+     - 1..1
+     - MUST be one of [`detected`, `inferred`]
    * - Method URI
      - 1..1
      - A URI pointing to the methodological details of the assay.
