@@ -367,9 +367,11 @@ inferred–is useful to preserve for downstream evaluation.
      - 1..1
      - An ID for the assay concept, e.g. `obi:OBI_0003094`_ from the `Ontology for Biomedical
        Investigations <http://obi-ontology.org/>`_.
-   * - Detection
+   * - Fusion detection
      - 1..1
-     - MUST be one of [`detected`, `inferred`]
+     - MUST be one of [`direct`, `inferred`]. Direct detection methods (e.g. RNA-seq, RT-PCR) directly interrogate
+       chimeric transcript junctions. Inferred detection methods (e.g. WGS, FISH) infer the existence of a fusion in the
+       presence of compatible biomarkers (e.g. ALK rearrangements in non-small cell lung cancers).
    * - Method URI
      - 1..1
      - A URI pointing to the methodological details of the assay.
