@@ -1,4 +1,4 @@
-.. _endorsement:
+.. _feedback:
 
 Community Feedback and Endorsements
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
