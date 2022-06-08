@@ -250,14 +250,13 @@ It is expected that a regulatory feature will be described by at least (and ofte
    * - Field
      - Limits
      - Description
-   * - Regulatory Class
+   * - Regulatory class
      - 1..1
      - MUST be ``enhancer``, ``promoter``, or another term from the `INSDC regulatory class vocabulary`_.
    * - Feature ID
      - 0..1
-     - An optional identifier for the regulatory feature, e.g. `registered cis-regulatory elements from ENCODE
-       <https://screen.encodeproject.org/>`_.
-   * - Genomic location
+     - An optional identifier for the regulatory feature, e.g. `registered cis-regulatory elements from ENCODE`_.
+   * - Feature location
      - 0..1
      - An optional :ref:`genomic-location` for the regulatory feature.
    * - Associated gene
