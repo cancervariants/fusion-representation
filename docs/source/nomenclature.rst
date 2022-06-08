@@ -169,7 +169,7 @@ Feature ID subcomponent
 A regulatory element may be described by reference to a registered identifier, such as the `registered cis-regulatory
 elements from ENCODE`_. These are represented using the syntax:
 
-   _<reference id>
+   - _<reference id>
 
 An example registered enhancer element is reg\_e_\ `EH38E1516972`_.
 
@@ -182,7 +182,7 @@ Feature location subcomponent
 A regulatory element may be described by reference to a :ref:`genomic-location`. These are represented using the
 syntax:
 
-   <Chromosome ID>\ :opt:`(chr <1-22, X, Y>)`:g.<start coordinate>_<end coordinate>
+   - <Chromosome ID>\ :opt:`(chr <1-22, X, Y>)`:g.<start coordinate>_<end coordinate>
 
 Only one of a Feature Location *OR* a :ref:`feature-id` may be specified.
 
@@ -198,5 +198,8 @@ An associated gene may be indicated in addition to, or in lieu of, a :ref:`featu
 If representing a regulatory element without an associated feature ID or feature location subcomponent, an associated
 gene subcomponent MUST be used. The associated gene subcomponent is always placed at the end of the regulatory
 element description.
+
+References
+@@@@@@@@@@
 
 .. [Bruford2021] Bruford EA, et al., HUGO Gene Nomenclature Committee (HGNC) recommendations for the designation of gene fusions. *Leukemia* (October 2021). `doi:10.1038/s41375-021-01436-6 <https://doi.org/10.1038/s41375-021-01436-6>`_
