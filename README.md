@@ -1,4 +1,4 @@
 # Gene Fusion Curation
-A repository for tracking documents, issues, and tools for the VICC / ClinGen gene fusion guidelines.
+A repository for tracking documents, issues, and tools for the cross-consortia gene fusion guidelines.
 
-For more information on this project, please visit our [documentation](https://fusions.cancervariants.org).
+For more information on this project, please visit our [guidelines page](https://fusions.cancervariants.org).
