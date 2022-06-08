@@ -10,6 +10,6 @@ However, for widespread adoption, it is important that broader community input i
 continued development of these guidelines and alignment across the many stakeholders interested in the representation
 of gene fusions.
 
-Below is a summary the alignment efforts for this version of the specification (|release|):
+Below is a summary the alignment efforts for this version of the specification (|branch|):
 
 **Under development, continuous review**

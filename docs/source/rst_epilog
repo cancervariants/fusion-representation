@@ -5,4 +5,4 @@
 .. _SequenceLocation: https://vrs.ga4gh.org/en/1.2.1/terms_and_model.html#sequencelocation
 .. _registered cis-regulatory elements from ENCODE: https://screen.encodeproject.org/
 .. _EH38E1516972 : https://genome.ucsc.edu/cgi-bin/hgc?hgsid=1373110487_r3p18Bcnj0EtHDPFZJgWuYALPV3s&db=hg38&c=chr11&l=5273046&r=5288397&o=5280547&t=5280897&g=encodeCcreCombined&i=EH38E1516972
-
+.. |branch| replace:: {branch}

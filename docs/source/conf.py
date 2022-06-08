@@ -30,6 +30,9 @@ def _parse_release_as_version(rls):
         return m.group(1)
     return rls
 
+def _get_rtd_version_tag():
+    return os.getenv('READTHEDOCS_VERSION', '')
+
 
 # -- Project information -----------------------------------------------------
 
@@ -40,11 +43,12 @@ master_doc = 'index'
 # N.B. RTD ignores these values. :-/
 release = _get_git_tag()
 version = _parse_release_as_version(release)
+branch = _get_rtd_version_tag() or release
 
 # -- Schema doc paths --------------------------------------------------------
 
 rst_epilog_fn = os.path.join(os.path.dirname(__file__), 'rst_epilog')
-rst_epilog = open(rst_epilog_fn).read().format(release=release)
+rst_epilog = open(rst_epilog_fn).read().format(release=release, branch=branch)
 
 # -- General configuration ---------------------------------------------------
 
