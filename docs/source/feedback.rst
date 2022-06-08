@@ -13,7 +13,7 @@ on our `GitHub issue tracker`_ or `Google form`_.
 
 Below is a summary the alignment efforts for this version of the specification (|branch|):
 
-**Under development, continuous review**
+**Open for community review**
 
 .. _Google form: https://forms.gle/WvS9dTgi1EGVBrLaA
 .. _GitHub issue tracker: https://github.com/cancervariants/fusions/issues/new?assignees=&labels=feedback&template=gene-fusion-guidelines-feedback.md&title=%5Bsummarize+your+feedback+with+a+title+here%5D

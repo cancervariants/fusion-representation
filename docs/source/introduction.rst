@@ -23,4 +23,4 @@ Here we document the primary contributions of this specification for variation r
   of gene fusions, for use in informatics pipelines. We also provide an educational web tool (fusion-curation) that
   implements our recommendations to train gene fusion curators.
 
-For a discussion of the Gene Fusion Guidelines with respect to existing standards, see :ref:`relationships`.
+.. todo:: For a discussion of the Gene Fusion Guidelines with respect to existing standards, see :ref:`relationships`.
