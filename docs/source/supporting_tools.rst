@@ -28,5 +28,5 @@ Gene fusion curation educational web tool provides a user interface supporting g
 is primarily an educational resource to demonstrate the computable structure and associated nomenclature for gene
 fusions constructed in the application.
 
-- `Webtool <https://go.osu.edu/fusion-curation-tool>`_ /
-- `Source code <https://github.com/cancervariants/fusion-curation/>`_.
+- `Webtool <https://go.osu.edu/fusion-curation-tool>`_
+- `Source code <https://github.com/cancervariants/fusion-curation/>`_
