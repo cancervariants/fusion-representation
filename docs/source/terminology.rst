@@ -5,7 +5,7 @@ Terminology
 
 Gene Fusions
 @@@@@@@@@@@@
-Gene fusions are a complex class of variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
+Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -38,7 +38,7 @@ Determining the salient elements for a gene fusion is dependent upon the context
 
 Assayed Gene Fusions
 ####################
-Assayed gene fusions from biological specimens are directly detected using RNA-based gene fusion assays, or alternatively may be inferred from genomic rearrangements detected by whole genome sequencing or by coarser-scale cytogenomic assays in the context of informative phenotypic biomarkers. For example, an EWSR1 fusion is often inferred by breakapart FISH assay when a neoplasm is diagnosed or suspected to be Ewing sarcoma/primitive neuroectodermal tumor by immunohistochemical and/or morphological analysis.
+Assayed gene fusions from biological specimens are directly detected using RNA-based gene fusion assays, or alternatively may be inferred from genomic rearrangements detected by whole genome sequencing or cytogenomic assays in the context of informative phenotypic biomarkers. For example, an EWSR1 fusion is often inferred by breakapart FISH assay when a neoplasm is diagnosed or suspected to be Ewing sarcoma/primitive neuroectodermal tumor by immunohistochemical and/or morphological analysis.
 
 .. _categorical-fusions:
 
@@ -49,7 +49,7 @@ In contrast, categorical gene fusions are generalized concepts representing a cl
 Related Variant Types
 @@@@@@@@@@@@@@@@@@@@@
 
-Gene fusions are closely related to, but distinct from many related types of variation. Those types are described in this
+Gene fusions are closely related to, but distinct from many related types of genomic variation. Those types are described in this
 section for contrast, but are not otherwise discussed in the Gene Fusion Guidelines.
 
 .. _rearrangements:

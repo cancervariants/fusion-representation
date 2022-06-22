@@ -110,10 +110,11 @@ segment will be represented.
 
 We recommend that *representative* transcript sequences, when needed, are preferentially selected using the following
 criteria:
-1. A compatible transcript from MANE Select
-2. A compatible transcript from MANE Plus Clinical
-3. The longest compatible transcript cDNA sequence
-4. The first-published transcript among those transcripts meeting criterion #3
+
+   1. A compatible transcript from MANE Select
+   2. A compatible transcript from MANE Plus Clinical
+   3. The longest compatible transcript cDNA sequence
+   4. The first-published transcript among those transcripts meeting criterion #3
 
 Transcript compatibility should be determined from what is known about the gene fusion structure. If the gene fusion
 junction sequence is known, compatible transcripts are those that most accurately reflect the junction, with selection
