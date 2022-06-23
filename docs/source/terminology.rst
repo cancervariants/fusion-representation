@@ -28,7 +28,7 @@ Chimeric transcript gene fusions are often driven by genomic rearrangements invo
 
 Regulatory Fusions
 ##################
-In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as Reg@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%
