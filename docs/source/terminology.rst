@@ -11,22 +11,29 @@ The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regu
 
 Gene products that are considered loss-of-function or are not expressed should not be described as gene fusions, even when they result from a genomic rearrangement.
 
-.. figure:: images/fusion_types.png
-   :scale: 50%
-
-   **(TOP)** Gene fusions may be regulatory in nature, where a rearranged promoter or nearby enhancer element drives overexpression of the partner gene. **(BOTTOM)** Gene fusions typically result in chimeric transcripts between two genes, which (for coding transcripts) often result in novel protein sequences.
-
 .. _chimeric-fusions:
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements, including read-through derived fusions such as CTSD(hgnc:2529)::IFITM10(hgnc:40022) and trans-splicing derived fusions such as JAZF1(hgnc:28917)::JJAZ1(hgnc:17101). These alternative mechanisms for creating fusions are specified in these guidelines, but it should be noted that most read-through and trans-splicing events are artifactual and have little to no known clinical relevance.
+Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through splicing (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where transcripts from adjacent genes are spliced together. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two transcripts are . These alternative mechanisms for creating fusions are specified in these guidelines, but it should be noted that most read-through and trans-splicing events are artifactual and have little to no known clinical relevance.
+
+.. figure:: images/chimeric-transcripts.png
+   :scale: 50%
+
+   Gene fusions typically result in chimeric transcripts between two genes, which (for coding transcripts) often
+   result in novel protein sequences.
 
 .. _regulatory-fusions:
 
 Regulatory Fusions
 ##################
 In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as Reg@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+
+.. figure:: images/regulatory-fusions.png
+   :scale: 50%
+
+   Gene fusions may be regulatory in nature, where a rearranged promoter or nearby enhancer element drives
+   overexpression of the partner gene.
 
 .. _fusion-contexts:
 

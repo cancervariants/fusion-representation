@@ -103,7 +103,7 @@ transcript is not known.
 Transcript Segment
 ##################
 
-A transcript segment is a representation of a transcribed sequence denoted by a 5-prime and 3-prime segment boundary.
+A transcript segment is a representation of a transcribed sequence denoted by a 5' and 3' segment boundary.
 Typically, transcript segments are used when the gene fusion junction boundary is known or when representing full-length
 :ref:`chimeric-fusions`. In the case where only the fusion junction is reported, only one boundary of a given transcript
 segment will be represented.
@@ -139,10 +139,10 @@ those data may also help identify the most compatible transcript selection.
        identifier for the ABL1 gene.
    * - 5' segment boundary
      - 0..1
-     - A :ref:`boundary` representing the 5-prime end of the transcript segment
+     - A :ref:`boundary` representing the 5' end of the transcript segment
    * - 3' segment boundary
      - 0..1
-     - A :ref:`boundary` representing the 3-prime end of the transcript segment
+     - A :ref:`boundary` representing the 3' end of the transcript segment
 
 .. _boundary:
 
@@ -162,11 +162,11 @@ defining a boundary of a transcript segment.
      - Description
    * - Exon number
      - 1..1
-     - The exon number counted from the 5-prime end of the transcript.
+     - The exon number counted from the 5' end of the transcript.
    * - Exon offset
      - 1..1
      - A value representing the offset from the segment boundary, with positive values offset
-       towards the 5-prime end of the transcript and negative values offset towards the 3-prime
+       towards the 5' end of the transcript and negative values offset towards the 3'
        end of the transcript. Offsets can reference sequence in the intronic space.
    * - Genomic location
      - 1..1

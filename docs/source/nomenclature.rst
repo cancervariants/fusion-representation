@@ -28,7 +28,8 @@ General Rules
 Gene Components
 @@@@@@@@@@@@@@@
 Gene components are used in coarse representation of gene fusions by constituent gene partners, and are
-generally aligned with previous recommendations on gene-gene fusion nomenclature as provided by HGNC [Bruford2021]_.
+generally aligned with previous recommendations on gene-gene fusion nomenclature as provided by HGNC [Bruford2021]_,
+with attention paid to additional considerations discussed in our response to this publication [Wagner2021]_.
 The most common of these is the :ref:`specific-gene-component`, which is complemented by the
 :ref:`multiple-gene-component` (for :ref:`categorical-fusions`) and the :ref:`unknown-gene-component`
 (for :ref:`assayed-fusions`).
@@ -77,7 +78,7 @@ Transcript Sequence Components
 Transcript sequence components are used in precise representation of gene fusions by sequence representations, and
 are designed for compatibility with the HUGO Gene Variation Society `(HGVS) variant nomenclature`_.
 Primary among these components is the  :ref:`transcript-segment-component`, and the closely-related
-5-prime and 3-prime :ref:`junction-components`.
+5' and 3' :ref:`junction-components`.
 Additional components are used to represent intervening sequences, provided as a stand-alone literal sequence
 (:ref:`linker-sequence-component`) or as a sequence derived from a :ref:`genomic-location`
 (:ref:`templated-component`).
@@ -107,15 +108,15 @@ under the gene fusion nomenclature as follows:
 
 Junction Components
 ###################
-The 5-prime and 3-prime Junction Components represent only 5-prime and 3-prime junction locations,
+The 5' and 3' Junction Components represent only 5' and 3' junction locations,
 respectively, for :ref:`chimeric-fusions`. These components contrast with the :ref:`transcript-segment-component`
 which represents a full segment. As noted in the :ref:`general-rules`, these components must be used only as the
 beginning or ending components, respectively, for a fusion.
 
 The syntax for these components follows:
 
-   - *5-prime Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<end exon>\ :opt:`<+/- offset>`
-   - *3-prime Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`
+   - *5' Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<end exon>\ :opt:`<+/- offset>`
+   - *3'e Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`
 
 Optional use of offsets have the same meaning as in the :ref:`transcript-segment-component`.
 
@@ -203,3 +204,7 @@ References
 @@@@@@@@@@
 
 .. [Bruford2021] Bruford EA, et al., HUGO Gene Nomenclature Committee (HGNC) recommendations for the designation of gene fusions. *Leukemia* (October 2021). `doi:10.1038/s41375-021-01436-6 <https://doi.org/10.1038/s41375-021-01436-6>`_
+
+.. [Wagner2021] Wagner AH, et al., Recommendations for future extensions to the HGNC gene fusion nomenclature.
+ *Leukemia* (December 2021). `doi.org/10.1038/s41375-021-01493-x <https://doi.org/10.1038/s41375-021-01493-x>`_
+
