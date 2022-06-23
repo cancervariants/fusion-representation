@@ -15,13 +15,14 @@ Gene products that are considered loss-of-function or are not expressed should n
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through splicing (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where transcripts from adjacent genes are spliced together. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two transcripts are . These alternative mechanisms for creating fusions are specified in these guidelines, but it should be noted that most read-through and trans-splicing events are artifactual and have little to no known clinical relevance.
+Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in these guidelines, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%
 
    Gene fusions typically result in chimeric transcripts between two genes, which (for coding transcripts) often
-   result in novel protein sequences.
+   result in novel protein sequences. These chimeric transcripts are often caused by DNA rearrangements that bring
+   the DNA elements contributing to a gene fusion into close proximity with one another.
 
 .. _regulatory-fusions:
 
