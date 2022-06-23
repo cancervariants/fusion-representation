@@ -121,9 +121,6 @@ junction sequence is known, compatible transcripts are those that most accuratel
 among those transcripts prioritized by the above criteria. If the breakends for an underlying rearrangement are known,
 those data may also help identify the most compatible transcript selection.
 
-.. todo:: We will add a link to a web-based lookup tool for transcript selection using the
-          `UTA Tools <https://github.com/GenomicMedLab/uta-tools>`_ library.
-
 .. list-table::
    :class: clean-wrap
    :header-rows: 1
