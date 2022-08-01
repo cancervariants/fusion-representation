@@ -36,7 +36,7 @@ def _get_rtd_version_tag():
 
 # -- Project information -----------------------------------------------------
 
-project = 'Gene Fusion Guidelines'
+project = 'Gene Fusion Specification'
 copyright = '2022, VICC'
 author = 'Committers'
 master_doc = 'index'

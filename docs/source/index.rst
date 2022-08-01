@@ -1,5 +1,5 @@
-Gene Fusion Guidelines
-!!!!!!!!!!!!!!!!!!!!!!
+Gene Fusion Specification
+!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. warning::
    These guidelines are in a **draft** state, assembled by consensus through a cross-consortia initiative with
@@ -7,7 +7,7 @@ Gene Fusion Guidelines
    this draft has not yet been evaluated for formal endorsement by any professional society. Community alignment
    status is organized on GitHub and summarized at :ref:`feedback`.
 
-The Gene Fusion Guidelines are a collection of recommendations for the precise representation of gene fusions, assembled
+The Gene Fusion Specification is a collection of models and guidance for the precise representation of gene fusions, assembled
 by a cross-consortia initiative between members of the `Clinical Genome (ClinGen) Somatic Cancer Clinical Domain Working Group <https://clinicalgenome.org/working-groups/clinical-domain/somatic-cancer-cdwg/>`_,
 the `Cancer Genomics Consortium <https://cancergenomics.org/>`_,
 the `Cytogenetics Committee of the College of American Pathologists (CAP) and the American College of Medical Genetics and Genomics (ACMG) <https://www.cap.org/member-resources/councils-committees/cap-acmg-cytogenetics-committee/>`_,
