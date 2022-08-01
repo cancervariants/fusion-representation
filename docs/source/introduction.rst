@@ -4,7 +4,7 @@ Introduction
 Maximizing the research and clinical value of genomic information will require
 that clinicians, researchers, and testing laboratories capture and report genetic variation data reliably.
 The Gene Fusion Specification — written by a partnership among experts from clinical laboratory testing and informatics
-societies — is an open set of guidelines to standardize the representation of gene fusion data and knowledge.
+societies — is an open specification to standardize the representation of gene fusion data and knowledge.
 
 Here we document the primary contributions of this specification for variation representation:
 

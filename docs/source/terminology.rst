@@ -15,7 +15,7 @@ Genes that are rearranged resulting in loss of an expressed product should not b
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in these guidelines, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
+Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%
@@ -40,7 +40,7 @@ In contrast to chimeric transcript fusions, deregulated gene fusions are primari
 
 Gene Fusion Contexts
 @@@@@@@@@@@@@@@@@@@@
-Determining the salient elements for a gene fusion is dependent upon the context in which the gene fusion is being described, whether it describes an assayed fusion event from a sample (:ref:`assayed-fusions`) or an aggregate context described in biomedical literature or knowledgebases (:ref:`categorical-fusions`). These guidelines provide recommendations for characterizing gene fusions in each context.
+Determining the salient elements for a gene fusion is dependent upon the context in which the gene fusion is being described, whether it describes an assayed fusion event from a sample (:ref:`assayed-fusions`) or an aggregate context described in biomedical literature or knowledgebases (:ref:`categorical-fusions`). This specification provide recommendations for characterizing gene fusions in each context.
 
 .. _assayed-fusions:
 

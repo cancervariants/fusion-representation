@@ -14,7 +14,7 @@ the `Cytogenetics Committee of the College of American Pathologists (CAP) and th
 and the `Variant Interpretation for Cancer Consortium <https://www.cancervariants.org/projects/fusions>`_.
 
 This specification provide a precise definition, minimal information model, and nomenclature for both assayed and
-categorical gene fusions. These guidelines incorporate, extend, and refine related standards, including the
+categorical gene fusions. This specification incorporates, extends, and refines related standards, including the
 `HUGO Gene Nomenclature Committee (HGNC) recommendations for the designation of gene fusions <https://www.nature.com/articles/s41375-021-01436-6>`_.
 
 
