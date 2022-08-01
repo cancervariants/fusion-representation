@@ -1,7 +1,7 @@
 Supporting Tools
 !!!!!!!!!!!!!!!!
 .. note:: These tools assist in the curation and representation of gene fusion data. To do this,
-   they must choose conventions that are not defined in these guidelines, specifically around
+   they must choose conventions that are not defined in this specification, specifically around
    data exchange. For example, these implementations choose to use `SequenceLocation`_ from the
    Global Alliance for Genomics and Health (GA4GH) `Variation Representation Specification (VRS)`_,
    due to its use of inter-residue coordinates and extensible design. Other implementations may choose
