@@ -9,7 +9,7 @@ Gene fusions are a complex class of genomic variation that may be characterized 
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
-Gene products that are considered loss-of-function or are not expressed should not be described as gene fusions, even when they result from a genomic rearrangement.
+Genes that are rearranged resulting in loss of an expressed product should not be described as a gene fusions.
 
 .. _chimeric-fusions:
 
