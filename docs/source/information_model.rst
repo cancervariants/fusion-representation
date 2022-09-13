@@ -40,17 +40,18 @@ A gene is defined by a gene symbol and stable gene identifier. For describing ge
 
 Genomic Location
 ################
-A genomic location is a specialized case of a :ref:`sequence-location`, with the reference sequence identifier
-constrained to those representing chromosomal reference sequences associated with a genome assembly.
-In gene fusions, genomic locations are often used to represent the inter-residue location at which a fusion junction
-occurs. They may also be used to specify the location of regulatory elements or templated linker sequence.
+Formally, a genomic location is a specialized case of a :ref:`sequence-location`, with the reference sequence identifier
+constrained to those representing chromosomal reference sequences associated with a genome assembly. A Genomic Location
+may be informally described as a position on a chromosome sequence. In gene fusions, genomic locations are often used to
+represent the inter-residue location at which a fusion junction occurs. They may also be used to specify the location of
+regulatory elements or templated linker sequence.
 
 .. _sequence-location:
 
 Sequence Location
 #################
-A sequence location is defined by a reference sequence, a start coordinate, and an end coordinate.
-Reference sequences should be versioned.
+A sequence location is a position on a sequence, defined by a reference sequence, a start coordinate, and an end
+coordinate. Reference sequences used to describe Sequence Locations should be versioned.
 
 .. note:: The coordinates indicated here are not described inherently as residue or inter-residue, 0-based or 1-based.
           Omission on this point is intentional, see the `associated Discussion at GitHub

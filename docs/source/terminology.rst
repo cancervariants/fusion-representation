@@ -5,7 +5,7 @@ Terminology
 
 Gene Fusions
 @@@@@@@@@@@@
-Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the interaction of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of genomic assays for inferring the presence of specific gene fusions.
+Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the joining of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of assays that detect rearrangements to infer the presence of specific gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -52,7 +52,10 @@ Assayed gene fusions from biological specimens are directly detected using RNA-b
 
 Categorical Gene Fusions
 ########################
-In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. An example categorical gene fusion is EWSR1 as a known 5’ gene fusion partner that binds 3’ partner genes with DNA-binding domains.
+In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. Example categorical gene fusions include:
+  - EWSR1 as a known 5' gene fusion partner that joins one of many putative 3' partner genes
+  - ALK as a 3' gene fusion partner with a retained kinase domain, which joins one of many putative 5' partner genes
+  - The class of BCR::ABL1 fusions involving multiple possible junctions between exons from the constituent BCR and ABL1 transcripts
 
 Related Variant Types
 @@@@@@@@@@@@@@@@@@@@@
