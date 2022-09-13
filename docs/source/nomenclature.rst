@@ -1,4 +1,5 @@
 .. role:: opt
+.. role:: red
 
 Nomenclature
 !!!!!!!!!!!!
@@ -22,6 +23,15 @@ General Rules
 #. Throughout the nomenclature components, some information may be provided optionally. In these cases, the optional
    text is :opt:`colored orange` and may be omitted.
 
+Inferred Fusions
+################
+Some fusions are inferred from an assayed genomic rearrangement, typically in the context of a phenotypic presentation
+that is associated with the inferred gene fusion event. In these cases, the nomenclature may indicate that the fusion
+was inferred through the use of parentheticals surrounding the double-colon operator (shown in :red:`red`):
+
+   <Gene Symbol>\ :red:`(`::\ :red:`)`\ <Gene Symbol>
+
+An example of this is provided in the :ref:`unknown-gene-component` section.
 
 .. _gene-components:
 
@@ -55,7 +65,7 @@ The syntax for an unknown (typically inferred) gene component (used for :ref:`as
 
 An example fusion using an unknown gene component may be inferred from an ALK break-apart assay:
 
-   ``?::ALK(hgnc:427)``
+   ``?(::)ALK(hgnc:427)``
 
 .. _multiple-gene-component:
 

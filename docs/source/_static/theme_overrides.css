@@ -16,6 +16,10 @@
     color: darkorange;
 }
 
+.red{
+    color: red;
+}
+
 h2 {
     color: #2980B9;
     border-top:  #2980B9 thin solid;
