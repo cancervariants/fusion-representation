@@ -1,3 +1,5 @@
+.. role:: opt
+
 Terminology
 !!!!!!!!!!!
 
@@ -5,17 +7,21 @@ Terminology
 
 Gene Fusions
 @@@@@@@@@@@@
-Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity. **The defining characteristic of gene fusions is the joining of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements**. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of assays that detect rearrangements to infer the presence of specific gene fusions.
+Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity. :opt:`A gene fusion is defined as the joining of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements`. Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of assays that detect rearrangements to infer the presence of specific gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
-Genes that are rearranged resulting in loss of an expressed product should not be described as a gene fusions.
+Genes that are rearranged resulting in loss of an expressed product should not be described as gene fusions.
 
 .. _chimeric-fusions:
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single chimeric transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
+Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single transcript.
+
+:opt:`A chimeric transcript is a transcript composed of exons from two or more genes`.
+
+This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%
@@ -28,7 +34,9 @@ Chimeric transcript gene fusions are often driven by genomic rearrangements invo
 
 Regulatory Fusions
 ##################
-In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+
+:opt:`A regulatory fusion is defined as the interaction of regulatory elements between two genes brought into proximity by genomic rearrangement, driving aberrant gene product expression.`
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%

@@ -126,7 +126,7 @@ beginning or ending components, respectively, for a fusion.
 The syntax for these components follows:
 
    - *5' Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<end exon>\ :opt:`<+/- offset>`
-   - *3'e Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`
+   - *3' Junction Component*: <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`
 
 Optional use of offsets have the same meaning as in the :ref:`transcript-segment-component`.
 
