@@ -38,7 +38,7 @@ This class of fusions is exemplified by well-known clinically-relevant gene fusi
 
 Regulatory Fusions
 ##################
-In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@IGH(hgnc:5477)::MYC(hgnc:7553). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@GATA2(hgnc:4171)::EVI1(hgnc:3498). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
 
 :opt:`A regulatory fusion is defined as the interaction of regulatory elements between two genes brought into proximity by genomic rearrangement, driving aberrant gene product expression.`
 
