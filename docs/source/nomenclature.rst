@@ -33,6 +33,10 @@ was inferred through the use of parentheticals surrounding the double-colon oper
 
 An example of this is provided in the :ref:`unknown-gene-component` section.
 
+.. warning:: The use of inferred fusions is expected to ALWAYS be contextualized by supporting evidence in a clinical
+   report or research study. Inferred fusions should not be recorded or interpreted in isolation without additional
+   context, as this can lead to potential errors.
+
 .. _gene-components:
 
 Gene Components
