@@ -65,6 +65,7 @@ Assayed gene fusions from biological specimens are directly detected using RNA-b
 Categorical Gene Fusions
 ########################
 In contrast, categorical gene fusions are generalized concepts representing a class of fusions by their shared attributes, such as retained or lost regulatory elements and/or functional domains, and are typically curated from the biomedical literature for use in genomic knowledgebases. Example categorical gene fusions include:
+
   - EWSR1 as a known 5' gene fusion partner that joins one of many putative 3' partner genes
   - ALK as a 3' gene fusion partner with a retained kinase domain, which joins one of many putative 5' partner genes
   - The class of BCR::ABL1 fusions involving multiple possible junctions between exons from the constituent BCR and ABL1 transcripts
