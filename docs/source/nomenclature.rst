@@ -16,7 +16,7 @@ General Rules
    :ref:`regulatory-components`.
 #. When describing :ref:`chimeric-fusions`, structural components are ordered in 5' to 3' orientation with respect
    to the transcribed gene product.
-#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@IGH::MYC).
+#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@GATA2::EVI1).
 #. When describing :ref:`chimeric-fusions` by :ref:`junction-components` (in lieu of full
    :ref:`Transcript Segment Components <transcript-segment-component>`), the 5' fusion partner junction must be the first component, and the 3' fusion
    partner junction must be the last component.
