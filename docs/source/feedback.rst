@@ -13,7 +13,12 @@ on our `GitHub issue tracker`_ or `Google form`_.
 
 Below is a summary the alignment efforts for this version of the specification (|branch|):
 
-**Open for community review**
+HUGO Nomenclature Committees
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+This specification has been reviewed by the HUGO Gene Nomenclature Committee (HGNC), the HGVS Variant Nomenclature
+Committee (HVNC), and the International System for Human Cytogenomic Nomenclature (ISCN) nomenclature committee. The
+specification is in alignment with the recommendations of those committees and has received their endorsement as a
+consensus specification for the definition and description of gene fusions.
 
 .. _Google form: https://forms.gle/WvS9dTgi1EGVBrLaA
 .. _GitHub issue tracker: https://github.com/cancervariants/fusions/issues/new?assignees=&labels=feedback&template=gene-fusion-guidelines-feedback.md&title=%5Bsummarize+your+feedback+with+a+title+here%5D
