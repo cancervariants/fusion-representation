@@ -15,7 +15,7 @@ Below is a summary the alignment efforts for this version of the specification (
 
 HUGO Nomenclature Committees
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
-This specification has been reviewed by the HUGO Gene Nomenclature Committee (HGNC), the HGVS Variation Nomenclature
+This specification has been reviewed by the HUGO Gene Nomenclature Committee (HGNC), the HGVS Variant Nomenclature
 Committee (HVNC), and the International System for Human Cytogenomic Nomenclature (ISCN) nomenclature committee. The
 specification is in alignment with the recommendations of those committees and has received their endorsement as a
 consensus specification for the definition and description of gene fusions.
