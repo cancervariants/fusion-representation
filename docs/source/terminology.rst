@@ -9,9 +9,9 @@ Gene Fusions
 @@@@@@@@@@@@
 Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity.
 
-:opt:`A gene fusion is defined as the joining of two or more genes to drive aberrant activity of a gene product, through formation of a chimeric transcript or interaction of rearranged gene regulatory elements`.
+:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or` :ref:`regulatory fusion.<regulatory-fusions>`
 
-Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of assays that detect rearrangements to infer the presence of specific gene fusions.
+Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are distinct from the :ref:`genomic rearrangements<rearrangements>` that often drive them, though these concepts are often conflated.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -38,9 +38,9 @@ This class of fusions is exemplified by well-known clinically-relevant gene fusi
 
 Regulatory Fusions
 ##################
-In contrast to chimeric transcript fusions, deregulated gene fusions are primarily characterized by the rearrangement of regulatory elements from one gene near a second gene, resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@GATA2(hgnc:4171)::EVI1(hgnc:3498). Gene products rendered unexpressed or non-functional should not be described as gene fusions, even when they result from a genomic rearrangement.
+Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@GATA2(hgnc:4171)::EVI1(hgnc:3498).
 
-:opt:`A regulatory fusion is defined as the interaction of regulatory elements between two genes brought into proximity by genomic rearrangement, driving aberrant gene product expression.`
+:opt:`A regulatory fusion is the interaction of regulatory elements from one gene brought into proximity of a second gene by` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, driving aberrant gene product expression of the second gene.`
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%
@@ -80,7 +80,7 @@ section for contrast, but are not otherwise discussed in the Gene Fusion Guideli
 
 Rearrangements
 ##############
-Gene fusions are driven by (but again, are distinct from) DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
+Gene fusions are typically driven by DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
 
 .. figure:: images/rearrangements.png
    :scale: 50%
