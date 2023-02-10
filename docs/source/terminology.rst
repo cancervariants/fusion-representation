@@ -11,7 +11,7 @@ Gene fusions are a complex class of genomic variation that may be characterized 
 
 :opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or` :ref:`regulatory fusion.<regulatory-fusions>`
 
-Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are also distinct from the underlying genomic rearrangements that drive them, though these concepts have been conflated due to the historical use of assays that detect rearrangements to infer the presence of specific gene fusions.
+Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are distinct from the :ref:`genomic rearrangements<rearrangements>` that often drive them, though these concepts are often conflated.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
