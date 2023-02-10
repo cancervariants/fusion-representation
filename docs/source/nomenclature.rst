@@ -12,14 +12,16 @@ organized into three categories: :ref:`gene-components`, :ref:`transcript-compon
 
 General Rules
 @@@@@@@@@@@@@
-1. All components are joined together by the double-colon (``::``) operator. Additional rules apply for sub-components of
-   :ref:`regulatory-components`.
-#. When describing :ref:`chimeric-fusions`, structural components are ordered in 5' to 3' orientation with respect
+1. All components are joined together by the double-colon (``::``) operator.
+ a. Additional rules apply for sub-components of :ref:`regulatory-components`.
+ #. A hyphen (``-``) operator may be used when describing a read-through transcript at the gene level
+    (see :ref:`gene-components`).
+2. When describing :ref:`chimeric-fusions`, structural components are ordered in 5' to 3' orientation with respect
    to the transcribed gene product.
 #. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@GATA2::EVI1).
 #. When describing :ref:`chimeric-fusions` by :ref:`junction-components` (in lieu of full
-   :ref:`Transcript Segment Components <transcript-segment-component>`), the 5' fusion partner junction must be the first component, and the 3' fusion
-   partner junction must be the last component.
+   :ref:`Transcript Segment Components <transcript-segment-component>`), the 5' fusion partner junction must be the
+   first component, and the 3' fusion partner junction must be the last component.
 #. Throughout the nomenclature components, some information may be provided optionally. In these cases, the optional
    text is :opt:`colored orange` and may be omitted.
 
@@ -42,11 +44,18 @@ An example of this is provided in the :ref:`unknown-gene-component` section.
 Gene Components
 @@@@@@@@@@@@@@@
 Gene components are used in coarse representation of gene fusions by constituent gene partners, and are
-generally aligned with previous recommendations on gene-gene fusion nomenclature as provided by HGNC [Bruford2021]_,
-with attention paid to additional considerations discussed in our response to this publication [Wagner2021]_.
+generally aligned with previous recommendations on gene-gene fusion descriptions as provided by HGNC [Bruford2021]_,
+with attention paid to additional considerations discussed in our response to the HGNC recommendations [Wagner2021]_.
 The most common of these is the :ref:`specific-gene-component`, which is complemented by the
 :ref:`multiple-gene-component` (for :ref:`categorical-fusions`) and the :ref:`unknown-gene-component`
 (for :ref:`assayed-fusions`).
+
+In addition, description of read-through fusion transcripts at the gene level may be described with a hyphen instead
+of a double-colon, also in alignment with HGNC recommendations [Bruford2021]_. For example, a read-through of the INS
+gene to the IGF2 gene may be described as ``INS-IGF2`` in lieu of ``INS::IGF2``, indicating it as a read-through.
+
+.. note:: Rearranged genes can have newly adjacent partner genes with which they produce read-through transcripts.
+   Gene-level description of these read-through transcripts must use the standard double-colon syntax.
 
 .. _specific-gene-component:
 
