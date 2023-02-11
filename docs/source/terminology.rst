@@ -11,7 +11,7 @@ Gene fusions are a complex class of genomic variation that may be characterized 
 
 :opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or an interaction between a rearranged regulatory element of one gene with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
 
-Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-component>`) but are not considered gene fusions as they do not involve multiple genes.
+Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-element>`) but are not considered gene fusions as they do not involve multiple genes.
 
 Importantly, gene fusions are also distinct from :ref:`rearrangements`, though these concepts are often conflated due to the role of genomic rearrangements in creating gene fusions.
 
@@ -23,11 +23,13 @@ Genes that are rearranged resulting in loss of an expressed product do not meet 
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript.
+Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR::ABL1.
 
-:opt:`A chimeric transcript is a transcript composed of exons from two or more genes`.
+:opt:`A chimeric transcript is an RNA transcript composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
 
-This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR(hgnc:1014)::ABL1(hgnc:76). Other clinically-relevant gene fusions of this type may be driven by RNA processing events in lieu of genomic rearrangements. One such event type is read-through transcription (e.g. CTSD(hgnc:2529)::IFITM10(hgnc:40022)) where adjacent genes are transcribed as a single molecule prior to splicing. Another event type is trans-splicing (e.g. JAZF1(hgnc:28917)::JJAZ1(hgnc:17101)), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are artifactual and/or have little to no known clinical relevance.
+Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10) where adjacent genes are transcribed as a single molecule prior to splicing. Another mechanism is trans-splicing (e.g. JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are common, low-expression, and have little-to-no known biological relevance.
+
+.. _[Li H, et al.]: https://www.science.org/doi/abs/10.1126/science.1156725
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%
@@ -40,9 +42,9 @@ This class of fusions is exemplified by well-known clinically-relevant gene fusi
 
 Regulatory Fusions
 ##################
-Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@GATA2(hgnc:4171)::EVI1(hgnc:3498).
+Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions should be described using the :ref:`regulatory-nomenclature`, and includes promoter-swapping gene fusions such as reg_p@TMPRSS2::ERG, as well as enhancer-driven gene fusions such as reg_e@GATA2::EVI1.
 
-:opt:`A regulatory fusion is the interaction of regulatory elements of a gene brought into proximity of a partner gene by` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
+:opt:`A regulatory fusion is the interaction of regulatory elements of a gene brought into proximity of a partner gene by a` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%
