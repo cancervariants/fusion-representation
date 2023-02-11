@@ -9,19 +9,19 @@ Gene Fusions
 @@@@@@@@@@@@
 Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity.
 
-:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or` :ref:`regulatory fusion.<regulatory-fusions>`
+:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or an interaction between a rearranged regulatory element of one gene with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
 
 Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are distinct from the :ref:`genomic rearrangements<rearrangements>` that often drive them, though these concepts are often conflated.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
-Genes that are rearranged resulting in loss of an expressed product should not be described as gene fusions.
+Genes that are rearranged resulting in loss of an expressed product do not meet this definitions, and should not be described as gene fusions.
 
 .. _chimeric-fusions:
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript gene fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single transcript.
+Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single transcript.
 
 :opt:`A chimeric transcript is a transcript composed of exons from two or more genes`.
 
@@ -40,7 +40,7 @@ Regulatory Fusions
 ##################
 Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions include promoter-swapping gene fusions such as reg_p@TMPRSS2(hgnc:11876)::ERG(hgnc:3446), as well as enhancer-driven gene fusions such as reg_e@GATA2(hgnc:4171)::EVI1(hgnc:3498).
 
-:opt:`A regulatory fusion is the interaction of regulatory elements from one gene brought into proximity of a second gene by` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, driving aberrant gene product expression of the second gene.`
+:opt:`A regulatory fusion is the interaction of regulatory elements of a gene brought into proximity of a partner gene by` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%
