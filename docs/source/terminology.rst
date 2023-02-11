@@ -11,7 +11,9 @@ Gene fusions are a complex class of genomic variation that may be characterized 
 
 :opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or an interaction between a rearranged regulatory element of one gene with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
 
-Similar genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants are biologically meaningful but distinct from gene fusions. Importantly, gene fusions are distinct from the :ref:`genomic rearrangements<rearrangements>` that often drive them, though these concepts are often conflated.
+Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-component>`) but are not considered gene fusions as they do not involve multiple genes.
+
+Importantly, gene fusions are also distinct from :ref:`rearrangements`, though these concepts are often conflated due to the role of genomic rearrangements in creating gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -21,7 +23,7 @@ Genes that are rearranged resulting in loss of an expressed product do not meet 
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of exons from each into a single transcript.
+Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript.
 
 :opt:`A chimeric transcript is a transcript composed of exons from two or more genes`.
 
@@ -78,9 +80,9 @@ section for contrast, but are not otherwise discussed in the Gene Fusion Guideli
 
 .. _rearrangements:
 
-Rearrangements
-##############
-Gene fusions are typically driven by DNA rearrangements. Also known as structural variation, DNA rearrangements move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
+Genomic Rearrangements
+######################
+Gene fusions are typically driven by DNA rearrangements within the genome. Also known as structural variation, genomic rearrangements can move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
 
 .. figure:: images/rearrangements.png
    :scale: 50%

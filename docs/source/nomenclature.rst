@@ -121,7 +121,7 @@ Additional components are used to represent intervening sequences, provided as a
 
 Transcript Segment Component
 ############################
-The Transcript Segment Component explicitly describes a segment transcript sequence by start and end exons, and is
+The Transcript Segment Component explicitly describes a transcript sequence segment by start and end exons, and is
 represented using the following syntax:
 
    - <Transcript ID>\ :opt:`(<Gene Symbol>)`:e.<start exon>\ :opt:`<+/- offset>`\ _<end exon>\ :opt:`<+/- offset>`
