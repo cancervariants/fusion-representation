@@ -27,9 +27,18 @@ Chimeric transcript fusions are often driven by genomic rearrangements involving
 
 :opt:`A chimeric transcript is an RNA transcript composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
 
-Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10) where adjacent genes are transcribed as a single molecule prior to splicing. Another mechanism is trans-splicing (e.g. JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing. These alternative mechanisms for creating chimeric transcript fusions are described in this specification, but it should be noted that most detected read-through and trans-splicing events are common, low-expression, and have little-to-no known biological relevance.
+Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10) where genes in close proximity on a chromosome strand are transcribed as a single molecule prior to splicing. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
+
+.. _read-through-note:
+
+.. admonition:: Note: the special case of read-through fusions
+
+    Descriptions of read-through transcripts typically involve genes that are adjacent to one another in a reference genome assembly. The duality of the component genes encoding both independent and joint transcripts has resulted in authorities such as HGNC and CCDS creating read-through gene concepts, following a GENE1-GENE2 naming convention. **This convention does not apply to read-through transcripts generated from genes brought into proximity by a rearrangement.**
+
+    In practice, it is rare to report on read-through events, as these events are common and typically have little known biological relevance `[Mudge J]`_.
 
 .. _[Li H, et al.]: https://www.science.org/doi/abs/10.1126/science.1156725
+.. _[Mudge J]: https://www.ensembl.info/2019/02/11/annotating-readthrough-transcription-in-ensembl/#:~:text=there%20is%20very,the%20downstream%20locus.
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%

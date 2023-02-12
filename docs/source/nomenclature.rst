@@ -49,7 +49,8 @@ of a double-colon, also in alignment with HGNC recommendations [Bruford2021]_. F
 gene to the IGF2 gene may be described as ``INS-IGF2`` in lieu of ``INS::IGF2``, indicating it as a read-through.
 
 .. note:: Rearranged genes can have newly adjacent partner genes with which they produce read-through transcripts.
-   Gene-level description of these read-through transcripts must use the standard double-colon syntax.
+   Gene-level description of these read-through transcripts must use the standard double-colon syntax. See
+   :ref:`the special case of read-through fusions<read-through-note>` for more.
 
 .. _named-gene-component:
 
@@ -87,7 +88,7 @@ The syntax for an unknown (typically inferred) gene component (used for :ref:`as
 
 An example fusion using an unknown gene component may be inferred from an ALK break-apart assay:
 
-   ``?(::)ALK(hgnc:427)``
+   ``?(::)ALK``
 
 .. _multiple-gene-component:
 
@@ -98,7 +99,7 @@ The syntax for a multiple possible gene component (used for :ref:`categorical-fu
 An example fusion using a multiple possible gene component is the "ALK Fusions" concept as seen in biomedical
 knowledgebases (e.g. `CIViC ALK Fusion`_, `OncoKB ALK Fusions`_):
 
-   ``v::ALK(hgnc:427)``
+   ``v::ALK``
 
 .. _CIViC ALK Fusion: https://civicdb.org/variants/499/summary
 .. _OncoKB ALK Fusions: https://www.oncokb.org/gene/ALK/Fusions
