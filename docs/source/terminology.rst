@@ -33,7 +33,7 @@ Other biologically-relevant chimeric transcript fusions may be driven by RNA pro
 
 .. admonition:: Note: the special case of read-through fusions
 
-    Descriptions of read-through transcripts typically involve genes that are adjacent to one another in a reference genome assembly. The duality of the component genes encoding both independent and joint transcripts has resulted in authorities such as HGNC and CCDS creating read-through gene concepts, following a GENE1-GENE2 naming convention. **This convention does not apply to read-through transcripts generated from genes brought into proximity by a rearrangement.**
+    Descriptions of read-through transcripts typically involve genes that are adjacent to one another in a reference genome assembly. The duality of the component genes encoding both independent and joint transcripts has resulted in authorities such as HGNC and CCDS creating read-through gene concepts, following a GENE1-GENE2 naming convention. *However, read-through transcripts generated from genes brought into proximity by a rearrangement should be annotated with a double-colon instead of a hyphen.*
 
     In practice, it is rare to report on read-through events, as these events are common and typically have little known biological relevance `[Mudge J]`_.
 
