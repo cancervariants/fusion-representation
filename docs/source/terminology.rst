@@ -9,7 +9,7 @@ Gene Fusions
 @@@@@@@@@@@@
 Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity.
 
-:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or an interaction between a rearranged regulatory element of one gene with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
+:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or a novel interaction between a rearranged regulatory element with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
 
 Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-element>`) but are not considered gene fusions as they do not involve multiple genes.
 
@@ -27,7 +27,7 @@ Chimeric transcript fusions are often driven by genomic rearrangements involving
 
 :opt:`A chimeric transcript is an RNA transcript composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
 
-Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10) where genes in close proximity on a chromosome strand are transcribed as a single molecule prior to splicing. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
+Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10), also known as *tandem chimerism*, where consecutive genes on a chromosome strand are transcribed as a single molecule prior to splicing `[Akiva P, et al.]`_. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
 
 .. _read-through-note:
 
@@ -39,6 +39,7 @@ Other biologically-relevant chimeric transcript fusions may be driven by RNA pro
 
 .. _[Li H, et al.]: https://www.science.org/doi/abs/10.1126/science.1156725
 .. _[Mudge J]: https://www.ensembl.info/2019/02/11/annotating-readthrough-transcription-in-ensembl/#:~:text=there%20is%20very,the%20downstream%20locus.
+.. _[Akiva P, et al.]: https://genome.cshlp.org/content/16/1/30.full
 
 .. figure:: images/chimeric-transcripts.png
    :scale: 50%
@@ -53,7 +54,7 @@ Regulatory Fusions
 ##################
 Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions should be described using the :ref:`regulatory-nomenclature`, and includes promoter-swapping gene fusions such as reg_p@TMPRSS2::ERG, as well as enhancer-driven gene fusions such as reg_e@GATA2::EVI1.
 
-:opt:`A regulatory fusion is the interaction of regulatory elements of a gene brought into proximity of a partner gene by a` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
+:opt:`A regulatory fusion is the novel interaction of a regulatory element brought into proximity of a partner gene by a` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
 
 .. figure:: images/regulatory-fusions.png
    :scale: 50%
