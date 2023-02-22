@@ -39,10 +39,9 @@ Gene Components
 @@@@@@@@@@@@@@@
 Gene components are used in coarse representation of gene fusions by constituent gene partners, and are
 generally aligned with previous recommendations on gene-gene fusion descriptions as provided by HGNC [Bruford2021]_,
-with attention paid to additional considerations discussed in our response to the HGNC recommendations [Wagner2021]_.
-The most common of these is the :ref:`named-gene-component`, which is complemented by the
-:ref:`multiple-gene-component` (for :ref:`categorical-fusions`) and the :ref:`unknown-gene-component`
-(for :ref:`assayed-fusions`).
+with attention paid to additional considerations needing attention [Wagner2021]_.
+
+The most commonly used component is the :ref:`named-gene-component`, which is complemented by the :ref:`unknown-gene-component` (for :ref:`assayed-fusions`) and the :ref:`multiple-gene-component` (for :ref:`categorical-fusions`).
 
 In addition, description of read-through fusion transcripts at the gene level may be described with a hyphen instead
 of a double-colon, also in alignment with HGNC recommendations [Bruford2021]_. For example, a read-through of the INS
@@ -56,25 +55,19 @@ gene to the IGF2 gene may be described as ``INS-IGF2`` in lieu of ``INS::IGF2``,
 
 Named Gene Component
 ####################
-Named Gene Components are most often described by an assigned gene symbol from a gene naming authority such as HGNC.
-An example fusion described as two Named Gene Components may look like: ``BCR::ABL1``. This is a convenient shorthand
-syntax for describing fusions at the gene level, but should be accompanied by references to stable gene IDs associated
-with each used symbol.
+Named Gene Components are most often described by an assigned gene symbol from a gene naming authority such as HGNC. An example fusion described as two Named Gene Components may look like: ``BCR::ABL1``. This is a convenient shorthand syntax for describing fusions at the gene level, but should be accompanied by references to stable gene IDs associated with each used symbol.
 
 .. warning:: Gene symbols (e.g. KMT2A, previously known as MLL) are less stable than their associated gene identifiers
-             (e.g. hgnc:7132). Named Gene Components **SHOULD ALWAYS** be accompanied by a persistent gene identifier
-             elsewhere within the document or resource where the fusion is described, aligned with prior recommendations
-             from the HGNC [Bruford2021]_. Alternatively, Named Gene Components may use the optional
-             :ref:`identified-symbol` to identify gene symbols directly within the fusion description.
+             (e.g. hgnc:7132). Named Gene Components **SHOULD ALWAYS** be accompanied by a persistent gene identifier elsewhere within the document or resource where the fusion is described, aligned with prior recommendations from the HGNC [Bruford2021]_.
+
+             Alternatively, Named Gene Components may use the optional :ref:`identified-symbol` to identify gene symbols directly within the fusion description if an application would benefit from doing so, though use of this optional syntax will not be compliant with the HGNC recommendations.
 
 .. _identified-symbol:
 
 Identified Symbol Syntax
 $$$$$$$$$$$$$$$$$$$$$$$$
 
-In some circumstances it may be preferable to identify the gene symbol used to describe a named gene component directly
-in the description of the gene fusion. In those cases, the following optional syntax may be used for Named Gene
-Components:
+In some circumstances it may be preferable to identify the gene symbol used to describe a named gene component directly in the description of the gene fusion. In those cases, the following optional syntax may be used for Named Gene Components:
 
     <Gene Symbol>(<Gene ID>)
 
