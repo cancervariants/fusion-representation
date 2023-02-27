@@ -25,7 +25,7 @@ Chimeric Transcript Fusions
 ###########################
 Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR::ABL1.
 
-:opt:`A chimeric transcript is an RNA transcript composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
+:opt:`A chimeric transcript is a transcript (RNA molecule) composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
 
 Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10), also known as *tandem chimerism*, where consecutive genes on a chromosome strand are transcribed as a single molecule prior to splicing `[Akiva P, et al.]`_. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
 

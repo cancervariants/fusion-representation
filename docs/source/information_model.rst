@@ -104,7 +104,7 @@ transcript is not known.
 Transcript Segment
 ##################
 
-A transcript segment is a representation of a transcribed sequence denoted by a 5' and 3' segment boundary.
+A transcript segment is a segment of transcribed sequence denoted by a 5' and 3' segment boundary.
 Typically, transcript segments are used when the gene fusion junction boundary is known or when representing full-length
 :ref:`chimeric-fusions`. In the case where only the fusion junction is reported, only one boundary of a given transcript
 segment will be represented.
