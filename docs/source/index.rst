@@ -10,7 +10,7 @@ Gene Fusion Specification
 The Gene Fusion Specification is a collection of models and guidance for the precise representation of gene fusions, assembled
 by a cross-consortia initiative between members of the `Clinical Genome (ClinGen) Somatic Cancer Clinical Domain Working Group <https://clinicalgenome.org/working-groups/clinical-domain/somatic-cancer-cdwg/>`_,
 the `Cancer Genomics Consortium <https://cancergenomics.org/>`_,
-the `Cytogenetics Committee of the College of American Pathologists (CAP) and the American College of Medical Genetics and Genomics (ACMG) <https://www.cap.org/member-resources/councils-committees/cap-acmg-cytogenetics-committee/>`_,
+the `Cytogenetics Committee of the College of American Pathologists (CAP) and the American College of Medical Genetics and Genomics (ACMG) <https://www.cap.org/member-resources/councils-committees/cap-acmg-cytogenetics-committee/>`_, the `Association for Molecular Pathologists (AMP) <https://www.amp.org/>`_,
 and the `Variant Interpretation for Cancer Consortium <https://www.cancervariants.org/projects/fusions>`_.
 
 This specification provides a precise definition, minimal information model, and nomenclature for both assayed and
