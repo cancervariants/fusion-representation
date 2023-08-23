@@ -163,8 +163,8 @@ defining a boundary of a transcript segment.
      - The exon number counted from the 5' end of the transcript.
    * - Exon offset
      - 1..1
-     - A value representing the offset from the segment boundary, with positive values offset
-       towards the 5' end of the transcript and negative values offset towards the 3'
+     - A value representing the offset from the segment boundary, with negative values offset
+       towards the 5' end of the transcript and positive values offset towards the 3'
        end of the transcript. Offsets can reference sequence in the intronic space.
    * - Genomic location
      - 1..1
