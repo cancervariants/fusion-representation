@@ -13,7 +13,10 @@ on our `GitHub issue tracker`_ or `Google form`_.
 
 Below is a summary the alignment efforts for this version of the specification (|branch|):
 
-**Open for community review**
+- Alignment with the Human Genome Organization (HUGO)
+  - Extends the HUGO Gene Nomenclature Committee (HGNC) recommendations
+  - `Recommended for use by the HGVS Nomenclature`_
 
 .. _Google form: https://forms.gle/WvS9dTgi1EGVBrLaA
 .. _GitHub issue tracker: https://github.com/cancervariants/fusions/issues/new?assignees=&labels=feedback&template=gene-fusion-guidelines-feedback.md&title=%5Bsummarize+your+feedback+with+a+title+here%5D
+.. _Recommended for use by the HGVS Nomenclature: https://hgvs-nomenclature.org/21.0.0/recommendations/RNA/splicing/#:~:text=HGVS%20recommends%20following%20the%20HGNC%20guidelines%20and%20the%20VICC%20Gene%20Fusion%20Specification%20nomenclature%20to%20describe%20products%20of%20gene%20fusions
