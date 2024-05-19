@@ -17,8 +17,6 @@ Importantly, gene fusions are also distinct from :ref:`rearrangements`, though t
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
-Genes that are rearranged resulting in loss of an expressed product do not meet these definitions, and should not be described as gene fusions.
-
 .. _chimeric-fusions:
 
 Chimeric Transcript Fusions
