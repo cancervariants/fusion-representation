@@ -9,7 +9,7 @@ Gene Fusions
 @@@@@@@@@@@@
 Gene fusions are a complex class of genomic variation that may be characterized by a broad range of relevant attributes with varying specificity.
 
-:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or a novel interaction between a rearranged regulatory element with the expressed product of a partner gene (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
+:opt:`A gene fusion is the joining of two or more genes resulting in a` :ref:`chimeric transcript<chimeric-fusions>` :opt:`and/or a novel interaction between a rearranged regulatory element with the expression of a partner gene product (a` :ref:`regulatory fusion<regulatory-fusions>`\ :opt:`).`
 
 Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-element>`) but are not considered gene fusions as they do not involve multiple genes.
 

@@ -5,7 +5,7 @@ These elements are selectively used in accordance with the type of gene fusion (
 :ref:`regulatory-fusions`) and the gene fusion context (:ref:`assayed-fusions` or :ref:`categorical-fusions`).
 
 ..
-   **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred. The Evidence and Conclusion Ontology (ECO) provides a standardized set of terms for describing types of assays.
+   **(E)** Assayed fusions are additionally described by the underlying causative event (if known) driving a fusion, as well as details about the molecular assay and whether the fusion was directly observed or inferred.
 
 .. _common-elements:
 
