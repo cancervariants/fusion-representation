@@ -15,13 +15,13 @@ General Rules
 1. All components are joined together by the double-colon (``::``) operator.
 #. A hyphen (``-``) operator may be used instead of a double-colon when describing a read-through transcript at the gene level (see :ref:`gene-components`).
 #. When describing :ref:`chimeric-fusions`, structural components are ordered in 5' to 3' orientation with respect to the transcribed gene product.
-#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@GATA2::EVI1).
+#. When describing :ref:`regulatory-fusions`, the regulatory element is indicated first (e.g. reg_e\@\ *GATA2*::\ *EVI1*).
 #. When describing :ref:`chimeric-fusions` by :ref:`junction-components` (in lieu of full :ref:`Transcript Segment Components <transcript-segment-component>`), the 5' fusion partner junction must be the first component, and the 3' fusion partner junction must be the last component.
 #. Throughout the nomenclature components, some information may be provided optionally. In these cases, the optional text is :opt:`colored orange` and may be omitted.
 
 Inferred Fusions
 ################
-Some fusions are inferred from an assayed genomic rearrangement, typically in the context of a phenotypic presentation
+Some fusions are inferred from an assayed DNA rearrangement, typically in the context of a phenotypic presentation
 that is associated with the inferred gene fusion event. In these cases, the nomenclature may indicate that the fusion
 was inferred through the use of parentheticals surrounding the double-colon operator (shown in :red:`red`):
 
@@ -43,9 +43,9 @@ with attention paid to additional considerations needing attention [Wagner2021]_
 
 The most commonly used component is the :ref:`named-gene-component`, which is complemented by the :ref:`unknown-gene-component` (for :ref:`assayed-fusions`) and the :ref:`multiple-gene-component` (for :ref:`categorical-fusions`).
 
-In addition, description of read-through fusion transcripts at the gene level may be described with a hyphen instead
+In addition, description of read-through fusion transcripts at the gene level may optionally be described with a hyphen instead
 of a double-colon, also in alignment with HGNC recommendations [Bruford2021]_. For example, a read-through of the INS
-gene to the IGF2 gene may be described as ``INS-IGF2`` in lieu of ``INS::IGF2``, indicating it as a read-through.
+gene to the IGF2 gene may be described as *INS-IGF2* in lieu of *INS*::\ *IGF2*, indicating it as a read-through.
 
 .. note:: Rearranged genes can have newly adjacent partner genes with which they produce read-through transcripts.
    Gene-level description of these read-through transcripts must use the standard double-colon syntax. See
@@ -55,12 +55,12 @@ gene to the IGF2 gene may be described as ``INS-IGF2`` in lieu of ``INS::IGF2``,
 
 Named Gene Component
 ####################
-Named Gene Components are most often described by an assigned gene symbol from a gene naming authority such as HGNC. An example fusion described as two Named Gene Components may look like: ``BCR::ABL1``. This is a convenient shorthand syntax for describing fusions at the gene level, but should be accompanied by references to stable gene IDs associated with each used symbol.
+Named Gene Components are most often described by an assigned gene symbol from a gene naming authority such as HGNC. An example fusion described as two Named Gene Components may look like: *BCR*::\ *ABL1*. This is a convenient shorthand syntax for describing fusions at the gene level, but should be accompanied by references to stable gene IDs associated with each used symbol.
 
-.. warning:: Gene symbols (e.g. KMT2A, previously known as MLL) are less stable than their associated gene identifiers
+.. warning:: Gene symbols (e.g. *KMT2A*, previously known as *MLL*) are less stable than their associated gene identifiers
              (e.g. hgnc:7132). Named Gene Components **SHOULD ALWAYS** be accompanied by a persistent gene identifier elsewhere within the document or resource where the fusion is described, aligned with prior recommendations from the HGNC [Bruford2021]_.
 
-             Alternatively, Named Gene Components may use the optional :ref:`identified-symbol` to identify gene symbols directly within the fusion description if an application would benefit from doing so, though use of this optional syntax will not be compliant with the HGNC recommendations.
+             To accommodate this, Named Gene Components may use the optional :ref:`identified-symbol` (below) to identify gene symbols directly within the fusion description if an application would benefit from doing so. Another approach is to separately identify the gene symbols prior to describing their fusion, e.g. "a gene fusion involving *BCR*\ (hgnc:1014) and *ABL1*\ (hgnc:76) is denoted as *BCR*::\ *ABL1*". HGNC recommends the latter approach in lieu of the former.
 
 .. _identified-symbol:
 
@@ -71,7 +71,9 @@ In some circumstances it may be preferable to identify the gene symbol used to d
 
     <Gene Symbol>(<Gene ID>)
 
-An example fusion described with this syntax may look like: ``BCR(hgnc:1014)::ABL1(hgnc:76)``.
+An example fusion described with this syntax may look like: 
+
+   *BCR*\ (hgnc:1014)::\ *ABL1*\ (hgnc:76)
 
 .. _unknown-gene-component:
 
@@ -81,7 +83,7 @@ The syntax for an unknown (typically inferred) gene component (used for :ref:`as
 
 An example fusion using an unknown gene component may be inferred from an ALK break-apart assay:
 
-   ``?(::)ALK``
+   ?(::)\ *ALK*
 
 .. _multiple-gene-component:
 
@@ -92,7 +94,7 @@ The syntax for a multiple possible gene component (used for :ref:`categorical-fu
 An example fusion using a multiple possible gene component is the "ALK Fusions" concept as seen in biomedical
 knowledgebases (e.g. `CIViC ALK Fusion`_, `OncoKB ALK Fusions`_):
 
-   ``v::ALK``
+   v::\ *ALK*
 
 .. _CIViC ALK Fusion: https://civicdb.org/variants/499/summary
 .. _OncoKB ALK Fusions: https://www.oncokb.org/gene/ALK/Fusions

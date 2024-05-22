@@ -13,7 +13,7 @@ Gene fusions are a complex class of genomic variation that may be characterized 
 
 Genetic variations involving :ref:`rearrangements` within the same gene (e.g. internal tandem duplications), and transcript alterations due to splice site variants, have similar structural properties (i.e. novel adjoining :ref:`transcript segments<transcript-segment-element>`) but are not considered gene fusions as they do not involve multiple genes.
 
-Importantly, gene fusions are also distinct from :ref:`rearrangements`, though these concepts are often conflated due to the role of genomic rearrangements in creating gene fusions.
+Importantly, gene fusions are also distinct from :ref:`rearrangements`, though these concepts are often conflated due to the role of DNA rearrangements in creating gene fusions.
 
 The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regulatory-fusions`–are not mutually exclusive classes, as some fusions (such as promoter-swap fusions) may be defined either in the context of their regulatory elements or by their chimeric gene product.
 
@@ -21,11 +21,11 @@ The two primary classes of gene fusions–:ref:`chimeric-fusions` and :ref:`regu
 
 Chimeric Transcript Fusions
 ###########################
-Chimeric transcript fusions are often driven by genomic rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR::ABL1.
+Chimeric transcript fusions are often driven by DNA rearrangements involving two gene loci, resulting in the concatenation of segments from each into a single transcript. This class of fusions is exemplified by well-known clinically-relevant gene fusions such as BCR::ABL1.
 
 :opt:`A chimeric transcript is a transcript (RNA molecule) composed of` :ref:`transcript segments<transcript-segment-element>` :opt:`from two or more genes.`
 
-Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of genomic rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10), also known as *tandem chimerism*, where consecutive genes on a chromosome strand are transcribed as a single molecule prior to splicing `[Akiva P, et al.]`_. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
+Other biologically-relevant chimeric transcript fusions may be driven by RNA processing mechanisms in lieu of DNA rearrangements. One such mechanism is read-through transcription (e.g. CTSD-IFITM10), also known as *tandem chimerism*, where consecutive genes on a chromosome strand are transcribed as a single molecule prior to splicing `[Akiva P, et al.]`_. Another mechanism is trans-splicing (e.g. trans-spliced JAZF1::JJAZ1 `[Li H, et al.]`_), where two distinct transcripts are spliced together during processing.
 
 .. _read-through-note:
 
@@ -90,9 +90,9 @@ section for contrast, but are not otherwise discussed in the Gene Fusion Guideli
 
 .. _rearrangements:
 
-Genomic Rearrangements
-######################
-Gene fusions are typically driven by DNA rearrangements within the genome. Also known as structural variation, genomic rearrangements can move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
+DNA Rearrangements
+##################
+Gene fusions are typically driven by DNA rearrangements within the genome. DNA rearrangements can move genetic elements to new locations in the genome, leading to potential gene fusion events. Gene fusions may also be created by post-transcriptional splicing events.
 
 .. figure:: images/rearrangements.png
    :scale: 50%
@@ -104,7 +104,7 @@ Gene fusions are typically driven by DNA rearrangements within the genome. Also 
 Internal Tandem Duplications
 ############################
 
-Internal tandem duplications are repeated transcribed elements within a gene as a result of focal genomic duplications.
+Internal tandem duplications are repeated transcribed elements within a gene as a result of focal duplications.
 Some gene fusion callers also call internal tandem duplications. However, gene fusions are defined by the
 interaction between **two or more genes**, therefore internal tandem duplications are not gene fusions and guidelines for
 characterizing them are out of scope for this work.
