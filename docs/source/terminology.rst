@@ -50,7 +50,7 @@ Other biologically-relevant chimeric transcript fusions may be driven by RNA pro
 
 Regulatory Fusions
 ##################
-Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions should be described using the :ref:`regulatory-nomenclature`, and includes promoter-swapping gene fusions such as reg_p@TMPRSS2::ERG, as well as enhancer-driven gene fusions such as reg_e@GATA2::EVI1.
+Regulatory fusions are characterized by the rearrangement of regulatory elements from one gene near a second gene, typically resulting in the increased gene product expression of the second gene. This class of gene fusions should be described using the :ref:`regulatory-nomenclature`, and includes promoter-swapping gene fusions such as reg_p\@TMPRSS2::ERG, as well as enhancer-driven gene fusions such as reg_e\@GATA2::EVI1.
 
 :opt:`A regulatory fusion is the novel interaction of a regulatory element brought into proximity of a partner gene by a` :ref:`genomic rearrangement<rearrangements>`\ :opt:`, modulating gene product expression of the partner gene.`
 
