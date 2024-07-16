@@ -76,6 +76,28 @@ coordinate. Reference sequences used to describe Sequence Locations should be ve
      - 1..1
      - A coordinate representing the end of a genomic location.
 
+.. _reading-frame:
+
+Reading Frame
+#############
+A common attribute of a gene fusion is whether the reading frame is preserved in the expressed gene
+product (for categorical fusions) or whether it is predicted to be preserved based on assayed
+findings (for assayed fusions). This is typical of protein-coding gene fusions.
+
+.. list-table::
+   :class: clean-wrap
+   :header-rows: 1
+   :align: left
+   :widths: auto
+
+   * - Field
+     - Limits
+     - Description
+   * - Reading frame preserved
+     - 0..1
+     - Boolean indicating whether the reading frame must be preserved, or is predicted to be preserved.
+
+
 .. _structural-elements:
 
 Structural Elements
@@ -296,24 +318,6 @@ gene fusion.
    * - Associated gene
      - 1..1
      - The :ref:`gene-element` associated with the domain.
-
-Reading Frame
-#############
-A common attribute of a categorical gene fusion is whether the reading frame is preserved in the expressed gene
-product. This is typical of protein-coding gene fusions.
-
-.. list-table::
-   :class: clean-wrap
-   :header-rows: 1
-   :align: left
-   :widths: auto
-
-   * - Field
-     - Limits
-     - Description
-   * - Reading frame preserved
-     - 0..1
-     - Boolean indicating whether the reading frame must be preserved or not.
 
 Assayed Elements
 @@@@@@@@@@@@@@@@
