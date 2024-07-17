@@ -80,8 +80,8 @@ coordinate. Reference sequences used to describe Sequence Locations should be ve
 
 Reading Frame
 #############
-A common attribute of a gene fusion is whether the reading frame is preserved in the expressed gene
-product (for categorical fusions) or whether it is predicted to be preserved based on assayed
+A common attribute of a gene fusion is whether the reading frame is preserved in the transcript
+(for categorical fusions) or whether it is predicted to be preserved based on assayed
 findings (for assayed fusions). This is typical of protein-coding gene fusions.
 
 .. list-table::
@@ -95,7 +95,7 @@ findings (for assayed fusions). This is typical of protein-coding gene fusions.
      - Description
    * - Reading frame preserved
      - 0..1
-     - Boolean indicating whether the reading frame must be preserved, or is predicted to be preserved.
+     - Boolean indicating whether the reading frame is preserved.
 
 
 .. _structural-elements:
